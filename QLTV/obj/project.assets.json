@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Schoolwork\\5th_semester\\PRN211\\Exercise\\Assignment\\QLTV\\QLTV\\QLTV.csproj",
+      "projectUniqueName": "D:\\Schoolwork\\5th_semester\\PRN211\\Exercise\\Assignment\\QLTV\\QLTV.csproj",
       "projectName": "QLTV",
-      "projectPath": "D:\\Schoolwork\\5th_semester\\PRN211\\Exercise\\Assignment\\QLTV\\QLTV\\QLTV.csproj",
+      "projectPath": "D:\\Schoolwork\\5th_semester\\PRN211\\Exercise\\Assignment\\QLTV\\QLTV.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "D:\\Schoolwork\\5th_semester\\PRN211\\Exercise\\Assignment\\QLTV\\QLTV\\obj\\",
+      "outputPath": "D:\\Schoolwork\\5th_semester\\PRN211\\Exercise\\Assignment\\QLTV\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
