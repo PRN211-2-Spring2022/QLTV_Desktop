@@ -20,6 +20,7 @@ namespace QLTV
             Application.Run(new Form1());
 
             Console.WriteLine("adb");
+            Console.WriteLine();
         }
     }
 }
