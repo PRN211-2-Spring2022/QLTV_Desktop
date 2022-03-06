@@ -18,10 +18,6 @@ namespace QLTV
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-
-            Console.WriteLine("adb");
-            Console.WriteLine();
-            Console.WriteLine("bcd");
         }
     }
 }
