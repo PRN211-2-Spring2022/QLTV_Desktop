@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Drawing;
-using System.Windows.Forms;
-using System.ComponentModel;
 using System.Threading.Tasks;
-using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace QLTV
 {
@@ -17,14 +17,5 @@ namespace QLTV
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SearchButton2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

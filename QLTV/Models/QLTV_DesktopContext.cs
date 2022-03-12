@@ -31,14 +31,11 @@ namespace QLTV.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                var builder = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-                IConfigurationRoot configuration = builder.Build();
-                optionsBuilder.UseSqlServer(configuration.GetConnectionString("QLTV_Desktop"));
-            }
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+            IConfigurationRoot config = builder.Build();
+            optionsBuilder.UseSqlServer(config.GetConnectionString("QLTV_Desktop"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -112,7 +109,7 @@ namespace QLTV.Models
                 {
                     entity
                         .HasKey(e => new { e.Mabbnhanlai, e.Maquyensach })
-                        .HasName("PK__tb_ct_nh__0EEC7FE1E16EB8E4");
+                        .HasName("PK__tb_ct_nh__0EEC7FE1F9D6199C");
 
                     entity.ToTable("tb_ct_nhanlai");
 
@@ -147,7 +144,7 @@ namespace QLTV.Models
                 {
                     entity
                         .HasKey(e => new { e.Maquyensach, e.Maphieubangiao })
-                        .HasName("PK__tb_ct_ph__0BB572DA63F17DAC");
+                        .HasName("PK__tb_ct_ph__0BB572DA1BA5B9E3");
 
                     entity.ToTable("tb_ct_phieubangiao");
 
@@ -176,7 +173,7 @@ namespace QLTV.Models
                 {
                     entity
                         .HasKey(e => new { e.Maphieuphat, e.Maquyensach })
-                        .HasName("PK__tb_ct_ph__C4C1A2A6BC3AE23D");
+                        .HasName("PK__tb_ct_ph__C4C1A2A6DD41FB1B");
 
                     entity.ToTable("tb_ct_phieuphat");
 
@@ -213,7 +210,7 @@ namespace QLTV.Models
                 {
                     entity
                         .HasKey(e => new { e.Matacgia, e.Madausach })
-                        .HasName("PK__tb_ct_ta__D0B63B97F026B7C9");
+                        .HasName("PK__tb_ct_ta__D0B63B9731A62E15");
 
                     entity.ToTable("tb_ct_tacgia");
 
