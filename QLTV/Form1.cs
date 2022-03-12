@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 using System.Windows.Forms;
+using System.ComponentModel;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace QLTV
 {
@@ -17,5 +17,12 @@ namespace QLTV
             InitializeComponent();
         }
 
+        BookManagement bookManagement = new BookManagement();
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            bookManagement.Dock = DockStyle.Fill;
+            Controls.Add(bookManagement);
+        }
     }
 }
