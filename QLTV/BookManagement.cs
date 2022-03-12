@@ -43,5 +43,15 @@ namespace QLTV
             }
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var addBook = new AddBook();
+            addBook.Show();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
