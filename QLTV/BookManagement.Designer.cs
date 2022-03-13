@@ -36,6 +36,7 @@
             this.btnSearchAuthor = new System.Windows.Forms.Button();
             this.btnSearchTitle = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.txtID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,16 +44,16 @@
             // 
             this.dgvBook.AllowUserToAddRows = false;
             this.dgvBook.AllowUserToDeleteRows = false;
-            this.dgvBook.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvBook.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvBook.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvBook.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBook.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvBook.Location = new System.Drawing.Point(150, 0);
             this.dgvBook.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvBook.MultiSelect = false;
             this.dgvBook.Name = "dgvBook";
+            this.dgvBook.ReadOnly = true;
             this.dgvBook.RowTemplate.Height = 25;
             this.dgvBook.Size = new System.Drawing.Size(986, 608);
             this.dgvBook.TabIndex = 0;
@@ -121,12 +122,22 @@
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
+            // txtID
+            // 
+            this.txtID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtID.Location = new System.Drawing.Point(3, 585);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(140, 23);
+            this.txtID.TabIndex = 8;
+            this.txtID.Visible = false;
+            // 
             // BookManagement
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnSearchTitle);
             this.Controls.Add(this.btnSearchAuthor);
@@ -136,7 +147,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvBook);
             this.Name = "BookManagement";
-            this.Size = new System.Drawing.Size(1135, 608);
+            this.Size = new System.Drawing.Size(1140, 612);
             this.Load += new System.EventHandler(this.BookManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
             this.ResumeLayout(false);
@@ -154,5 +165,6 @@
         private System.Windows.Forms.Button btnSearchAuthor;
         private System.Windows.Forms.Button btnSearchTitle;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.TextBox txtID;
     }
 }

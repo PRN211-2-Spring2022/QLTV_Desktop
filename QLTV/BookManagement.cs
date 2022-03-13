@@ -26,8 +26,13 @@ namespace QLTV
                 from b in QLTV_Desktop.TbDausaches
                 select new { b.Madausach, b.Tendausach, b.Soluong, b.Sotrang }
             ).ToList();
+
+            // Clear dataBinding
+            txtID.DataBindings.Clear();
             txtSearch.DataBindings.Clear();
 
+            // Add dataBinding
+            txtID.DataBindings.Add("Text", books, "Madausach");
             dgvBook.DataSource = books;
         }
 
@@ -51,7 +56,26 @@ namespace QLTV
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                var bookItem = QLTV_Desktop.TbDausaches.SingleOrDefault(
+                    b => b.Madausach == Int32.Parse(txtID.Text)
+                );
+                if (bookItem != null)
+                {
+                    QLTV_Desktop.TbDausaches.Remove(bookItem);
+                    int count = QLTV_Desktop.SaveChanges();
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Delete successful.");
+                        LoadBooks();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Delete failed.");
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
