@@ -53,5 +53,11 @@ namespace QLTV
         {
 
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            var editBook = new EditBook();
+            editBook.Show();
+        }
     }
 }

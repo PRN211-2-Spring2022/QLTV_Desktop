@@ -54,7 +54,7 @@
             this.dgvBook.Margin = new System.Windows.Forms.Padding(4);
             this.dgvBook.Name = "dgvBook";
             this.dgvBook.RowTemplate.Height = 25;
-            this.dgvBook.Size = new System.Drawing.Size(878, 608);
+            this.dgvBook.Size = new System.Drawing.Size(986, 608);
             this.dgvBook.TabIndex = 0;
             // 
             // btnAdd
@@ -119,6 +119,7 @@
             this.btnEdit.TabIndex = 7;
             this.btnEdit.Text = "Edit information";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // BookManagement
             // 
@@ -135,7 +136,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvBook);
             this.Name = "BookManagement";
-            this.Size = new System.Drawing.Size(1027, 608);
+            this.Size = new System.Drawing.Size(1135, 608);
             this.Load += new System.EventHandler(this.BookManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
             this.ResumeLayout(false);

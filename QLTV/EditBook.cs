@@ -11,16 +11,16 @@ using System.Collections.Generic;
 
 namespace QLTV
 {
-    public partial class AddBook : Form
+    public partial class EditBook : Form
     {
-        public AddBook()
+        public EditBook()
         {
             InitializeComponent();
         }
 
         QLTV_DesktopContext QLTV_Desktop = new QLTV_DesktopContext();
 
-        public void LoadAddBook()
+        public void LoadEditBook()
         {
             var books = (
                 from b in QLTV_Desktop.TbDausaches
@@ -34,21 +34,20 @@ namespace QLTV
             txtPage.DataBindings.Clear();
 
             // Add dataBinding
-            //txtID.DataBindings.Add("Text", books, "Madausach");
-            //txtName.DataBindings.Add("Text", books, "Tendausach");
-            //txtPage.DataBindings.Add("Text", books, "Sotrang");
-            //txtQuantity.DataBindings.Add("Text", books, "Soluong");
+            txtID.DataBindings.Add("Text", books, "Madausach");
+            txtName.DataBindings.Add("Text", books, "Tendausach");
+            txtPage.DataBindings.Add("Text", books, "Sotrang");
+            txtQuantity.DataBindings.Add("Text", books, "Soluong");
         }
 
-        private void AddBook_Load(object sender, EventArgs e)
+        private void EditBook_Load(object sender, EventArgs e)
         {
             try
             {
-                LoadAddBook();
-            }
-            catch (Exception ex)
+                LoadEditBook();
+            }catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error loading add form.");
+                MessageBox.Show(ex.Message, "Error loading edit book form.");
             }
         }
 
@@ -63,17 +62,24 @@ namespace QLTV
             };
             try
             {
-                var bookItem = QLTV_Desktop.TbDausaches.Add(dausach);
-                int count = QLTV_Desktop.SaveChanges();
-                if (count > 0)
+                var bookItem = QLTV_Desktop.TbDausaches.SingleOrDefault(
+                    b => b.Madausach == Int32.Parse(txtID.Text)
+                );
+                if (bookItem != null)
                 {
-                    MessageBox.Show("Add successful.");
-                    LoadAddBook();
+                    bookItem.Tendausach = txtName.Text.Trim();
+                    bookItem.Soluong = Int32.Parse(txtQuantity.Text.Trim());
+                    bookItem.Sotrang = Int32.Parse(txtPage.Text.Trim());
+                    int count = QLTV_Desktop.SaveChanges();
+                    if(count > 0)
+                    {
+                        MessageBox.Show("Edit successfull.");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Add failed.");
+                MessageBox.Show(ex.Message, "Edit failed.");
             }
         }
     }
