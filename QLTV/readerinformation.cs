@@ -19,11 +19,30 @@ namespace QLTV
             InitializeComponent();
         }
         QLTV_DesktopContext QLTV_qldg = new QLTV_DesktopContext();
-        private void readerinformation_Load(object sender, EventArgs e)
+
+        public void Loadinformation()
         {
+            var docgia = (from c in QLTV_qldg.TbDocgia
+                           select new { c.Mathedocgia, c.Hoten, c.Ngaysinh, c.Ngaylamthe, c.Doituongdocgia, c.Diachi }).ToList();
+            dgvthongtindocgia.DataSource = docgia;
             txtmathedocgia.DataBindings.Clear();
             txthoten.DataBindings.Clear();
             txtdiachi.DataBindings.Clear();
+            txtmathedocgia.DataBindings.Add("Text", docgia, "Mathedocgia");
+            txthoten.DataBindings.Add("Text", docgia, "Hoten");
+            txtdiachi.DataBindings.Add("Text", docgia, "Diachi");
+            dtxtngaylamthe.Value = new DateTime(2022, 03, 16);
+        }
+        private void readerinformation_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                Loadinformation();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -31,6 +50,7 @@ namespace QLTV
             txtmathedocgia.Clear();
             txthoten.Clear();
             txtdiachi.Clear();
+            dtxtngaylamthe.Value = new DateTime(2022,03,16);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -76,17 +96,13 @@ namespace QLTV
                     if(count > 0)
                     {
                         MessageBox.Show("Thêm thành công");
-                        var docgia0 = (from c in QLTV_qldg.TbDocgia
-                                              select new { c.Mathedocgia, c.Hoten, c.Ngaysinh, c.Ngaylamthe, c.Doituongdocgia,c.Diachi }).ToList();
-                        dgvthongtindocgia.DataSource = docgia0;
-                    }
+                        Loadinformation();
+                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Error");
                 }
-                MessageBox.Show("");
-                
             }
         }
 
@@ -133,15 +149,43 @@ namespace QLTV
                     if(update != null)
                     {
                         update.Hoten = txthoten.Text.Trim();
-                       // update.Ngaylamthe= dtxtngaylamthe.Value.
+                        update.Diachi = txtdiachi.Text.Trim();
+                        update.Doituongdocgia = boxdoituong.Text.Trim();
+                        int count = QLTV_qldg.SaveChanges();
+                        if(count > 0)
+                        {
+                            MessageBox.Show("Chỉnh sửa thành công");
+                            Loadinformation();
+                        }
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Error");
                 }
-                MessageBox.Show("");
+            }
+        }
 
+        private void btnfind_Click(object sender, EventArgs e)
+        {
+            if(rbtnmathe.Checked == true)
+            {
+                var findbyma = (from b in QLTV_qldg.TbDocgia
+                           where b.Mathedocgia == int.Parse(txtmathedocgia.Text.Trim())
+                           select new { b.Mathedocgia, b.Hoten, b.Ngaysinh, b.Ngaylamthe, b.Doituongdocgia, b.Diachi }).ToList();
+                dgvthongtindocgia.DataSource = findbyma;
+            }
+            else if(rbtnten.Checked == true)
+            {
+                var findbyten = (from b in QLTV_qldg.TbDocgia
+                                 where b.Hoten == txthoten.Text.Trim()
+                                 select new { b.Mathedocgia, b.Hoten, b.Ngaysinh, b.Ngaylamthe, b.Doituongdocgia, b.Diachi }).ToList();
+                dgvthongtindocgia.DataSource = findbyten;
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải chọn thông tin tìm kiếm");
+                rbtnmathe.Focus();
             }
         }
     }

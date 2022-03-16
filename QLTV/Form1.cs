@@ -17,7 +17,7 @@ namespace QLTV
             InitializeComponent();
         }
 
-        readermanagement readmanagement = new readermanagement();
+        readerinformation readmanagement = new readerinformation();
         private void Form1_Load(object sender, EventArgs e)
         {
             readmanagement.Dock = DockStyle.Fill;
