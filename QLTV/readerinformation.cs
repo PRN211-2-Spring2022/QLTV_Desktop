@@ -47,9 +47,7 @@ namespace QLTV
 
         private void button4_Click(object sender, EventArgs e)
         {
-            txtmathedocgia.Clear();
-            txthoten.Clear();
-            txtdiachi.Clear();
+            Loadinformation();
             dtxtngaylamthe.Value = new DateTime(2022,03,16);
         }
 
@@ -168,25 +166,31 @@ namespace QLTV
 
         private void btnfind_Click(object sender, EventArgs e)
         {
-            if(rbtnmathe.Checked == true)
+            if(rbtnmathe.Checked == true && rbtnten.Checked == false)
             {
                 var findbyma = (from b in QLTV_qldg.TbDocgia
                            where b.Mathedocgia == int.Parse(txtmathedocgia.Text.Trim())
                            select new { b.Mathedocgia, b.Hoten, b.Ngaysinh, b.Ngaylamthe, b.Doituongdocgia, b.Diachi }).ToList();
                 dgvthongtindocgia.DataSource = findbyma;
             }
-            else if(rbtnten.Checked == true)
+            else if(rbtnten.Checked == true && rbtnmathe.Checked == false)
             {
                 var findbyten = (from b in QLTV_qldg.TbDocgia
                                  where b.Hoten == txthoten.Text.Trim()
                                  select new { b.Mathedocgia, b.Hoten, b.Ngaysinh, b.Ngaylamthe, b.Doituongdocgia, b.Diachi }).ToList();
                 dgvthongtindocgia.DataSource = findbyten;
             }
-            else
+            else if(txtfind.Text == "")
+            {
+                MessageBox.Show("Thông tin tìm kiếm không thể để trống");
+                txtfind.Focus();
+            }
+            else if(rbtnmathe.Checked == false && rbtnten.Checked == false)
             {
                 MessageBox.Show("Bạn phải chọn thông tin tìm kiếm");
                 rbtnmathe.Focus();
             }
+
         }
     }
 }
