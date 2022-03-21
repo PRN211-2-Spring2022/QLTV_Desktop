@@ -28,6 +28,8 @@ namespace QLTV
             txtmathedocgia.DataBindings.Clear();
             txthoten.DataBindings.Clear();
             txtdiachi.DataBindings.Clear();
+            boxdoituong.DataBindings.Clear();
+            boxdoituong.DataBindings.Add("Text", docgia, "Doituongdocgia");
             txtmathedocgia.DataBindings.Add("Text", docgia, "Mathedocgia");
             txthoten.DataBindings.Add("Text", docgia, "Hoten");
             txtdiachi.DataBindings.Add("Text", docgia, "Diachi");
@@ -48,7 +50,7 @@ namespace QLTV
         private void button4_Click(object sender, EventArgs e)
         {
             Loadinformation();
-            dtxtngaylamthe.Value = new DateTime(2022,03,16);
+            dtxtngaylamthe.Value = new DateTime(2022, 03, 16);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -164,26 +166,35 @@ namespace QLTV
             }
         }
 
+        public void Loadbtnsearchma()
+        {
+            String keywork = txtmathedocgia.Text.Trim();
+            var findbyma = (from b in QLTV_qldg.TbDocgia                           
+                           select new { b.Mathedocgia, b.Hoten, b.Ngaysinh, b.Ngaylamthe, b.Doituongdocgia, b.Diachi }).ToList();
+            dgvthongtindocgia.DataSource = findbyma.Where(mathe => mathe.Mathedocgia == int.Parse(keywork)); 
+        }
+
+        public void Loadbtsearchname()
+        {
+            String keywork = txthoten.Text.Trim(); 
+            var findbyten = (from b in QLTV_qldg.TbDocgia                             
+                             select new { b.Mathedocgia, b.Hoten, b.Ngaysinh, b.Ngaylamthe, b.Doituongdocgia, b.Diachi }).ToList();
+            dgvthongtindocgia.DataSource = findbyten.Where(hoten => hoten.Hoten.Contains(keywork));
+        }
         private void btnfind_Click(object sender, EventArgs e)
         {
-            if(rbtnmathe.Checked == true && rbtnten.Checked == false)
-            {
-                var findbyma = (from b in QLTV_qldg.TbDocgia
-                           where b.Mathedocgia == int.Parse(txtmathedocgia.Text.Trim())
-                           select new { b.Mathedocgia, b.Hoten, b.Ngaysinh, b.Ngaylamthe, b.Doituongdocgia, b.Diachi }).ToList();
-                dgvthongtindocgia.DataSource = findbyma;
-            }
-            else if(rbtnten.Checked == true && rbtnmathe.Checked == false)
-            {
-                var findbyten = (from b in QLTV_qldg.TbDocgia
-                                 where b.Hoten == txthoten.Text.Trim()
-                                 select new { b.Mathedocgia, b.Hoten, b.Ngaysinh, b.Ngaylamthe, b.Doituongdocgia, b.Diachi }).ToList();
-                dgvthongtindocgia.DataSource = findbyten;
-            }
-            else if(txtfind.Text == "")
+            if(txtfind.Text == "")
             {
                 MessageBox.Show("Thông tin tìm kiếm không thể để trống");
                 txtfind.Focus();
+            }
+            else if(rbtnmathe.Checked == true && rbtnten.Checked == false)
+            {
+                Loadbtnsearchma();
+            }
+            else if(rbtnten.Checked == true && rbtnmathe.Checked == false)
+            {
+                Loadbtsearchname();
             }
             else if(rbtnmathe.Checked == false && rbtnten.Checked == false)
             {
@@ -191,6 +202,28 @@ namespace QLTV
                 rbtnmathe.Focus();
             }
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var delete = QLTV_qldg.TbDocgia.SingleOrDefault(c => c.Mathedocgia == int.Parse(txtmathedocgia.Text));
+                if(delete == null)
+                {
+                    QLTV_qldg.TbDocgia.Remove(delete);
+                    int count = QLTV_qldg.SaveChanges();
+                    if(count > 0)
+                    {
+                        MessageBox.Show("a","b", MessageBoxButtons.YesNo);
+                        Loadinformation();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
     }
 }

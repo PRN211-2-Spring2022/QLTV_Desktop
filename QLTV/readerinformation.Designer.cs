@@ -180,6 +180,7 @@
             this.button3.TabIndex = 21;
             this.button3.Text = "Xóa độc giả";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -209,11 +210,11 @@
             // dgvthongtindocgia
             // 
             this.dgvthongtindocgia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvthongtindocgia.Location = new System.Drawing.Point(354, 349);
+            this.dgvthongtindocgia.Location = new System.Drawing.Point(407, 349);
             this.dgvthongtindocgia.Name = "dgvthongtindocgia";
             this.dgvthongtindocgia.RowHeadersWidth = 51;
             this.dgvthongtindocgia.RowTemplate.Height = 29;
-            this.dgvthongtindocgia.Size = new System.Drawing.Size(982, 277);
+            this.dgvthongtindocgia.Size = new System.Drawing.Size(881, 237);
             this.dgvthongtindocgia.TabIndex = 24;
             // 
             // txtdiachi
@@ -235,9 +236,9 @@
             // 
             // btnfind
             // 
-            this.btnfind.Location = new System.Drawing.Point(296, 43);
+            this.btnfind.Location = new System.Drawing.Point(255, 44);
             this.btnfind.Name = "btnfind";
-            this.btnfind.Size = new System.Drawing.Size(90, 38);
+            this.btnfind.Size = new System.Drawing.Size(98, 38);
             this.btnfind.TabIndex = 31;
             this.btnfind.Text = "Tìm kiếm";
             this.btnfind.UseVisualStyleBackColor = true;
@@ -246,7 +247,7 @@
             // rbtnten
             // 
             this.rbtnten.AutoSize = true;
-            this.rbtnten.Location = new System.Drawing.Point(7, 19);
+            this.rbtnten.Location = new System.Drawing.Point(142, 19);
             this.rbtnten.Name = "rbtnten";
             this.rbtnten.Size = new System.Drawing.Size(107, 24);
             this.rbtnten.TabIndex = 30;
@@ -257,7 +258,7 @@
             // rbtnmathe
             // 
             this.rbtnmathe.AutoSize = true;
-            this.rbtnmathe.Location = new System.Drawing.Point(120, 19);
+            this.rbtnmathe.Location = new System.Drawing.Point(6, 19);
             this.rbtnmathe.Name = "rbtnmathe";
             this.rbtnmathe.Size = new System.Drawing.Size(130, 24);
             this.rbtnmathe.TabIndex = 29;
@@ -269,7 +270,7 @@
             // 
             this.txtfind.Location = new System.Drawing.Point(6, 49);
             this.txtfind.Name = "txtfind";
-            this.txtfind.Size = new System.Drawing.Size(284, 27);
+            this.txtfind.Size = new System.Drawing.Size(236, 27);
             this.txtfind.TabIndex = 28;
             // 
             // groupBox1
@@ -278,9 +279,9 @@
             this.groupBox1.Controls.Add(this.btnfind);
             this.groupBox1.Controls.Add(this.rbtnmathe);
             this.groupBox1.Controls.Add(this.rbtnten);
-            this.groupBox1.Location = new System.Drawing.Point(362, 258);
+            this.groupBox1.Location = new System.Drawing.Point(401, 258);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(392, 85);
+            this.groupBox1.Size = new System.Drawing.Size(353, 85);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin tìm kiếm";
@@ -335,7 +336,7 @@
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.Location = new System.Drawing.Point(416, 18);
+            this.panel1.Location = new System.Drawing.Point(407, 18);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(264, 194);
             this.panel1.TabIndex = 36;
