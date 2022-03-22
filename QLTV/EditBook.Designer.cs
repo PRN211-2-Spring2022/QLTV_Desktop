@@ -32,11 +32,13 @@
             this.labelPage = new System.Windows.Forms.Label();
             this.labelQuantity = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
-            this.labelID = new System.Windows.Forms.Label();
             this.txtPage = new System.Windows.Forms.TextBox();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtID = new System.Windows.Forms.TextBox();
+            this.txtBookID = new System.Windows.Forms.TextBox();
+            this.labelAuthor = new System.Windows.Forms.Label();
+            this.txtAuthor = new System.Windows.Forms.TextBox();
+            this.txtAuthorID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnConfirm
@@ -52,7 +54,7 @@
             // labelPage
             // 
             this.labelPage.AutoSize = true;
-            this.labelPage.Location = new System.Drawing.Point(150, 339);
+            this.labelPage.Location = new System.Drawing.Point(147, 251);
             this.labelPage.Name = "labelPage";
             this.labelPage.Size = new System.Drawing.Size(38, 15);
             this.labelPage.TabIndex = 15;
@@ -61,7 +63,7 @@
             // labelQuantity
             // 
             this.labelQuantity.AutoSize = true;
-            this.labelQuantity.Location = new System.Drawing.Point(135, 257);
+            this.labelQuantity.Location = new System.Drawing.Point(132, 169);
             this.labelQuantity.Name = "labelQuantity";
             this.labelQuantity.Size = new System.Drawing.Size(53, 15);
             this.labelQuantity.TabIndex = 16;
@@ -70,64 +72,79 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(149, 175);
+            this.labelName.Location = new System.Drawing.Point(146, 87);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(39, 15);
             this.labelName.TabIndex = 14;
             this.labelName.Text = "Name";
             // 
-            // labelID
-            // 
-            this.labelID.AutoSize = true;
-            this.labelID.Location = new System.Drawing.Point(169, 95);
-            this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(18, 15);
-            this.labelID.TabIndex = 13;
-            this.labelID.Text = "ID";
-            // 
             // txtPage
             // 
-            this.txtPage.Location = new System.Drawing.Point(193, 336);
+            this.txtPage.Location = new System.Drawing.Point(190, 248);
             this.txtPage.Name = "txtPage";
             this.txtPage.Size = new System.Drawing.Size(200, 23);
             this.txtPage.TabIndex = 12;
             // 
             // txtQuantity
             // 
-            this.txtQuantity.Location = new System.Drawing.Point(193, 254);
+            this.txtQuantity.Location = new System.Drawing.Point(190, 166);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(200, 23);
             this.txtQuantity.TabIndex = 11;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(193, 172);
+            this.txtName.Location = new System.Drawing.Point(190, 87);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 23);
             this.txtName.TabIndex = 10;
             // 
-            // txtID
+            // txtBookID
             // 
-            this.txtID.Location = new System.Drawing.Point(193, 92);
-            this.txtID.Name = "txtID";
-            this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(200, 23);
-            this.txtID.TabIndex = 9;
+            this.txtBookID.Location = new System.Drawing.Point(190, 87);
+            this.txtBookID.Name = "txtBookID";
+            this.txtBookID.Size = new System.Drawing.Size(200, 23);
+            this.txtBookID.TabIndex = 9;
+            // 
+            // labelAuthor
+            // 
+            this.labelAuthor.AutoSize = true;
+            this.labelAuthor.Location = new System.Drawing.Point(140, 327);
+            this.labelAuthor.Name = "labelAuthor";
+            this.labelAuthor.Size = new System.Drawing.Size(44, 15);
+            this.labelAuthor.TabIndex = 19;
+            this.labelAuthor.Text = "Author";
+            // 
+            // txtAuthor
+            // 
+            this.txtAuthor.Location = new System.Drawing.Point(190, 324);
+            this.txtAuthor.Name = "txtAuthor";
+            this.txtAuthor.Size = new System.Drawing.Size(200, 23);
+            this.txtAuthor.TabIndex = 18;
+            // 
+            // txtAuthorID
+            // 
+            this.txtAuthorID.Location = new System.Drawing.Point(190, 87);
+            this.txtAuthorID.Name = "txtAuthorID";
+            this.txtAuthorID.Size = new System.Drawing.Size(200, 23);
+            this.txtAuthorID.TabIndex = 20;
             // 
             // EditBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelAuthor);
+            this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.labelPage);
             this.Controls.Add(this.labelQuantity);
             this.Controls.Add(this.labelName);
-            this.Controls.Add(this.labelID);
             this.Controls.Add(this.txtPage);
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.txtID);
+            this.Controls.Add(this.txtBookID);
+            this.Controls.Add(this.txtAuthorID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EditBook";
             this.Text = "EditBook";
@@ -143,10 +160,12 @@
         private System.Windows.Forms.Label labelPage;
         private System.Windows.Forms.Label labelQuantity;
         private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.TextBox txtPage;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.TextBox txtBookID;
+        private System.Windows.Forms.Label labelAuthor;
+        private System.Windows.Forms.TextBox txtAuthor;
+        private System.Windows.Forms.TextBox txtAuthorID;
     }
 }

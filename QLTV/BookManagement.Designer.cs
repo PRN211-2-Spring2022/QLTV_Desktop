@@ -30,14 +30,19 @@
         {
             this.dgvBook = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnDeleteBook = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.labelSearch = new System.Windows.Forms.Label();
             this.btnSearchAuthor = new System.Windows.Forms.Button();
             this.btnSearchTitle = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.txtID = new System.Windows.Forms.TextBox();
+            this.txtBookID = new System.Windows.Forms.TextBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.dgvAuthor = new System.Windows.Forms.DataGridView();
+            this.txtAuthorID = new System.Windows.Forms.TextBox();
+            this.btnDeleteAuthor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAuthor)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvBook
@@ -50,12 +55,13 @@
             this.dgvBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBook.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvBook.Location = new System.Drawing.Point(150, 0);
-            this.dgvBook.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvBook.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
             this.dgvBook.MultiSelect = false;
             this.dgvBook.Name = "dgvBook";
             this.dgvBook.ReadOnly = true;
             this.dgvBook.RowTemplate.Height = 25;
-            this.dgvBook.Size = new System.Drawing.Size(986, 608);
+            this.dgvBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBook.Size = new System.Drawing.Size(450, 600);
             this.dgvBook.TabIndex = 0;
             // 
             // btnAdd
@@ -68,19 +74,19 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnDelete
+            // btnDeleteBook
             // 
-            this.btnDelete.Location = new System.Drawing.Point(3, 51);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(140, 40);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Delete selected";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDeleteBook.Location = new System.Drawing.Point(3, 51);
+            this.btnDeleteBook.Name = "btnDeleteBook";
+            this.btnDeleteBook.Size = new System.Drawing.Size(140, 40);
+            this.btnDeleteBook.TabIndex = 2;
+            this.btnDeleteBook.Text = "Delete selected book";
+            this.btnDeleteBook.UseVisualStyleBackColor = true;
+            this.btnDeleteBook.Click += new System.EventHandler(this.btnDeleteBook_Click);
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(3, 180);
+            this.txtSearch.Location = new System.Drawing.Point(3, 252);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(140, 23);
             this.txtSearch.TabIndex = 3;
@@ -88,7 +94,7 @@
             // labelSearch
             // 
             this.labelSearch.AutoSize = true;
-            this.labelSearch.Location = new System.Drawing.Point(3, 162);
+            this.labelSearch.Location = new System.Drawing.Point(3, 234);
             this.labelSearch.Name = "labelSearch";
             this.labelSearch.Size = new System.Drawing.Size(42, 15);
             this.labelSearch.TabIndex = 4;
@@ -96,25 +102,27 @@
             // 
             // btnSearchAuthor
             // 
-            this.btnSearchAuthor.Location = new System.Drawing.Point(76, 209);
+            this.btnSearchAuthor.Location = new System.Drawing.Point(76, 281);
             this.btnSearchAuthor.Name = "btnSearchAuthor";
             this.btnSearchAuthor.Size = new System.Drawing.Size(67, 40);
             this.btnSearchAuthor.TabIndex = 5;
-            this.btnSearchAuthor.Text = "Search by author";
+            this.btnSearchAuthor.Text = "Search author";
             this.btnSearchAuthor.UseVisualStyleBackColor = true;
+            this.btnSearchAuthor.Click += new System.EventHandler(this.btnSearchAuthor_Click);
             // 
             // btnSearchTitle
             // 
-            this.btnSearchTitle.Location = new System.Drawing.Point(3, 209);
+            this.btnSearchTitle.Location = new System.Drawing.Point(3, 281);
             this.btnSearchTitle.Name = "btnSearchTitle";
             this.btnSearchTitle.Size = new System.Drawing.Size(67, 40);
             this.btnSearchTitle.TabIndex = 6;
-            this.btnSearchTitle.Text = "Search by title";
+            this.btnSearchTitle.Text = "Search book";
             this.btnSearchTitle.UseVisualStyleBackColor = true;
+            this.btnSearchTitle.Click += new System.EventHandler(this.btnSearchTitle_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(3, 97);
+            this.btnEdit.Location = new System.Drawing.Point(3, 169);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(140, 40);
             this.btnEdit.TabIndex = 7;
@@ -122,34 +130,82 @@
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // txtID
+            // txtBookID
             // 
-            this.txtID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtID.Location = new System.Drawing.Point(3, 585);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(140, 23);
-            this.txtID.TabIndex = 8;
-            this.txtID.Visible = false;
+            this.txtBookID.Location = new System.Drawing.Point(3, 327);
+            this.txtBookID.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.txtBookID.Name = "txtBookID";
+            this.txtBookID.Size = new System.Drawing.Size(140, 23);
+            this.txtBookID.TabIndex = 8;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(3, 327);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(140, 50);
+            this.btnRefresh.TabIndex = 9;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // dgvAuthor
+            // 
+            this.dgvAuthor.AllowUserToAddRows = false;
+            this.dgvAuthor.AllowUserToDeleteRows = false;
+            this.dgvAuthor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvAuthor.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvAuthor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAuthor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAuthor.Location = new System.Drawing.Point(600, 0);
+            this.dgvAuthor.Margin = new System.Windows.Forms.Padding(0, 4, 4, 4);
+            this.dgvAuthor.Name = "dgvAuthor";
+            this.dgvAuthor.ReadOnly = true;
+            this.dgvAuthor.RowTemplate.Height = 25;
+            this.dgvAuthor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAuthor.Size = new System.Drawing.Size(450, 600);
+            this.dgvAuthor.TabIndex = 10;
+            // 
+            // txtAuthorID
+            // 
+            this.txtAuthorID.Location = new System.Drawing.Point(3, 350);
+            this.txtAuthorID.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.txtAuthorID.Name = "txtAuthorID";
+            this.txtAuthorID.Size = new System.Drawing.Size(140, 23);
+            this.txtAuthorID.TabIndex = 11;
+            // 
+            // btnDeleteAuthor
+            // 
+            this.btnDeleteAuthor.Location = new System.Drawing.Point(3, 97);
+            this.btnDeleteAuthor.Name = "btnDeleteAuthor";
+            this.btnDeleteAuthor.Size = new System.Drawing.Size(140, 40);
+            this.btnDeleteAuthor.TabIndex = 12;
+            this.btnDeleteAuthor.Text = "Delete selected author";
+            this.btnDeleteAuthor.UseVisualStyleBackColor = true;
+            this.btnDeleteAuthor.Click += new System.EventHandler(this.btnDeleteAuthor_Click);
             // 
             // BookManagement
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.Controls.Add(this.txtID);
+            this.Controls.Add(this.btnDeleteAuthor);
+            this.Controls.Add(this.dgvAuthor);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.txtBookID);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnSearchTitle);
             this.Controls.Add(this.btnSearchAuthor);
             this.Controls.Add(this.labelSearch);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnDeleteBook);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvBook);
+            this.Controls.Add(this.txtAuthorID);
             this.Name = "BookManagement";
-            this.Size = new System.Drawing.Size(1140, 612);
+            this.Size = new System.Drawing.Size(1054, 604);
             this.Load += new System.EventHandler(this.BookManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAuthor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,12 +215,16 @@
 
         private System.Windows.Forms.DataGridView dgvBook;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnDeleteBook;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label labelSearch;
         private System.Windows.Forms.Button btnSearchAuthor;
         private System.Windows.Forms.Button btnSearchTitle;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.TextBox txtBookID;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.DataGridView dgvAuthor;
+        private System.Windows.Forms.TextBox txtAuthorID;
+        private System.Windows.Forms.Button btnDeleteAuthor;
     }
 }
