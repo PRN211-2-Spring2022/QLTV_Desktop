@@ -23,17 +23,22 @@ namespace QLTV
         public void Loadinformation()
         {
             var docgia = (from c in QLTV_qldg.TbDocgia
-                           select new { c.Mathedocgia, c.Hoten, c.Ngaysinh, c.Ngaylamthe, c.Doituongdocgia, c.Diachi }).ToList();
+                          select new { c.Mathedocgia, c.Hoten, c.Ngaysinh, c.Ngaylamthe, c.Doituongdocgia, c.Diachi }).ToList();
             dgvthongtindocgia.DataSource = docgia;
             txtmathedocgia.DataBindings.Clear();
             txthoten.DataBindings.Clear();
             txtdiachi.DataBindings.Clear();
             boxdoituong.DataBindings.Clear();
+            txtfind.DataBindings.Clear();
+            rbtnmathe.DataBindings.Clear();
+            rbtnten.DataBindings.Clear();
             boxdoituong.DataBindings.Add("Text", docgia, "Doituongdocgia");
             txtmathedocgia.DataBindings.Add("Text", docgia, "Mathedocgia");
             txthoten.DataBindings.Add("Text", docgia, "Hoten");
             txtdiachi.DataBindings.Add("Text", docgia, "Diachi");
-            dtxtngaylamthe.Value = new DateTime(2022, 03, 16);
+            //DateTime today = DateTime.Now;
+            //dtxtngaylamthe.Value = new DateTime(today);
+            dtxtngaylamthe.Value = new DateTime(2022, 03, 22);
         }
         private void readerinformation_Load(object sender, EventArgs e)
         {
@@ -50,17 +55,18 @@ namespace QLTV
         private void button4_Click(object sender, EventArgs e)
         {
             Loadinformation();
-            dtxtngaylamthe.Value = new DateTime(2022, 03, 16);
+            //dtxtngaylamthe.Value = new DateTime;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(txtmathedocgia.Text == "" )
+            if (txtmathedocgia.Text == "")
             {
                 MessageBox.Show("Mã thẻ độc giả không thể để trống");
                 txtmathedocgia.Focus();
             }
-            else if(!Regex.IsMatch(txtmathedocgia.Text.Trim(), @"\d$")){
+            else if (!Regex.IsMatch(txtmathedocgia.Text.Trim(), @"\d$"))
+            {
                 MessageBox.Show("");
                 txtmathedocgia.Focus();
             }
@@ -79,13 +85,15 @@ namespace QLTV
                 MessageBox.Show("Đối tượng không thể để trống");
                 boxdoituong.Focus();
             }
-            else 
+            else
             {
                 TbDocgium docgia = new TbDocgium()
                 {
+                    //Mathedocgia = int.Parse(txtmathedocgia.Text),
                     Hoten = txthoten.Text,
                     Ngaysinh = dtxtngaysinh.Value,
-                    Ngaylamthe = dtxtngaylamthe.Value,
+                    //Ngaylamthe = dtxtngaylamthe.Value,
+                    Ngaylamthe = DateTime.Now,
                     Doituongdocgia = boxdoituong.Text,
                     Diachi = txtdiachi.Text,
                 };
@@ -93,11 +101,11 @@ namespace QLTV
                 {
                     QLTV_qldg.TbDocgia.Add(docgia);
                     int count = QLTV_qldg.SaveChanges();
-                    if(count > 0)
+                    if (count > 0)
                     {
                         MessageBox.Show("Thêm thành công");
                         Loadinformation();
-                     }
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -146,13 +154,14 @@ namespace QLTV
                 try
                 {
                     var update = QLTV_qldg.TbDocgia.SingleOrDefault(c => c.Mathedocgia == int.Parse(txtmathedocgia.Text));
-                    if(update != null)
+                    if (update != null)
                     {
                         update.Hoten = txthoten.Text.Trim();
                         update.Diachi = txtdiachi.Text.Trim();
                         update.Doituongdocgia = boxdoituong.Text.Trim();
+                        update.Ngaysinh = DateTime.Parse(dtxtngaysinh.Text);
                         int count = QLTV_qldg.SaveChanges();
-                        if(count > 0)
+                        if (count > 0)
                         {
                             MessageBox.Show("Chỉnh sửa thành công");
                             Loadinformation();
@@ -168,31 +177,35 @@ namespace QLTV
 
         public void Loadbtnsearchma()
         {
-            var findbyma = QLTV_qldg.TbDocgia.Where(id => id.Mathedocgia.Equals(int.Parse(txtmathedocgia.Text)));
+            var findbyma = QLTV_qldg.TbDocgia.Where(id => id.);
             dgvthongtindocgia.DataSource = findbyma;
+            Refresh();
         }
 
         public void Loadbtsearchname()
         {
-            var findbyten = QLTV_qldg.TbDocgia.Where(t => t.Hoten.Contains(txthoten.Text)).ToList();
+            var findbyten = QLTV_qldg.TbDocgia
+                .Where(t => t.Hoten.Contains(txtfind.Text))
+                .ToList();
             dgvthongtindocgia.DataSource = findbyten;
+            Refresh();
         }
         private void btnfind_Click(object sender, EventArgs e)
         {
-            if(txtfind.Text == "")
+            if (txtfind.Text == "")
             {
                 MessageBox.Show("Thông tin tìm kiếm không thể để trống");
                 txtfind.Focus();
             }
-            else if(rbtnmathe.Checked == true && rbtnten.Checked == false)
+            else if (rbtnmathe.Checked == true)
             {
                 Loadbtnsearchma();
             }
-            else if(rbtnten.Checked == true && rbtnmathe.Checked == false)
+            else if (rbtnten.Checked == true)
             {
                 Loadbtsearchname();
             }
-            else if(rbtnmathe.Checked == false && rbtnten.Checked == false)
+            else if (rbtnmathe.Checked == false && rbtnten.Checked == false)
             {
                 MessageBox.Show("Bạn phải chọn thông tin tìm kiếm");
                 rbtnmathe.Focus();
@@ -205,13 +218,14 @@ namespace QLTV
             try
             {
                 var delete = QLTV_qldg.TbDocgia.SingleOrDefault(c => c.Mathedocgia == int.Parse(txtmathedocgia.Text));
-                if(delete == null)
+                if (delete != null)
                 {
+                    MessageBox.Show("Bạn có chắc chắn muốn xóa độc giả này?", "Thông báo", MessageBoxButtons.YesNo);
                     QLTV_qldg.TbDocgia.Remove(delete);
                     int count = QLTV_qldg.SaveChanges();
-                    if(count > 0)
+                    if (count > 0)
                     {
-                        MessageBox.Show("a","b", MessageBoxButtons.YesNo);
+                        MessageBox.Show("Xóa thành công");
                         Loadinformation();
                     }
                 }

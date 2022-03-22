@@ -121,14 +121,14 @@
             this.txtmathedocgia.Location = new System.Drawing.Point(402, 20);
             this.txtmathedocgia.Name = "txtmathedocgia";
             this.txtmathedocgia.Size = new System.Drawing.Size(62, 27);
-            this.txtmathedocgia.TabIndex = 10;
+            this.txtmathedocgia.TabIndex = 3;
             // 
             // txthoten
             // 
             this.txthoten.Location = new System.Drawing.Point(159, 52);
             this.txthoten.Name = "txthoten";
             this.txthoten.Size = new System.Drawing.Size(312, 27);
-            this.txthoten.TabIndex = 11;
+            this.txthoten.TabIndex = 4;
             // 
             // dtxtngaysinh
             // 
@@ -137,18 +137,18 @@
             this.dtxtngaysinh.MinDate = new System.DateTime(1900, 3, 16, 0, 0, 0, 0);
             this.dtxtngaysinh.Name = "dtxtngaysinh";
             this.dtxtngaysinh.Size = new System.Drawing.Size(312, 27);
-            this.dtxtngaysinh.TabIndex = 15;
-            this.dtxtngaysinh.Value = new System.DateTime(2021, 8, 17, 0, 0, 0, 0);
+            this.dtxtngaysinh.TabIndex = 5;
+            this.dtxtngaysinh.Value = new System.DateTime(2000, 8, 17, 0, 0, 0, 0);
             // 
             // dtxtngaylamthe
             // 
             this.dtxtngaylamthe.Location = new System.Drawing.Point(159, 118);
-            this.dtxtngaylamthe.MaxDate = new System.DateTime(2022, 3, 16, 0, 0, 0, 0);
+            this.dtxtngaylamthe.MaxDate = new System.DateTime(2022, 3, 31, 0, 0, 0, 0);
             this.dtxtngaylamthe.MinDate = new System.DateTime(1909, 3, 16, 0, 0, 0, 0);
             this.dtxtngaylamthe.Name = "dtxtngaylamthe";
             this.dtxtngaylamthe.Size = new System.Drawing.Size(312, 27);
-            this.dtxtngaylamthe.TabIndex = 16;
-            this.dtxtngaylamthe.Value = new System.DateTime(2022, 3, 16, 0, 0, 0, 0);
+            this.dtxtngaylamthe.TabIndex = 6;
+            this.dtxtngaylamthe.Value = new System.DateTime(2022, 3, 22, 0, 0, 0, 0);
             this.dtxtngaylamthe.ValueChanged += new System.EventHandler(this.button4_Click);
             this.dtxtngaylamthe.TabStopChanged += new System.EventHandler(this.readerinformation_Load);
             // 
@@ -157,7 +157,7 @@
             this.button1.Location = new System.Drawing.Point(477, 85);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 54);
-            this.button1.TabIndex = 19;
+            this.button1.TabIndex = 8;
             this.button1.Text = "Thêm độc giả";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -167,7 +167,7 @@
             this.button2.Location = new System.Drawing.Point(477, 145);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(89, 54);
-            this.button2.TabIndex = 20;
+            this.button2.TabIndex = 9;
             this.button2.Text = "Cập nhật thông tin";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -205,7 +205,7 @@
             this.boxdoituong.Location = new System.Drawing.Point(159, 20);
             this.boxdoituong.Name = "boxdoituong";
             this.boxdoituong.Size = new System.Drawing.Size(129, 28);
-            this.boxdoituong.TabIndex = 23;
+            this.boxdoituong.TabIndex = 2;
             // 
             // dgvthongtindocgia
             // 
@@ -223,7 +223,7 @@
             this.txtdiachi.Multiline = true;
             this.txtdiachi.Name = "txtdiachi";
             this.txtdiachi.Size = new System.Drawing.Size(312, 95);
-            this.txtdiachi.TabIndex = 26;
+            this.txtdiachi.TabIndex = 7;
             // 
             // label2
             // 
@@ -239,7 +239,7 @@
             this.btnfind.Location = new System.Drawing.Point(255, 44);
             this.btnfind.Name = "btnfind";
             this.btnfind.Size = new System.Drawing.Size(98, 38);
-            this.btnfind.TabIndex = 31;
+            this.btnfind.TabIndex = 1;
             this.btnfind.Text = "Tìm kiếm";
             this.btnfind.UseVisualStyleBackColor = true;
             this.btnfind.Click += new System.EventHandler(this.btnfind_Click);
@@ -271,7 +271,7 @@
             this.txtfind.Location = new System.Drawing.Point(6, 49);
             this.txtfind.Name = "txtfind";
             this.txtfind.Size = new System.Drawing.Size(236, 27);
-            this.txtfind.TabIndex = 28;
+            this.txtfind.TabIndex = 0;
             // 
             // groupBox1
             // 
