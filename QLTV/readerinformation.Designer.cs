@@ -35,7 +35,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtmathedocgia = new System.Windows.Forms.TextBox();
             this.txthoten = new System.Windows.Forms.TextBox();
             this.dtxtngaysinh = new System.Windows.Forms.DateTimePicker();
             this.dtxtngaylamthe = new System.Windows.Forms.DateTimePicker();
@@ -56,6 +55,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtmathedocgia = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvthongtindocgia)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -115,13 +115,6 @@
             this.label10.Size = new System.Drawing.Size(103, 20);
             this.label10.TabIndex = 9;
             this.label10.Text = "Họ tên đầy đủ";
-            // 
-            // txtmathedocgia
-            // 
-            this.txtmathedocgia.Location = new System.Drawing.Point(402, 20);
-            this.txtmathedocgia.Name = "txtmathedocgia";
-            this.txtmathedocgia.Size = new System.Drawing.Size(62, 27);
-            this.txtmathedocgia.TabIndex = 3;
             // 
             // txthoten
             // 
@@ -219,7 +212,7 @@
             // 
             // txtdiachi
             // 
-            this.txtdiachi.Location = new System.Drawing.Point(159, 151);
+            this.txtdiachi.Location = new System.Drawing.Point(159, 154);
             this.txtdiachi.Multiline = true;
             this.txtdiachi.Name = "txtdiachi";
             this.txtdiachi.Size = new System.Drawing.Size(312, 95);
@@ -298,6 +291,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtmathedocgia);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label5);
@@ -307,7 +301,6 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.boxdoituong);
-            this.groupBox2.Controls.Add(this.txtmathedocgia);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.txthoten);
             this.groupBox2.Controls.Add(this.button3);
@@ -341,6 +334,16 @@
             this.panel1.Size = new System.Drawing.Size(264, 194);
             this.panel1.TabIndex = 36;
             // 
+            // txtmathedocgia
+            // 
+            this.txtmathedocgia.AutoSize = true;
+            this.txtmathedocgia.BackColor = System.Drawing.Color.White;
+            this.txtmathedocgia.Location = new System.Drawing.Point(409, 23);
+            this.txtmathedocgia.Name = "txtmathedocgia";
+            this.txtmathedocgia.Size = new System.Drawing.Size(25, 20);
+            this.txtmathedocgia.TabIndex = 26;
+            this.txtmathedocgia.Text = "    ";
+            // 
             // readerinformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -373,7 +376,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtmathedocgia;
         private System.Windows.Forms.TextBox txthoten;
         private System.Windows.Forms.DateTimePicker dtxtngaysinh;
         private System.Windows.Forms.DateTimePicker dtxtngaylamthe;
@@ -394,5 +396,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label txtmathedocgia;
     }
 }
