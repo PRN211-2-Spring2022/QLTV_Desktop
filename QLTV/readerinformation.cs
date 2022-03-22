@@ -168,18 +168,14 @@ namespace QLTV
 
         public void Loadbtnsearchma()
         {
-            String keywork = txtmathedocgia.Text.Trim();
-            var findbyma = (from b in QLTV_qldg.TbDocgia                           
-                           select new { b.Mathedocgia, b.Hoten, b.Ngaysinh, b.Ngaylamthe, b.Doituongdocgia, b.Diachi }).ToList();
-            dgvthongtindocgia.DataSource = findbyma.Where(mathe => mathe.Mathedocgia == int.Parse(keywork)); 
+            var findbyma = QLTV_qldg.TbDocgia.Where(id => id.Mathedocgia.Equals(int.Parse(txtmathedocgia.Text)));
+            dgvthongtindocgia.DataSource = findbyma;
         }
 
         public void Loadbtsearchname()
         {
-            String keywork = txthoten.Text.Trim(); 
-            var findbyten = (from b in QLTV_qldg.TbDocgia                             
-                             select new { b.Mathedocgia, b.Hoten, b.Ngaysinh, b.Ngaylamthe, b.Doituongdocgia, b.Diachi }).ToList();
-            dgvthongtindocgia.DataSource = findbyten.Where(hoten => hoten.Hoten.Contains(keywork));
+            var findbyten = QLTV_qldg.TbDocgia.Where(t => t.Hoten.Contains(txthoten.Text)).ToList();
+            dgvthongtindocgia.DataSource = findbyten;
         }
         private void btnfind_Click(object sender, EventArgs e)
         {
