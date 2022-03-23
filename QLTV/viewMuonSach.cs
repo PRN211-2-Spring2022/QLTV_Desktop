@@ -59,10 +59,6 @@ namespace BookLoanManager
             dataGridView1.DataSource=docgia;
           
         }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
        
 

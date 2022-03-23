@@ -21,10 +21,6 @@ namespace BookLoanManager
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "phieuphat"){
-                
-
-            }
 
         }
         QLTV_DesktopContext QLTV = new QLTV_DesktopContext();
@@ -185,21 +181,6 @@ namespace BookLoanManager
             txtMadg.DataBindings.Add("Text", trasach, "Mathedocgia");
 
             dataGridView1.DataSource = trasach;
-            
-
-
-
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-          
 
         }
     }

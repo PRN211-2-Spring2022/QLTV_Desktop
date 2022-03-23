@@ -55,8 +55,6 @@
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(1132, 304);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
             // label5
             // 
@@ -67,7 +65,6 @@
             this.label5.Size = new System.Drawing.Size(152, 30);
             this.label5.TabIndex = 18;
             this.label5.Text = "Phiếu Trả Sách";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtngaytra
             // 
