@@ -69,7 +69,7 @@
             // 
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(140, 40);
+            this.btnAdd.Size = new System.Drawing.Size(140, 60);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add book";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -77,9 +77,9 @@
             // 
             // btnDeleteBook
             // 
-            this.btnDeleteBook.Location = new System.Drawing.Point(3, 51);
+            this.btnDeleteBook.Location = new System.Drawing.Point(3, 69);
             this.btnDeleteBook.Name = "btnDeleteBook";
-            this.btnDeleteBook.Size = new System.Drawing.Size(140, 40);
+            this.btnDeleteBook.Size = new System.Drawing.Size(140, 60);
             this.btnDeleteBook.TabIndex = 2;
             this.btnDeleteBook.Text = "Delete selected book";
             this.btnDeleteBook.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(3, 252);
+            this.txtSearch.Location = new System.Drawing.Point(3, 312);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(140, 23);
             this.txtSearch.TabIndex = 3;
@@ -95,7 +95,7 @@
             // labelSearch
             // 
             this.labelSearch.AutoSize = true;
-            this.labelSearch.Location = new System.Drawing.Point(3, 234);
+            this.labelSearch.Location = new System.Drawing.Point(3, 294);
             this.labelSearch.Name = "labelSearch";
             this.labelSearch.Size = new System.Drawing.Size(42, 15);
             this.labelSearch.TabIndex = 4;
@@ -103,9 +103,9 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(3, 143);
+            this.btnEdit.Location = new System.Drawing.Point(3, 201);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(140, 40);
+            this.btnEdit.Size = new System.Drawing.Size(140, 60);
             this.btnEdit.TabIndex = 7;
             this.btnEdit.Text = "Edit information";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -113,7 +113,7 @@
             // 
             // txtBookID
             // 
-            this.txtBookID.Location = new System.Drawing.Point(3, 381);
+            this.txtBookID.Location = new System.Drawing.Point(3, 441);
             this.txtBookID.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.txtBookID.Name = "txtBookID";
             this.txtBookID.Size = new System.Drawing.Size(140, 23);
@@ -121,7 +121,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(3, 377);
+            this.btnRefresh.Location = new System.Drawing.Point(3, 437);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(140, 50);
             this.btnRefresh.TabIndex = 9;
@@ -148,7 +148,7 @@
             // 
             // txtAuthorID
             // 
-            this.txtAuthorID.Location = new System.Drawing.Point(3, 404);
+            this.txtAuthorID.Location = new System.Drawing.Point(3, 464);
             this.txtAuthorID.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.txtAuthorID.Name = "txtAuthorID";
             this.txtAuthorID.Size = new System.Drawing.Size(140, 23);
@@ -156,9 +156,9 @@
             // 
             // btnDeleteAuthor
             // 
-            this.btnDeleteAuthor.Location = new System.Drawing.Point(3, 97);
+            this.btnDeleteAuthor.Location = new System.Drawing.Point(3, 135);
             this.btnDeleteAuthor.Name = "btnDeleteAuthor";
-            this.btnDeleteAuthor.Size = new System.Drawing.Size(140, 40);
+            this.btnDeleteAuthor.Size = new System.Drawing.Size(140, 60);
             this.btnDeleteAuthor.TabIndex = 12;
             this.btnDeleteAuthor.Text = "Delete selected author";
             this.btnDeleteAuthor.UseVisualStyleBackColor = true;
@@ -166,7 +166,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(3, 331);
+            this.btnSearch.Location = new System.Drawing.Point(3, 391);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(140, 40);
             this.btnSearch.TabIndex = 13;
@@ -177,7 +177,7 @@
             // rdAuthor
             // 
             this.rdAuthor.AutoSize = true;
-            this.rdAuthor.Location = new System.Drawing.Point(3, 306);
+            this.rdAuthor.Location = new System.Drawing.Point(3, 366);
             this.rdAuthor.Name = "rdAuthor";
             this.rdAuthor.Size = new System.Drawing.Size(99, 19);
             this.rdAuthor.TabIndex = 14;
@@ -188,7 +188,7 @@
             // rdBook
             // 
             this.rdBook.AutoSize = true;
-            this.rdBook.Location = new System.Drawing.Point(3, 281);
+            this.rdBook.Location = new System.Drawing.Point(3, 341);
             this.rdBook.Name = "rdBook";
             this.rdBook.Size = new System.Drawing.Size(89, 19);
             this.rdBook.TabIndex = 15;
