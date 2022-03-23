@@ -36,7 +36,7 @@ namespace QLTV
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error loading add form.");
+                MessageBox.Show(ex.Message, "Lỗi tải form.");
             }
         }
 
@@ -46,14 +46,16 @@ namespace QLTV
             {
                 if (txtName.Text != "" && txtAuthor.Text != "")
                 {
-                    TbDausach dausach = new TbDausach
-                    {
-                        Tendausach = txtName.Text,
-                        Soluong = 0,
-                        Sotrang = Int32.Parse(txtPage.Text)
-                    };
-                    var bookQuery = QLTV_Desktop.TbDausaches.Add(dausach);
+                    var bookQuery = QLTV_Desktop.TbDausaches.Add(
+                        new TbDausach
+                        {
+                            Tendausach = txtName.Text,
+                            Soluong = 0,
+                            Sotrang = Int32.Parse(txtPage.Text)
+                        }
+                    );
                     QLTV_Desktop.SaveChanges();
+
                     var addedBook = QLTV_Desktop.TbDausaches.OrderBy(b => b.Madausach).Last();
                     var authorItem = QLTV_Desktop.TbTacgia.FirstOrDefault(
                         a => a.Tentacgia == txtAuthor.Text
@@ -70,7 +72,8 @@ namespace QLTV
                             }
                         );
                         QLTV_Desktop.SaveChanges();
-                        MessageBox.Show("Add successful.");
+
+                        MessageBox.Show("Thêm thành công.");
                         Close();
                     }
                     else
@@ -79,6 +82,7 @@ namespace QLTV
                             new TbTacgium { Tentacgia = txtAuthor.Text }
                         );
                         QLTV_Desktop.SaveChanges();
+
                         var addedAuthor = QLTV_Desktop.TbTacgia.OrderBy(a => a.Matacgia).Last();
                         var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
                             new TbCtTacgium
@@ -89,18 +93,19 @@ namespace QLTV
                             }
                         );
                         QLTV_Desktop.SaveChanges();
-                        MessageBox.Show("Add successful.");
+
+                        MessageBox.Show("Thêm thành công.");
                         Close();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Fields cannot be empty");
+                    MessageBox.Show("Không được để trống thông tin.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Add failed.");
+                MessageBox.Show(ex.Message, "Thêm thất bại.");
             }
         }
     }

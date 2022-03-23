@@ -41,6 +41,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.rdAuthor = new System.Windows.Forms.RadioButton();
             this.rdBook = new System.Windows.Forms.RadioButton();
+            this.btnAddQuantity = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuthor)).BeginInit();
             this.SuspendLayout();
@@ -70,13 +71,13 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(140, 60);
             this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "Add book";
+            this.btnAdd.Text = "Thêm đầu sách";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(3, 238);
+            this.txtSearch.Location = new System.Drawing.Point(3, 320);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(140, 23);
             this.txtSearch.TabIndex = 3;
@@ -84,25 +85,25 @@
             // labelSearch
             // 
             this.labelSearch.AutoSize = true;
-            this.labelSearch.Location = new System.Drawing.Point(3, 220);
+            this.labelSearch.Location = new System.Drawing.Point(3, 302);
             this.labelSearch.Name = "labelSearch";
-            this.labelSearch.Size = new System.Drawing.Size(42, 15);
+            this.labelSearch.Size = new System.Drawing.Size(56, 15);
             this.labelSearch.TabIndex = 4;
-            this.labelSearch.Text = "Search";
+            this.labelSearch.Text = "Tìm kiếm";
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(3, 135);
+            this.btnEdit.Location = new System.Drawing.Point(3, 69);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(140, 60);
             this.btnEdit.TabIndex = 7;
-            this.btnEdit.Text = "Edit book information";
+            this.btnEdit.Text = "Sửa thông tin đầu sách";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // txtBookID
             // 
-            this.txtBookID.Location = new System.Drawing.Point(3, 367);
+            this.txtBookID.Location = new System.Drawing.Point(3, 449);
             this.txtBookID.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.txtBookID.Name = "txtBookID";
             this.txtBookID.Size = new System.Drawing.Size(140, 23);
@@ -110,11 +111,11 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(3, 363);
+            this.btnRefresh.Location = new System.Drawing.Point(3, 445);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(140, 60);
             this.btnRefresh.TabIndex = 9;
-            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -138,7 +139,7 @@
             // 
             // txtAuthorID
             // 
-            this.txtAuthorID.Location = new System.Drawing.Point(3, 390);
+            this.txtAuthorID.Location = new System.Drawing.Point(3, 472);
             this.txtAuthorID.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.txtAuthorID.Name = "txtAuthorID";
             this.txtAuthorID.Size = new System.Drawing.Size(140, 23);
@@ -146,45 +147,55 @@
             // 
             // btnDeleteAuthor
             // 
-            this.btnDeleteAuthor.Location = new System.Drawing.Point(3, 69);
+            this.btnDeleteAuthor.Location = new System.Drawing.Point(3, 135);
             this.btnDeleteAuthor.Name = "btnDeleteAuthor";
             this.btnDeleteAuthor.Size = new System.Drawing.Size(140, 60);
             this.btnDeleteAuthor.TabIndex = 12;
-            this.btnDeleteAuthor.Text = "Delete selected author";
+            this.btnDeleteAuthor.Text = "Xóa tác giả đã chọn";
             this.btnDeleteAuthor.UseVisualStyleBackColor = true;
             this.btnDeleteAuthor.Click += new System.EventHandler(this.btnDeleteAuthor_Click);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(3, 317);
+            this.btnSearch.Location = new System.Drawing.Point(3, 399);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(140, 40);
             this.btnSearch.TabIndex = 13;
-            this.btnSearch.Text = "Search";
+            this.btnSearch.Text = "Tìm";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // rdAuthor
             // 
             this.rdAuthor.AutoSize = true;
-            this.rdAuthor.Location = new System.Drawing.Point(3, 292);
+            this.rdAuthor.Location = new System.Drawing.Point(3, 374);
             this.rdAuthor.Name = "rdAuthor";
-            this.rdAuthor.Size = new System.Drawing.Size(99, 19);
+            this.rdAuthor.Size = new System.Drawing.Size(83, 19);
             this.rdAuthor.TabIndex = 14;
             this.rdAuthor.TabStop = true;
-            this.rdAuthor.Text = "Author search";
+            this.rdAuthor.Text = "Tìm tác giả";
             this.rdAuthor.UseVisualStyleBackColor = true;
             // 
             // rdBook
             // 
             this.rdBook.AutoSize = true;
-            this.rdBook.Location = new System.Drawing.Point(3, 267);
+            this.rdBook.Location = new System.Drawing.Point(3, 349);
             this.rdBook.Name = "rdBook";
-            this.rdBook.Size = new System.Drawing.Size(89, 19);
+            this.rdBook.Size = new System.Drawing.Size(95, 19);
             this.rdBook.TabIndex = 15;
             this.rdBook.TabStop = true;
-            this.rdBook.Text = "Book search";
+            this.rdBook.Text = "Tìm đầu sách";
             this.rdBook.UseVisualStyleBackColor = true;
+            // 
+            // btnAddQuantity
+            // 
+            this.btnAddQuantity.Location = new System.Drawing.Point(3, 201);
+            this.btnAddQuantity.Name = "btnAddQuantity";
+            this.btnAddQuantity.Size = new System.Drawing.Size(140, 60);
+            this.btnAddQuantity.TabIndex = 16;
+            this.btnAddQuantity.Text = "Thêm sách vào kho";
+            this.btnAddQuantity.UseVisualStyleBackColor = true;
+            this.btnAddQuantity.Click += new System.EventHandler(this.btnAddQuantity_Click);
             // 
             // BookManagement
             // 
@@ -192,10 +203,10 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.Controls.Add(this.btnAddQuantity);
             this.Controls.Add(this.rdBook);
             this.Controls.Add(this.dgvBook);
             this.Controls.Add(this.rdAuthor);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnDeleteAuthor);
             this.Controls.Add(this.dgvAuthor);
             this.Controls.Add(this.btnRefresh);
@@ -205,6 +216,7 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtAuthorID);
+            this.Controls.Add(this.btnSearch);
             this.Name = "BookManagement";
             this.Size = new System.Drawing.Size(1050, 604);
             this.Load += new System.EventHandler(this.BookManagement_Load);
@@ -230,5 +242,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.RadioButton rdAuthor;
         private System.Windows.Forms.RadioButton rdBook;
+        private System.Windows.Forms.Button btnAddQuantity;
     }
 }

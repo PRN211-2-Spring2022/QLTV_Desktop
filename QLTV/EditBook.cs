@@ -23,10 +23,8 @@ namespace QLTV
 
         public void LoadEditBook()
         {
-            txtBookID.Text = BookManagement.BookId;
-
             var books = QLTV_Desktop.TbDausaches.FirstOrDefault(
-                b => b.Madausach == Int32.Parse(txtBookID.Text)
+                b => b.Madausach == Int32.Parse(BookManagement.BookId)
             );
             if (books != null)
             {
@@ -43,7 +41,6 @@ namespace QLTV
             }
 
             // Clear dataBinding
-            txtBookID.DataBindings.Clear();
             txtName.DataBindings.Clear();
             txtPage.DataBindings.Clear();
             txtAuthor.DataBindings.Clear();
@@ -61,7 +58,7 @@ namespace QLTV
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error loading edit book form.");
+                MessageBox.Show(ex.Message, "Lỗi tải form.");
             }
         }
 
@@ -72,7 +69,7 @@ namespace QLTV
                 if (txtName.Text != "" && txtAuthor.Text != "")
                 {
                     var bookItem = QLTV_Desktop.TbDausaches.FirstOrDefault(
-                        b => b.Madausach == Int32.Parse(txtBookID.Text)
+                        b => b.Madausach == Int32.Parse(BookManagement.BookId)
                     );
 
                     if (bookItem != null)
@@ -92,6 +89,7 @@ namespace QLTV
                         {
                             QLTV_Desktop.Remove(authorBook);
                             QLTV_Desktop.SaveChanges();
+
                             var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
                                 new TbCtTacgium
                                 {
@@ -102,8 +100,7 @@ namespace QLTV
                             );
                             QLTV_Desktop.SaveChanges();
 
-                            MessageBox.Show("Edit successfull.");
-                            LoadEditBook();
+                            MessageBox.Show("Sửa thành công.");
                             Close();
                         }
                         else
@@ -112,10 +109,11 @@ namespace QLTV
                                 new TbTacgium { Tentacgia = txtAuthor.Text }
                             );
                             QLTV_Desktop.SaveChanges();
-                            var addedAuthor = QLTV_Desktop.TbTacgia.OrderBy(a => a.Matacgia).Last();
 
+                            var addedAuthor = QLTV_Desktop.TbTacgia.OrderBy(a => a.Matacgia).Last();
                             QLTV_Desktop.Remove(authorBook);
                             QLTV_Desktop.SaveChanges();
+
                             var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
                                 new TbCtTacgium
                                 {
@@ -126,20 +124,19 @@ namespace QLTV
                             );
                             QLTV_Desktop.SaveChanges();
 
-                            MessageBox.Show("Edit successfull.");
-                            LoadEditBook();
+                            MessageBox.Show("Sửa thành công.");
                             Close();
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Fields cannot be empty.");
+                    MessageBox.Show("Không được để trống thông tin.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Edit failed.");
+                MessageBox.Show(ex.Message, "Sửa thất bại.");
             }
         }
     }

@@ -39,14 +39,14 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(131, 96);
+            this.txtName.Location = new System.Drawing.Point(131, 117);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 23);
             this.txtName.TabIndex = 1;
             // 
             // txtPage
             // 
-            this.txtPage.Location = new System.Drawing.Point(131, 177);
+            this.txtPage.Location = new System.Drawing.Point(131, 187);
             this.txtPage.Name = "txtPage";
             this.txtPage.Size = new System.Drawing.Size(200, 23);
             this.txtPage.TabIndex = 3;
@@ -54,20 +54,20 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(87, 99);
+            this.labelName.Location = new System.Drawing.Point(100, 120);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(39, 15);
+            this.labelName.Size = new System.Drawing.Size(25, 15);
             this.labelName.TabIndex = 5;
-            this.labelName.Text = "Name";
+            this.labelName.Text = "Tên";
             // 
             // labelPage
             // 
             this.labelPage.AutoSize = true;
-            this.labelPage.Location = new System.Drawing.Point(88, 180);
+            this.labelPage.Location = new System.Drawing.Point(74, 190);
             this.labelPage.Name = "labelPage";
-            this.labelPage.Size = new System.Drawing.Size(38, 15);
+            this.labelPage.Size = new System.Drawing.Size(51, 15);
             this.labelPage.TabIndex = 6;
-            this.labelPage.Text = "Pages";
+            this.labelPage.Text = "Số trang";
             // 
             // btnConfirm
             // 
@@ -75,18 +75,18 @@
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(120, 40);
             this.btnConfirm.TabIndex = 8;
-            this.btnConfirm.Text = "Confirm add";
+            this.btnConfirm.Text = "Thêm";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // labelAuthor
             // 
             this.labelAuthor.AutoSize = true;
-            this.labelAuthor.Location = new System.Drawing.Point(81, 261);
+            this.labelAuthor.Location = new System.Drawing.Point(82, 261);
             this.labelAuthor.Name = "labelAuthor";
-            this.labelAuthor.Size = new System.Drawing.Size(44, 15);
+            this.labelAuthor.Size = new System.Drawing.Size(43, 15);
             this.labelAuthor.TabIndex = 10;
-            this.labelAuthor.Text = "Author";
+            this.labelAuthor.Text = "Tác giả";
             // 
             // txtAuthor
             // 
@@ -99,7 +99,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 498);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ClientSize = new System.Drawing.Size(434, 501);
             this.Controls.Add(this.labelAuthor);
             this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.btnConfirm);
@@ -109,7 +110,7 @@
             this.Controls.Add(this.txtName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddBook";
-            this.Text = "New book information";
+            this.Text = "Thêm đầu sách";
             this.Load += new System.EventHandler(this.AddBook_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -54,7 +54,7 @@ namespace QLTV
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error loading Data");
+                MessageBox.Show(ex.Message, "Lỗi tải form");
             }
         }
 
@@ -62,6 +62,13 @@ namespace QLTV
         {
             var addBook = new AddBook();
             addBook.Show();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            BookId = txtBookID.Text;
+            var editBook = new EditBook();
+            editBook.Show();
         }
 
         //private void btnDeleteBook_Click(object sender, EventArgs e)
@@ -114,34 +121,21 @@ namespace QLTV
                 {
                     QLTV_Desktop.TbTacgia.Remove(authorItem);
                     QLTV_Desktop.SaveChanges();
-                    MessageBox.Show("Delete successful.");
+                    MessageBox.Show("Xóa thành công.");
                     LoadBooks();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Delete failed.");
+                MessageBox.Show(ex.Message, "Xóa thất bại.");
             }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void btnAddQuantity_Click(object sender, EventArgs e)
         {
             BookId = txtBookID.Text;
-            var editBook = new EditBook();
-            editBook.Show();
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                LoadBooks();
-                Refresh();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error loading Data");
-            }
+            var addQuantity = new AddQuantity();
+            addQuantity.Show();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -161,6 +155,19 @@ namespace QLTV
                     .ToList();
                 dgvAuthor.DataSource = authors;
                 Refresh();
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LoadBooks();
+                Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi tải form");
             }
         }
     }
