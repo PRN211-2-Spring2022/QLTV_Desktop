@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtQuantity = new System.Windows.Forms.TextBox();
             this.txtPage = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
-            this.labelQuantity = new System.Windows.Forms.Label();
             this.labelPage = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.labelAuthor = new System.Windows.Forms.Label();
@@ -46,16 +44,9 @@
             this.txtName.Size = new System.Drawing.Size(200, 23);
             this.txtName.TabIndex = 1;
             // 
-            // txtQuantity
-            // 
-            this.txtQuantity.Location = new System.Drawing.Point(131, 178);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(200, 23);
-            this.txtQuantity.TabIndex = 2;
-            // 
             // txtPage
             // 
-            this.txtPage.Location = new System.Drawing.Point(131, 260);
+            this.txtPage.Location = new System.Drawing.Point(131, 177);
             this.txtPage.Name = "txtPage";
             this.txtPage.Size = new System.Drawing.Size(200, 23);
             this.txtPage.TabIndex = 3;
@@ -69,19 +60,10 @@
             this.labelName.TabIndex = 5;
             this.labelName.Text = "Name";
             // 
-            // labelQuantity
-            // 
-            this.labelQuantity.AutoSize = true;
-            this.labelQuantity.Location = new System.Drawing.Point(73, 181);
-            this.labelQuantity.Name = "labelQuantity";
-            this.labelQuantity.Size = new System.Drawing.Size(53, 15);
-            this.labelQuantity.TabIndex = 7;
-            this.labelQuantity.Text = "Quantity";
-            // 
             // labelPage
             // 
             this.labelPage.AutoSize = true;
-            this.labelPage.Location = new System.Drawing.Point(88, 263);
+            this.labelPage.Location = new System.Drawing.Point(88, 180);
             this.labelPage.Name = "labelPage";
             this.labelPage.Size = new System.Drawing.Size(38, 15);
             this.labelPage.TabIndex = 6;
@@ -89,7 +71,7 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(489, 212);
+            this.btnConfirm.Location = new System.Drawing.Point(164, 353);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(120, 40);
             this.btnConfirm.TabIndex = 8;
@@ -100,7 +82,7 @@
             // labelAuthor
             // 
             this.labelAuthor.AutoSize = true;
-            this.labelAuthor.Location = new System.Drawing.Point(81, 344);
+            this.labelAuthor.Location = new System.Drawing.Point(81, 261);
             this.labelAuthor.Name = "labelAuthor";
             this.labelAuthor.Size = new System.Drawing.Size(44, 15);
             this.labelAuthor.TabIndex = 10;
@@ -108,7 +90,7 @@
             // 
             // txtAuthor
             // 
-            this.txtAuthor.Location = new System.Drawing.Point(131, 341);
+            this.txtAuthor.Location = new System.Drawing.Point(131, 258);
             this.txtAuthor.Name = "txtAuthor";
             this.txtAuthor.Size = new System.Drawing.Size(200, 23);
             this.txtAuthor.TabIndex = 9;
@@ -117,15 +99,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 490);
+            this.ClientSize = new System.Drawing.Size(459, 498);
             this.Controls.Add(this.labelAuthor);
             this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.labelPage);
-            this.Controls.Add(this.labelQuantity);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.txtPage);
-            this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.txtName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddBook";
@@ -138,10 +118,8 @@
 
         #endregion
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.TextBox txtPage;
         private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.Label labelQuantity;
         private System.Windows.Forms.Label labelPage;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Label labelAuthor;

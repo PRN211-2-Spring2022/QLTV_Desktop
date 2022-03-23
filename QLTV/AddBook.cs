@@ -24,7 +24,6 @@ namespace QLTV
         {
             // Clear dataBinding
             txtName.DataBindings.Clear();
-            txtQuantity.DataBindings.Clear();
             txtPage.DataBindings.Clear();
             txtAuthor.DataBindings.Clear();
         }
@@ -50,7 +49,7 @@ namespace QLTV
                     TbDausach dausach = new TbDausach
                     {
                         Tendausach = txtName.Text,
-                        Soluong = Int32.Parse(txtQuantity.Text),
+                        Soluong = 0,
                         Sotrang = Int32.Parse(txtPage.Text)
                     };
                     var bookQuery = QLTV_Desktop.TbDausaches.Add(dausach);

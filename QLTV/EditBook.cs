@@ -45,14 +45,12 @@ namespace QLTV
             // Clear dataBinding
             txtBookID.DataBindings.Clear();
             txtName.DataBindings.Clear();
-            txtQuantity.DataBindings.Clear();
             txtPage.DataBindings.Clear();
             txtAuthor.DataBindings.Clear();
 
             // Add dataBinding
             txtName.DataBindings.Add("Text", books, "Tendausach");
             txtPage.DataBindings.Add("Text", books, "Sotrang");
-            txtQuantity.DataBindings.Add("Text", books, "Soluong");
         }
 
         private void EditBook_Load(object sender, EventArgs e)
@@ -80,7 +78,6 @@ namespace QLTV
                     if (bookItem != null)
                     {
                         bookItem.Tendausach = txtName.Text.Trim();
-                        bookItem.Soluong = Int32.Parse(txtQuantity.Text.Trim());
                         bookItem.Sotrang = Int32.Parse(txtPage.Text.Trim());
                         QLTV_Desktop.SaveChanges();
 
