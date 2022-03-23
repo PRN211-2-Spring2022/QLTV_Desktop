@@ -144,22 +144,24 @@ namespace QLTV
             }
         }
 
-        private void btnSearchTitle_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            var books = QLTV_Desktop.TbDausaches
-                .Where(b => b.Tendausach.Contains(txtSearch.Text))
-                .ToList();
-            dgvBook.DataSource = books;
-            Refresh();
-        }
-
-        private void btnSearchAuthor_Click(object sender, EventArgs e)
-        {
-            var authors = QLTV_Desktop.TbTacgia
-                .Where(a => a.Tentacgia.Contains(txtSearch.Text))
-                .ToList();
-            dgvAuthor.DataSource = authors;
-            Refresh();
+            if (rdBook.Checked)
+            {
+                var books = QLTV_Desktop.TbDausaches
+                    .Where(b => b.Tendausach.Contains(txtSearch.Text))
+                    .ToList();
+                dgvBook.DataSource = books;
+                Refresh();
+            }
+            else if (rdAuthor.Checked)
+            {
+                var authors = QLTV_Desktop.TbTacgia
+                    .Where(a => a.Tentacgia.Contains(txtSearch.Text))
+                    .ToList();
+                dgvAuthor.DataSource = authors;
+                Refresh();
+            }
         }
     }
 }
