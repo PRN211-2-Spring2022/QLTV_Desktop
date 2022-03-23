@@ -123,7 +123,7 @@
             // 
             this.btnRefresh.Location = new System.Drawing.Point(3, 437);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(140, 50);
+            this.btnRefresh.Size = new System.Drawing.Size(140, 60);
             this.btnRefresh.TabIndex = 9;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
