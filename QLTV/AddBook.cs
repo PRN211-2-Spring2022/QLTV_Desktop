@@ -43,14 +43,14 @@ namespace QLTV
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            TbDausach dausach = new TbDausach
-            {
-                Tendausach = txtName.Text,
-                Soluong = Int32.Parse(txtQuantity.Text),
-                Sotrang = Int32.Parse(txtPage.Text)
-            };
             try
             {
+                TbDausach dausach = new TbDausach
+                {
+                    Tendausach = txtName.Text,
+                    Soluong = Int32.Parse(txtQuantity.Text),
+                    Sotrang = Int32.Parse(txtPage.Text)
+                };
                 var bookQuery = QLTV_Desktop.TbDausaches.Add(dausach);
                 QLTV_Desktop.SaveChanges();
                 var addedBook = QLTV_Desktop.TbDausaches.OrderBy(b => b.Madausach).Last();
