@@ -83,7 +83,6 @@
             this.txtMaSach.Name = "txtMaSach";
             this.txtMaSach.Size = new System.Drawing.Size(207, 27);
             this.txtMaSach.TabIndex = 5;
-            this.txtMaSach.TextChanged += new System.EventHandler(this.txtMaSach_TextChanged);
             // 
             // label3
             // 
@@ -109,7 +108,6 @@
             this.label4.Size = new System.Drawing.Size(119, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "Ngày dự kiên trả";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtngayTra
             // 
