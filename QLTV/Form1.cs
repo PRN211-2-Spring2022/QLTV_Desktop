@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QLTV
+namespace BookLoanManager
 {
     public partial class Form1 : Form
     {
@@ -17,5 +17,17 @@ namespace QLTV
             InitializeComponent();
         }
 
+       FrmMain frmMain = new FrmMain();
+        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            frmMain.Dock = DockStyle.Fill;
+            Controls.Add(frmMain);
+        }
+
+        private void frmMain1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
