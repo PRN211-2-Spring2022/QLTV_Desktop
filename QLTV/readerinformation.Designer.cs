@@ -53,9 +53,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtmathedocgia = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtmathedocgia = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvthongtindocgia)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -141,9 +141,7 @@
             this.dtxtngaylamthe.Name = "dtxtngaylamthe";
             this.dtxtngaylamthe.Size = new System.Drawing.Size(312, 27);
             this.dtxtngaylamthe.TabIndex = 6;
-            this.dtxtngaylamthe.Value = new System.DateTime(2022, 3, 22, 0, 0, 0, 0);
-            this.dtxtngaylamthe.ValueChanged += new System.EventHandler(this.button4_Click);
-            this.dtxtngaylamthe.TabStopChanged += new System.EventHandler(this.readerinformation_Load);
+            this.dtxtngaylamthe.Value = new System.DateTime(2022, 3, 23, 0, 0, 0, 0);
             // 
             // button1
             // 
@@ -202,13 +200,17 @@
             // 
             // dgvthongtindocgia
             // 
+            this.dgvthongtindocgia.AllowUserToAddRows = false;
+            this.dgvthongtindocgia.AllowUserToDeleteRows = false;
             this.dgvthongtindocgia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvthongtindocgia.Location = new System.Drawing.Point(314, 350);
+            this.dgvthongtindocgia.Location = new System.Drawing.Point(376, 350);
             this.dgvthongtindocgia.Name = "dgvthongtindocgia";
+            this.dgvthongtindocgia.ReadOnly = true;
             this.dgvthongtindocgia.RowHeadersWidth = 51;
             this.dgvthongtindocgia.RowTemplate.Height = 29;
-            this.dgvthongtindocgia.Size = new System.Drawing.Size(881, 237);
+            this.dgvthongtindocgia.Size = new System.Drawing.Size(808, 237);
             this.dgvthongtindocgia.TabIndex = 24;
+            this.dgvthongtindocgia.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvthongtindocgia_CellContentDoubleClick);
             // 
             // txtdiachi
             // 
@@ -316,6 +318,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Quản lý độc giả";
             // 
+            // txtmathedocgia
+            // 
+            this.txtmathedocgia.AutoSize = true;
+            this.txtmathedocgia.BackColor = System.Drawing.Color.White;
+            this.txtmathedocgia.Location = new System.Drawing.Point(409, 23);
+            this.txtmathedocgia.Name = "txtmathedocgia";
+            this.txtmathedocgia.Size = new System.Drawing.Size(25, 20);
+            this.txtmathedocgia.TabIndex = 26;
+            this.txtmathedocgia.Text = "    ";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -334,16 +346,6 @@
             this.panel1.Size = new System.Drawing.Size(264, 194);
             this.panel1.TabIndex = 36;
             // 
-            // txtmathedocgia
-            // 
-            this.txtmathedocgia.AutoSize = true;
-            this.txtmathedocgia.BackColor = System.Drawing.Color.White;
-            this.txtmathedocgia.Location = new System.Drawing.Point(409, 23);
-            this.txtmathedocgia.Name = "txtmathedocgia";
-            this.txtmathedocgia.Size = new System.Drawing.Size(25, 20);
-            this.txtmathedocgia.TabIndex = 26;
-            this.txtmathedocgia.Text = "    ";
-            // 
             // readerinformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -356,7 +358,7 @@
             this.Controls.Add(this.dgvthongtindocgia);
             this.Controls.Add(this.label1);
             this.Name = "readerinformation";
-            this.Size = new System.Drawing.Size(1277, 616);
+            this.Size = new System.Drawing.Size(1265, 613);
             this.Load += new System.EventHandler(this.readerinformation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvthongtindocgia)).EndInit();
             this.groupBox1.ResumeLayout(false);

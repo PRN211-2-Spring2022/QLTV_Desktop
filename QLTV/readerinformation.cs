@@ -32,13 +32,14 @@ namespace QLTV
             rbtnmathe.DataBindings.Clear();
             rbtnten.DataBindings.Clear();
             txtmathedocgia.DataBindings.Clear();
+            dtxtngaylamthe.DataBindings.Clear();
+            dtxtngaylamthe.DataBindings.Add("Text", docgia, "Ngaylamthe");
+            dtxtngaysinh.DataBindings.Clear();
+            dtxtngaysinh.DataBindings.Add("Text", docgia, "Ngaysinh");
             txtmathedocgia.DataBindings.Add("Text", docgia, "Mathedocgia");
             boxdoituong.DataBindings.Add("Text", docgia, "Doituongdocgia");
             txthoten.DataBindings.Add("Text", docgia, "Hoten");
             txtdiachi.DataBindings.Add("Text", docgia, "Diachi");
-            //DateTime today = DateTime.Now;
-            //dtxtngaylamthe.Value = new DateTime(today);
-            dtxtngaylamthe.Value = new DateTime(2022, 03, 22);
         }
         private void readerinformation_Load(object sender, EventArgs e)
         {
@@ -55,7 +56,17 @@ namespace QLTV
         private void button4_Click(object sender, EventArgs e)
         {
             Loadinformation();
-            //dtxtngaylamthe.Value = new DateTime;
+            //dgvthongtindocgia.DataSource = docgia;
+            txthoten.Text = "";
+            txtdiachi.Text = ""; ;
+            boxdoituong.Text = "";
+            txtfind.Text = "";
+            rbtnmathe.DataBindings.Clear();
+            rbtnten.DataBindings.Clear();
+            txtmathedocgia.Text = "     ";
+            dtxtngaylamthe.Value = DateTime.Now;
+            rbtnmathe.Checked = false;
+            rbtnten.Checked = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -74,6 +85,34 @@ namespace QLTV
             {
                 MessageBox.Show("Đối tượng không thể để trống");
                 boxdoituong.Focus();
+            }
+            else if(dtxtngaylamthe.Value > DateTime.Now)
+            {
+                MessageBox.Show("Ngày làm thẻ là hôm nay");
+                dtxtngaylamthe.Value = DateTime.Now;
+                TbDocgium docgia = new TbDocgium()
+                {
+                    Hoten = txthoten.Text,
+                    Ngaysinh = dtxtngaysinh.Value,
+                    //Ngaylamthe = dtxtngaylamthe.Value,
+                    Ngaylamthe = DateTime.Now,
+                    Doituongdocgia = boxdoituong.Text,
+                    Diachi = txtdiachi.Text,
+                };
+                try
+                {
+                    QLTV_qldg.TbDocgia.Add(docgia);
+                    int count = QLTV_qldg.SaveChanges();
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Thêm thành công");
+                        Loadinformation();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error");
+                }
             }
             else
             {
@@ -145,7 +184,7 @@ namespace QLTV
                             MessageBox.Show("Chỉnh sửa thành công");
                             Loadinformation();
                         }
-                    }
+                    }                    
                 }
                 catch (Exception ex)
                 {
@@ -217,6 +256,11 @@ namespace QLTV
             {
                 MessageBox.Show(ex.Message, "Error");
             }
+        }
+
+        private void dgvthongtindocgia_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Loadinformation();
         }
     }
 }
