@@ -45,51 +45,58 @@ namespace QLTV
         {
             try
             {
-                TbDausach dausach = new TbDausach
+                if (txtName.Text != "" && txtAuthor.Text != "")
                 {
-                    Tendausach = txtName.Text,
-                    Soluong = Int32.Parse(txtQuantity.Text),
-                    Sotrang = Int32.Parse(txtPage.Text)
-                };
-                var bookQuery = QLTV_Desktop.TbDausaches.Add(dausach);
-                QLTV_Desktop.SaveChanges();
-                var addedBook = QLTV_Desktop.TbDausaches.OrderBy(b => b.Madausach).Last();
-                var authorItem = QLTV_Desktop.TbTacgia.FirstOrDefault(
-                    a => a.Tentacgia == txtAuthor.Text
-                );
-
-                if (authorItem != null)
-                {
-                    var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
-                        new TbCtTacgium
-                        {
-                            Madausach = addedBook.Madausach,
-                            Matacgia = authorItem.Matacgia,
-                            Vaitrotacgia = "Chủ biên"
-                        }
-                    );
+                    TbDausach dausach = new TbDausach
+                    {
+                        Tendausach = txtName.Text,
+                        Soluong = Int32.Parse(txtQuantity.Text),
+                        Sotrang = Int32.Parse(txtPage.Text)
+                    };
+                    var bookQuery = QLTV_Desktop.TbDausaches.Add(dausach);
                     QLTV_Desktop.SaveChanges();
-                    MessageBox.Show("Add successful.");
-                    Close();
+                    var addedBook = QLTV_Desktop.TbDausaches.OrderBy(b => b.Madausach).Last();
+                    var authorItem = QLTV_Desktop.TbTacgia.FirstOrDefault(
+                        a => a.Tentacgia == txtAuthor.Text
+                    );
+
+                    if (authorItem != null)
+                    {
+                        var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
+                            new TbCtTacgium
+                            {
+                                Madausach = addedBook.Madausach,
+                                Matacgia = authorItem.Matacgia,
+                                Vaitrotacgia = "Chủ biên"
+                            }
+                        );
+                        QLTV_Desktop.SaveChanges();
+                        MessageBox.Show("Add successful.");
+                        Close();
+                    }
+                    else
+                    {
+                        var authorQuery = QLTV_Desktop.TbTacgia.Add(
+                            new TbTacgium { Tentacgia = txtAuthor.Text }
+                        );
+                        QLTV_Desktop.SaveChanges();
+                        var addedAuthor = QLTV_Desktop.TbTacgia.OrderBy(a => a.Matacgia).Last();
+                        var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
+                            new TbCtTacgium
+                            {
+                                Madausach = addedBook.Madausach,
+                                Matacgia = addedAuthor.Matacgia,
+                                Vaitrotacgia = "Chủ biên"
+                            }
+                        );
+                        QLTV_Desktop.SaveChanges();
+                        MessageBox.Show("Add successful.");
+                        Close();
+                    }
                 }
                 else
                 {
-                    var authorQuery = QLTV_Desktop.TbTacgia.Add(
-                        new TbTacgium { Tentacgia = txtAuthor.Text }
-                    );
-                    QLTV_Desktop.SaveChanges();
-                    var addedAuthor = QLTV_Desktop.TbTacgia.OrderBy(a => a.Matacgia).Last();
-                    var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
-                        new TbCtTacgium
-                        {
-                            Madausach = addedBook.Madausach,
-                            Matacgia = addedAuthor.Matacgia,
-                            Vaitrotacgia = "Chủ biên"
-                        }
-                    );
-                    QLTV_Desktop.SaveChanges();
-                    MessageBox.Show("Add successful.");
-                    Close();
+                    MessageBox.Show("Fields cannot be empty");
                 }
             }
             catch (Exception ex)

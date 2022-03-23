@@ -38,7 +38,6 @@
             this.txtBookID = new System.Windows.Forms.TextBox();
             this.labelAuthor = new System.Windows.Forms.Label();
             this.txtAuthor = new System.Windows.Forms.TextBox();
-            this.txtAuthorID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnConfirm
@@ -122,13 +121,6 @@
             this.txtAuthor.Size = new System.Drawing.Size(200, 23);
             this.txtAuthor.TabIndex = 18;
             // 
-            // txtAuthorID
-            // 
-            this.txtAuthorID.Location = new System.Drawing.Point(190, 87);
-            this.txtAuthorID.Name = "txtAuthorID";
-            this.txtAuthorID.Size = new System.Drawing.Size(200, 23);
-            this.txtAuthorID.TabIndex = 20;
-            // 
             // EditBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -144,7 +136,6 @@
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtBookID);
-            this.Controls.Add(this.txtAuthorID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EditBook";
             this.Text = "EditBook";
@@ -166,6 +157,5 @@
         private System.Windows.Forms.TextBox txtBookID;
         private System.Windows.Forms.Label labelAuthor;
         private System.Windows.Forms.TextBox txtAuthor;
-        private System.Windows.Forms.TextBox txtAuthorID;
     }
 }

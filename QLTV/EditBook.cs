@@ -28,28 +28,31 @@ namespace QLTV
             var books = QLTV_Desktop.TbDausaches.FirstOrDefault(
                 b => b.Madausach == Int32.Parse(txtBookID.Text)
             );
-            var authorBook = QLTV_Desktop.TbCtTacgia.FirstOrDefault(
-                ab => ab.Madausach == books.Madausach
-            );
-            var authors = QLTV_Desktop.TbTacgia.FirstOrDefault(
-                a => a.Matacgia == authorBook.Matacgia
-            );
+            if (books != null)
+            {
+                var authorBook = QLTV_Desktop.TbCtTacgia.FirstOrDefault(
+                    ab => ab.Madausach == books.Madausach
+                );
+                if (authorBook != null)
+                {
+                    var authors = QLTV_Desktop.TbTacgia.FirstOrDefault(
+                        a => a.Matacgia == authorBook.Matacgia
+                    );
+                    txtAuthor.Text = authors.Tentacgia;
+                }
+            }
 
             // Clear dataBinding
             txtBookID.DataBindings.Clear();
             txtName.DataBindings.Clear();
             txtQuantity.DataBindings.Clear();
             txtPage.DataBindings.Clear();
-            txtAuthorID.DataBindings.Clear();
             txtAuthor.DataBindings.Clear();
 
             // Add dataBinding
             txtName.DataBindings.Add("Text", books, "Tendausach");
             txtPage.DataBindings.Add("Text", books, "Sotrang");
             txtQuantity.DataBindings.Add("Text", books, "Soluong");
-
-
-            txtAuthor.Text = authors.Tentacgia;
         }
 
         private void EditBook_Load(object sender, EventArgs e)
@@ -68,66 +71,73 @@ namespace QLTV
         {
             try
             {
-                var bookItem = QLTV_Desktop.TbDausaches.FirstOrDefault(
-                    b => b.Madausach == Int32.Parse(txtBookID.Text)
-                );
-
-                if (bookItem != null)
+                if (txtName.Text != "" && txtAuthor.Text != "")
                 {
-                    bookItem.Tendausach = txtName.Text.Trim();
-                    bookItem.Soluong = Int32.Parse(txtQuantity.Text.Trim());
-                    bookItem.Sotrang = Int32.Parse(txtPage.Text.Trim());
-                    QLTV_Desktop.SaveChanges();
-
-                    var authorBook = QLTV_Desktop.TbCtTacgia.FirstOrDefault(
-                        ab => ab.Madausach == bookItem.Madausach
-                    );
-                    var authorItem = QLTV_Desktop.TbTacgia.FirstOrDefault(
-                        a => a.Tentacgia == txtAuthor.Text
+                    var bookItem = QLTV_Desktop.TbDausaches.FirstOrDefault(
+                        b => b.Madausach == Int32.Parse(txtBookID.Text)
                     );
 
-                    if (authorItem != null)
+                    if (bookItem != null)
                     {
-                        QLTV_Desktop.Remove(authorBook);
-                        QLTV_Desktop.SaveChanges();
-                        var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
-                            new TbCtTacgium
-                            {
-                                Madausach = bookItem.Madausach,
-                                Matacgia = authorItem.Matacgia,
-                                Vaitrotacgia = "Chủ biên"
-                            }
-                        );
+                        bookItem.Tendausach = txtName.Text.Trim();
+                        bookItem.Soluong = Int32.Parse(txtQuantity.Text.Trim());
+                        bookItem.Sotrang = Int32.Parse(txtPage.Text.Trim());
                         QLTV_Desktop.SaveChanges();
 
-                        MessageBox.Show("Edit successfull.");
-                        LoadEditBook();
-                        Close();
+                        var authorBook = QLTV_Desktop.TbCtTacgia.FirstOrDefault(
+                            ab => ab.Madausach == bookItem.Madausach
+                        );
+                        var authorItem = QLTV_Desktop.TbTacgia.FirstOrDefault(
+                            a => a.Tentacgia == txtAuthor.Text
+                        );
+
+                        if (authorItem != null)
+                        {
+                            QLTV_Desktop.Remove(authorBook);
+                            QLTV_Desktop.SaveChanges();
+                            var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
+                                new TbCtTacgium
+                                {
+                                    Madausach = bookItem.Madausach,
+                                    Matacgia = authorItem.Matacgia,
+                                    Vaitrotacgia = "Chủ biên"
+                                }
+                            );
+                            QLTV_Desktop.SaveChanges();
+
+                            MessageBox.Show("Edit successfull.");
+                            LoadEditBook();
+                            Close();
+                        }
+                        else
+                        {
+                            var authorQuery = QLTV_Desktop.TbTacgia.Add(
+                                new TbTacgium { Tentacgia = txtAuthor.Text }
+                            );
+                            QLTV_Desktop.SaveChanges();
+                            var addedAuthor = QLTV_Desktop.TbTacgia.OrderBy(a => a.Matacgia).Last();
+
+                            QLTV_Desktop.Remove(authorBook);
+                            QLTV_Desktop.SaveChanges();
+                            var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
+                                new TbCtTacgium
+                                {
+                                    Madausach = bookItem.Madausach,
+                                    Matacgia = addedAuthor.Matacgia,
+                                    Vaitrotacgia = "Chủ biên"
+                                }
+                            );
+                            QLTV_Desktop.SaveChanges();
+
+                            MessageBox.Show("Edit successfull.");
+                            LoadEditBook();
+                            Close();
+                        }
                     }
-                    else
-                    {
-                        var authorQuery = QLTV_Desktop.TbTacgia.Add(
-                            new TbTacgium { Tentacgia = txtAuthor.Text }
-                        );
-                        QLTV_Desktop.SaveChanges();
-                        var addedAuthor = QLTV_Desktop.TbTacgia.OrderBy(a => a.Matacgia).Last();
-
-                        QLTV_Desktop.Remove(authorBook);
-                        QLTV_Desktop.SaveChanges();
-                        var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
-                            new TbCtTacgium
-                            {
-                                Madausach = bookItem.Madausach,
-                                Matacgia = addedAuthor.Matacgia,
-                                Vaitrotacgia = "Chủ biên"
-                            }
-                        );
-                        QLTV_Desktop.SaveChanges();
-
-                        MessageBox.Show("Edit successfull.");
-                        LoadEditBook();
-                        Close();
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("Fields cannot be empty.");
                 }
             }
             catch (Exception ex)

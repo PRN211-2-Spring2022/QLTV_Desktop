@@ -64,35 +64,35 @@ namespace QLTV
             addBook.Show();
         }
 
-        private void btnDeleteBook_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var bookItem = QLTV_Desktop.TbDausaches.FirstOrDefault(
-                    b => b.Madausach == Int32.Parse(txtBookID.Text)
-                );
-                var bookAuthor = QLTV_Desktop.TbCtTacgia.FirstOrDefault(
-                    ab => ab.Madausach == Int32.Parse(txtBookID.Text)
-                );
+        //private void btnDeleteBook_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        var bookItem = QLTV_Desktop.TbDausaches.FirstOrDefault(
+        //            b => b.Madausach == Int32.Parse(txtBookID.Text)
+        //        );
+        //        var bookAuthor = QLTV_Desktop.TbCtTacgia.FirstOrDefault(
+        //            ab => ab.Madausach == Int32.Parse(txtBookID.Text)
+        //        );
 
-                if (bookAuthor != null)
-                {
-                    QLTV_Desktop.TbCtTacgia.Remove(bookAuthor);
-                    QLTV_Desktop.SaveChanges();
-                }
-                if (bookItem != null)
-                {
-                    QLTV_Desktop.TbDausaches.Remove(bookItem);
-                    QLTV_Desktop.SaveChanges();
-                    MessageBox.Show("Delete successful.");
-                    LoadBooks();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Delete failed.");
-            }
-        }
+        //        if (bookAuthor != null)
+        //        {
+        //            QLTV_Desktop.TbCtTacgia.Remove(bookAuthor);
+        //            QLTV_Desktop.SaveChanges();
+        //        }
+        //        if (bookItem != null)
+        //        {
+        //            QLTV_Desktop.TbDausaches.Remove(bookItem);
+        //            QLTV_Desktop.SaveChanges();
+        //            MessageBox.Show("Delete successful.");
+        //            LoadBooks();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Delete failed.");
+        //    }
+        //}
 
         private void btnDeleteAuthor_Click(object sender, EventArgs e)
         {
