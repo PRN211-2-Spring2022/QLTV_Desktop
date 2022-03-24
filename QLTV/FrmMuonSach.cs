@@ -23,10 +23,10 @@ namespace BookLoanManager
 
         DataTable dtMuonTra, dtSach;
 
-
+        
         private void NapListviewMuonSach()
         {
-
+            
             foreach (DataRow dr in dtMuonTra.Rows)
             {
                 ListViewItem li = new ListViewItem();
@@ -42,12 +42,12 @@ namespace BookLoanManager
 
             }
         }
-
+        
 
         private void cbChonMaSach_SelectedIndexChanged(object sender, EventArgs e)
         {
             string strmasach = cbChonMaSach.SelectedValue.ToString();
-
+            
             foreach (DataRow drw in dtSach.Rows)
             {
                 lblMaSach.Text = drw["MaSach"].ToString();
@@ -82,7 +82,7 @@ namespace BookLoanManager
                     dr["NgayMuon"] = dateNgayMuon.Value;
                     dr["NgayHenTra"] = dateNgayTra.Text;
                     dtMuonTra.Rows.Add(dr);
-
+                   
                     //setButton();
                     NapListviewMuonSach();
                     MessageBox.Show("Đã cho mượn thành công!");
@@ -101,10 +101,7 @@ namespace BookLoanManager
             this.Close();
         }
 
-        private void btnCreatePhieu_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void MuonTraSach_FormClosing(object sender, FormClosingEventArgs e)
         {
