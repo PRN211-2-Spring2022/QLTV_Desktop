@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btntaophieu = new System.Windows.Forms.Button();
+            this.dgvthongtindocgia = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -45,34 +44,29 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtfind = new System.Windows.Forms.TextBox();
+            this.btnfind = new System.Windows.Forms.Button();
+            this.rbtnmathe = new System.Windows.Forms.RadioButton();
+            this.rbtnten = new System.Windows.Forms.RadioButton();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvthongtindocgia)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvthongtindocgia
             // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 226);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(375, 345);
-            this.dataGridView1.TabIndex = 9;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // btntaophieu
-            // 
-            this.btntaophieu.Location = new System.Drawing.Point(816, 519);
-            this.btntaophieu.Name = "btntaophieu";
-            this.btntaophieu.Size = new System.Drawing.Size(145, 29);
-            this.btntaophieu.TabIndex = 18;
-            this.btntaophieu.Text = "Tạo phiếu mượn";
-            this.btntaophieu.UseVisualStyleBackColor = true;
-            this.btntaophieu.Click += new System.EventHandler(this.btntaophieu_Click);
+            this.dgvthongtindocgia.AllowUserToDeleteRows = false;
+            this.dgvthongtindocgia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvthongtindocgia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvthongtindocgia.Location = new System.Drawing.Point(3, 226);
+            this.dgvthongtindocgia.Name = "dgvthongtindocgia";
+            this.dgvthongtindocgia.ReadOnly = true;
+            this.dgvthongtindocgia.RowHeadersWidth = 51;
+            this.dgvthongtindocgia.RowTemplate.Height = 29;
+            this.dgvthongtindocgia.Size = new System.Drawing.Size(353, 345);
+            this.dgvthongtindocgia.TabIndex = 9;
             // 
             // button1
             // 
@@ -208,37 +202,89 @@
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(393, 226);
+            this.dataGridView2.Location = new System.Drawing.Point(377, 226);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 29;
-            this.dataGridView2.Size = new System.Drawing.Size(347, 345);
+            this.dataGridView2.Size = new System.Drawing.Size(363, 345);
             this.dataGridView2.TabIndex = 21;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtfind);
+            this.groupBox2.Controls.Add(this.btnfind);
+            this.groupBox2.Controls.Add(this.rbtnmathe);
+            this.groupBox2.Controls.Add(this.rbtnten);
+            this.groupBox2.Location = new System.Drawing.Point(3, 135);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(353, 85);
+            this.groupBox2.TabIndex = 34;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Thông tin tìm kiếm độc giả";
+            // 
+            // txtfind
+            // 
+            this.txtfind.Location = new System.Drawing.Point(6, 49);
+            this.txtfind.Name = "txtfind";
+            this.txtfind.Size = new System.Drawing.Size(236, 27);
+            this.txtfind.TabIndex = 0;
+            // 
+            // btnfind
+            // 
+            this.btnfind.Location = new System.Drawing.Point(255, 44);
+            this.btnfind.Name = "btnfind";
+            this.btnfind.Size = new System.Drawing.Size(98, 38);
+            this.btnfind.TabIndex = 1;
+            this.btnfind.Text = "Tìm kiếm";
+            this.btnfind.UseVisualStyleBackColor = true;
+            // 
+            // rbtnmathe
+            // 
+            this.rbtnmathe.AutoSize = true;
+            this.rbtnmathe.Location = new System.Drawing.Point(6, 19);
+            this.rbtnmathe.Name = "rbtnmathe";
+            this.rbtnmathe.Size = new System.Drawing.Size(130, 24);
+            this.rbtnmathe.TabIndex = 29;
+            this.rbtnmathe.TabStop = true;
+            this.rbtnmathe.Text = "Mã thẻ độc giả";
+            this.rbtnmathe.UseVisualStyleBackColor = true;
+            // 
+            // rbtnten
+            // 
+            this.rbtnten.AutoSize = true;
+            this.rbtnten.Location = new System.Drawing.Point(142, 19);
+            this.rbtnten.Name = "rbtnten";
+            this.rbtnten.Size = new System.Drawing.Size(107, 24);
+            this.rbtnten.TabIndex = 30;
+            this.rbtnten.TabStop = true;
+            this.rbtnten.Text = "Tên độc giả";
+            this.rbtnten.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.btntaophieu);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvthongtindocgia);
             this.Name = "FrmMain";
             this.Size = new System.Drawing.Size(1198, 661);
             this.Load += new System.EventHandler(this.FrmMain_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvthongtindocgia)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btntaophieu;
+        private System.Windows.Forms.DataGridView dgvthongtindocgia;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtName;
@@ -254,5 +300,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtfind;
+        private System.Windows.Forms.Button btnfind;
+        private System.Windows.Forms.RadioButton rbtnmathe;
+        private System.Windows.Forms.RadioButton rbtnten;
     }
 }

@@ -26,7 +26,7 @@ namespace BookLoanManager
                 from d in QLTV.TbDocgia
                 select new { d.Mathedocgia, d.Hoten, d.Ngaysinh, d.Diachi }
             ).ToList();
-            dataGridView1.DataSource = docgia;
+            dgvthongtindocgia.DataSource = docgia;
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -43,99 +43,43 @@ namespace BookLoanManager
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
-        private void searchByCode_Click(object sender, EventArgs e)
+        public void Loadbtnsearchma()
         {
-            txtSearchByName.DataBindings.Clear();
-            string search = textBox1.Text;
-
-            try
-            {
-                var docgia = (
-                    from d in QLTV.TbDocgia
-                    where d.Mathedocgia.ToString() == search
-                    select new { d.Mathedocgia, d.Hoten, d.Ngaysinh, d.Diachi }
-                ).ToList();
-
-                if (textBox1.Text.Trim().Length > 0)
-                {
-                    dataGridView1.DataSource = docgia;
-                }
-                else
-                {
-                    LoadDG();
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            var findbyma = QLTV.TbDocgia
+                .Where(m => m.Mathedocgia == int.Parse(txtfind.Text))
+                .ToList();
+            dgvthongtindocgia.DataSource = findbyma;
         }
 
-        private static readonly string[] VietnameseSigns = new string[]
+        public void Loadbtsearchname()
         {
-            "aAeEoOuUiIdDyY",
-            "áàạảãâấầậẩẫăắằặẳẵ",
-            "ÁÀẠẢÃÂẤẦẬẨẪĂẮẰẶẲẴ",
-            "éèẹẻẽêếềệểễ",
-            "ÉÈẸẺẼÊẾỀỆỂỄ",
-            "óòọỏõôốồộổỗơớờợởỡ",
-            "ÓÒỌỎÕÔỐỒỘỔỖƠỚỜỢỞỠ",
-            "úùụủũưứừựửữ",
-            "ÚÙỤỦŨƯỨỪỰỬỮ",
-            "íìịỉĩ",
-            "ÍÌỊỈĨ",
-            "đ",
-            "Đ",
-            "ýỳỵỷỹ",
-            "ÝỲỴỶỸ"
-        };
-
-        public static string RemoveSign4VietnameseString(string str)
-        {
-            //Tiến hành thay thế , lọc bỏ dấu cho chuỗi
-
-            for (int i = 1; i < VietnameseSigns.Length; i++)
-            {
-                for (int j = 0; j < VietnameseSigns[i].Length; j++)
-
-                    str = str.Replace(VietnameseSigns[i][j], VietnameseSigns[0][i - 1]);
-            }
-
-            return str;
+            var findbyten = QLTV.TbDocgia
+                .Where(t => t.Hoten.Contains(txtfind.Text))
+                .ToList();
+            dgvthongtindocgia.DataSource = findbyten;
         }
 
-        private void btnSearchByName_Click(object sender, EventArgs e)
+        private void btnfind_Click(object sender, EventArgs e)
         {
-            string search = txtSearchByName.Text;
-
-            textBox1.DataBindings.Clear();
-            try
+            if (txtfind.Text == "")
             {
-                var docgia = (
-                    from d in QLTV.TbDocgia
-                    where d.Hoten.Contains(search)
-                    select new { d.Mathedocgia, d.Hoten, d.Ngaysinh, d.Diachi }
-                ).ToList();
-
-                if (txtSearchByName.Text.Trim().Length > 0)
-                {
-                    dataGridView1.DataSource = docgia;
-                }
-                else
-                {
-                    LoadDG();
-                }
+                MessageBox.Show("Thông tin tìm kiếm không thể để trống");
+                txtfind.Focus();
             }
-            catch (Exception)
+            else if (rbtnmathe.Checked == true)
             {
-                throw;
+                Loadbtnsearchma();
             }
-        }
+            else if (rbtnten.Checked == true)
+            {
+                Loadbtsearchname();
+            }
+            else if (rbtnmathe.Checked == false && rbtnten.Checked == false)
+            {
+                MessageBox.Show("Bạn phải chọn thông tin tìm kiếm");
+                rbtnmathe.Focus();
+            }
 
-        private void btntaophieu_Click(object sender, EventArgs e)
-        {
-            var addphieu = new FrmMuonSach();
-            addphieu.Show();
         }
     }
 }
