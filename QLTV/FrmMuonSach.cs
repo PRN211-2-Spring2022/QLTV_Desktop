@@ -23,87 +23,7 @@ namespace BookLoanManager
 
         DataTable dtMuonTra, dtSach;
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCreatePhieu_Click(object sender, EventArgs e)
-        {
-            if (txtMaSach.Text == "")
-            {
-                MessageBox.Show("Chưa nhập mã sách!");
-                txtMaSach.Focus();
-            }
-            else
-            {
-                try
-                {
-                    //lvwDanhSach.Items.Clear();
-                    DataRow dr = dtMuonTra.NewRow();
-                    dr["MaDG"] = txtmatheDG.Text;
-                    dr["MaSach"] = txtMaSach.Text;
-                    dr["NgayMuon"] = dateNgayMuon.Value;
-                    dr["NgayHenTra"] = dateNgayTra.Value;
-                    dtMuonTra.Rows.Add(dr);
-                    
-                    //setButton();
-                    NapListviewMuonSach();
-                    MessageBox.Show("Đã cho mượn thành công!");
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Mã sách "+txtMaSach.Text+" không có trong kho sách!\nHãy nhập mã sách khác!");
-                    NapListviewMuonSach();
-                    txtMaSach.Focus();
-                }
-            }
-        }
+        
         private void NapListviewMuonSach()
         {
             
@@ -117,21 +37,24 @@ namespace BookLoanManager
                 li.SubItems.Add(ngaymuon);
                 string ngayhentra = Convert.ToDateTime(dr["NgayHenTra"].ToString()).ToShortDateString();
                 li.SubItems.Add(ngayhentra);
+                //groupBox1.Items.Add(li);
 
 
             }
         }
         
 
-        private void button1_Click(object sender, EventArgs e)
+        private void cbChonMaSach_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string strmasach = comboBox1.SelectedValue.ToString();
+            string strmasach = cbChonMaSach.SelectedValue.ToString();
             
+            foreach (DataRow drw in dtSach.Rows)
+            {
+                lblMaSach.Text = drw["MaSach"].ToString();
+                lblMaLoai.Text = drw["MaLoaiSach"].ToString();
+                lblSoLuong.Text = drw["SoLuong"].ToString();
+                lblMaTG.Text = drw["MaTG"].ToString();
+            }
 
         }
 
@@ -173,7 +96,10 @@ namespace BookLoanManager
             }
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         private void MuonTraSach_FormClosing(object sender, FormClosingEventArgs e)
         {

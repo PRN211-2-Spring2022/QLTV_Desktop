@@ -41,7 +41,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dateNgayMuon = new System.Windows.Forms.DateTimePicker();
             this.dateNgayTra = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbChonMaSach = new System.Windows.Forms.ComboBox();
             this.lblMaSach = new System.Windows.Forms.Label();
             this.lblMaLoai = new System.Windows.Forms.Label();
             this.lblSoLuong = new System.Windows.Forms.Label();
@@ -94,7 +94,6 @@
             this.label2.Size = new System.Drawing.Size(118, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Mã Thẻ Độc Giả:";
-            this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // label3
             // 
@@ -107,16 +106,16 @@
             // 
             // txtTTSach
             // 
-            this.txtTTSach.Location = new System.Drawing.Point(196, 317);
+            this.txtTTSach.Location = new System.Drawing.Point(123, 290);
             this.txtTTSach.Multiline = true;
             this.txtTTSach.Name = "txtTTSach";
-            this.txtTTSach.Size = new System.Drawing.Size(177, 36);
+            this.txtTTSach.Size = new System.Drawing.Size(250, 63);
             this.txtTTSach.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(39, 317);
+            this.label4.Location = new System.Drawing.Point(6, 310);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 20);
             this.label4.TabIndex = 6;
@@ -139,7 +138,6 @@
             this.label6.Size = new System.Drawing.Size(72, 20);
             this.label6.TabIndex = 10;
             this.label6.Text = "Ngày Trả ";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // btnCreatePhieu
             // 
@@ -175,14 +173,14 @@
             this.dateNgayTra.Size = new System.Drawing.Size(250, 27);
             this.dateNgayTra.TabIndex = 15;
             // 
-            // comboBox1
+            // cbChonMaSach
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(133, 132);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 28);
-            this.comboBox1.TabIndex = 16;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbChonMaSach.FormattingEnabled = true;
+            this.cbChonMaSach.Location = new System.Drawing.Point(133, 132);
+            this.cbChonMaSach.Name = "cbChonMaSach";
+            this.cbChonMaSach.Size = new System.Drawing.Size(151, 28);
+            this.cbChonMaSach.TabIndex = 16;
+            this.cbChonMaSach.SelectedIndexChanged += new System.EventHandler(this.cbChonMaSach_SelectedIndexChanged);
             // 
             // lblMaSach
             // 
@@ -298,7 +296,7 @@
             this.groupBox2.Controls.Add(this.lblSoLuong);
             this.groupBox2.Controls.Add(this.lblMaLoai);
             this.groupBox2.Controls.Add(this.lblMaSach);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cbChonMaSach);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtmatheDG);
             this.groupBox2.Controls.Add(this.label2);
@@ -401,7 +399,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dateNgayMuon;
         private System.Windows.Forms.DateTimePicker dateNgayTra;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbChonMaSach;
         private System.Windows.Forms.Label lblMaSach;
         private System.Windows.Forms.Label lblMaLoai;
         private System.Windows.Forms.Label lblSoLuong;
