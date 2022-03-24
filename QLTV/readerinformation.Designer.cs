@@ -65,7 +65,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(850, 53);
+            this.label1.Location = new System.Drawing.Point(172, 349);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(301, 31);
             this.label1.TabIndex = 0;
@@ -203,12 +203,12 @@
             this.dgvthongtindocgia.AllowUserToAddRows = false;
             this.dgvthongtindocgia.AllowUserToDeleteRows = false;
             this.dgvthongtindocgia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvthongtindocgia.Location = new System.Drawing.Point(376, 350);
+            this.dgvthongtindocgia.Location = new System.Drawing.Point(572, 3);
             this.dgvthongtindocgia.Name = "dgvthongtindocgia";
             this.dgvthongtindocgia.ReadOnly = true;
             this.dgvthongtindocgia.RowHeadersWidth = 51;
             this.dgvthongtindocgia.RowTemplate.Height = 29;
-            this.dgvthongtindocgia.Size = new System.Drawing.Size(808, 237);
+            this.dgvthongtindocgia.Size = new System.Drawing.Size(759, 716);
             this.dgvthongtindocgia.TabIndex = 24;
             this.dgvthongtindocgia.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvthongtindocgia_CellContentDoubleClick);
             // 
@@ -231,7 +231,7 @@
             // 
             // btnfind
             // 
-            this.btnfind.Location = new System.Drawing.Point(255, 44);
+            this.btnfind.Location = new System.Drawing.Point(448, 43);
             this.btnfind.Name = "btnfind";
             this.btnfind.Size = new System.Drawing.Size(98, 38);
             this.btnfind.TabIndex = 1;
@@ -265,7 +265,7 @@
             // 
             this.txtfind.Location = new System.Drawing.Point(6, 49);
             this.txtfind.Name = "txtfind";
-            this.txtfind.Size = new System.Drawing.Size(236, 27);
+            this.txtfind.Size = new System.Drawing.Size(436, 27);
             this.txtfind.TabIndex = 0;
             // 
             // groupBox1
@@ -274,9 +274,9 @@
             this.groupBox1.Controls.Add(this.btnfind);
             this.groupBox1.Controls.Add(this.rbtnmathe);
             this.groupBox1.Controls.Add(this.rbtnten);
-            this.groupBox1.Location = new System.Drawing.Point(308, 259);
+            this.groupBox1.Location = new System.Drawing.Point(14, 249);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(353, 85);
+            this.groupBox1.Size = new System.Drawing.Size(552, 85);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin tìm kiếm";
@@ -285,7 +285,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(360, 216);
+            this.label4.Location = new System.Drawing.Point(66, 206);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(199, 31);
             this.label4.TabIndex = 33;
@@ -311,7 +311,7 @@
             this.groupBox2.Controls.Add(this.dtxtngaylamthe);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(678, 82);
+            this.groupBox2.Location = new System.Drawing.Point(0, 378);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(565, 262);
             this.groupBox2.TabIndex = 34;
@@ -332,7 +332,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(602, 19);
+            this.label7.Location = new System.Drawing.Point(308, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(222, 38);
             this.label7.TabIndex = 35;
@@ -341,7 +341,7 @@
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.Location = new System.Drawing.Point(314, 19);
+            this.panel1.Location = new System.Drawing.Point(20, 9);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(264, 194);
             this.panel1.TabIndex = 36;
@@ -358,7 +358,7 @@
             this.Controls.Add(this.dgvthongtindocgia);
             this.Controls.Add(this.label1);
             this.Name = "readerinformation";
-            this.Size = new System.Drawing.Size(1265, 613);
+            this.Size = new System.Drawing.Size(1334, 722);
             this.Load += new System.EventHandler(this.readerinformation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvthongtindocgia)).EndInit();
             this.groupBox1.ResumeLayout(false);

@@ -167,6 +167,7 @@
             this.btn_ReaderManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_ReaderManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_ReaderManagement.UseVisualStyleBackColor = true;
+            this.btn_ReaderManagement.Click += new System.EventHandler(this.btn_ReaderManagement_Click);
             // 
             // btn_HomePage
             // 
