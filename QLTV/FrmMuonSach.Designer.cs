@@ -43,7 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtmasach = new System.Windows.Forms.TextBox();
             this.lblMaTG = new System.Windows.Forms.Label();
             this.lblSoLuong = new System.Windows.Forms.Label();
             this.lblMaLoai = new System.Windows.Forms.Label();
@@ -181,7 +181,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.txtmasach);
             this.groupBox2.Controls.Add(this.lblMaTG);
             this.groupBox2.Controls.Add(this.lblSoLuong);
             this.groupBox2.Controls.Add(this.lblMaLoai);
@@ -206,12 +206,12 @@
             this.label5.TabIndex = 32;
             this.label5.Text = "Tên sách";
             // 
-            // textBox2
+            // txtmasach
             // 
-            this.textBox2.Location = new System.Drawing.Point(180, 93);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(129, 27);
-            this.textBox2.TabIndex = 31;
+            this.txtmasach.Location = new System.Drawing.Point(180, 93);
+            this.txtmasach.Name = "txtmasach";
+            this.txtmasach.Size = new System.Drawing.Size(129, 27);
+            this.txtmasach.TabIndex = 31;
             // 
             // lblMaTG
             // 
@@ -352,6 +352,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtmasach;
     }
 }

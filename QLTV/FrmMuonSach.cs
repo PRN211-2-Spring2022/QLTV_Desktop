@@ -32,9 +32,8 @@ namespace BookLoanManager
             lblMaLoai.DataBindings.Clear();
             lblSoLuong.DataBindings.Clear();
             lblMaTG.DataBindings.Clear();
-            //cbChonMaSach.DataBindings.Clear();
-            //cbChonMaSach.DataBindings.Add("Text")
-            lbltensach.DataBindings.Add("Text", loadsachmuon, "Maquyensach");
+            txtmasach.DataBindings.Clear();
+            lbltensach.DataBindings.Add("Text", loadsachmuon, "Tendausach");
             lblMaLoai.DataBindings.Add("Text", loadsachmuon, "Madausach");
             lblSoLuong.DataBindings.Add("Text", loadsachmuon, "Soluong");
             lblMaTG.DataBindings.Add("Text", loadsachmuon, "Matacgia");
