@@ -71,7 +71,7 @@ namespace BookLoanManager
             dgvthongtindocgia.DataSource = findbyten;
         }
 
-        private void btnfind_Click(object sender, EventArgs e)
+        private void btnfind_Click_1(object sender, EventArgs e)
         {
             if (txtfind.Text == "")
             {
@@ -87,6 +87,29 @@ namespace BookLoanManager
                 Loadbtsearchname();
             }
             else if (rbtnmathe.Checked == false && rbtnten.Checked == false)
+            {
+                MessageBox.Show("Bạn phải chọn thông tin tìm kiếm");
+                rbtnmathe.Focus();
+            }
+
+        }
+
+        private void btnsearchsach_Click(object sender, EventArgs e)
+        {
+            if (txtfindsach.Text == "")
+            {
+                MessageBox.Show("Thông tin tìm kiếm không thể để trống");
+                txtfind.Focus();
+            }
+            else if (rbtmasach.Checked == true)
+            {
+                Loadbtnsearchma();
+            }
+            else if (rbttensach.Checked == true)
+            {
+                Loadbtsearchname();
+            }
+            else if (rbtmasach.Checked == false && rbttensach.Checked == false)
             {
                 MessageBox.Show("Bạn phải chọn thông tin tìm kiếm");
                 rbtnmathe.Focus();

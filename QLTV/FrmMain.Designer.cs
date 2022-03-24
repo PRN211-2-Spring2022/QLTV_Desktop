@@ -246,6 +246,7 @@
             this.btnfind.TabIndex = 1;
             this.btnfind.Text = "Tìm kiếm";
             this.btnfind.UseVisualStyleBackColor = true;
+            this.btnfind.Click += new System.EventHandler(this.btnfind_Click_1);
             // 
             // rbtnmathe
             // 
@@ -297,6 +298,7 @@
             this.btnsearchsach.TabIndex = 1;
             this.btnsearchsach.Text = "Tìm kiếm";
             this.btnsearchsach.UseVisualStyleBackColor = true;
+            this.btnsearchsach.Click += new System.EventHandler(this.btnsearchsach_Click);
             // 
             // rbtmasach
             // 
