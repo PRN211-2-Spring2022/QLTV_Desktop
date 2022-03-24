@@ -21,5 +21,9 @@ namespace QLTV
         {
 
         }
+
+        private void btn_BookManagement_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
