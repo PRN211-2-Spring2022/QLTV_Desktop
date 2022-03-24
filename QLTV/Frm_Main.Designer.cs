@@ -42,7 +42,6 @@
             this.Lb_DashBorad = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Pn_Main = new System.Windows.Forms.Panel();
-            this.pnlContent = new System.Windows.Forms.PictureBox();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_M = new System.Windows.Forms.Button();
             this.btn_B = new System.Windows.Forms.Button();
@@ -51,8 +50,6 @@
             this.btn_R = new System.Windows.Forms.Button();
             this.btn_S = new System.Windows.Forms.Button();
             this.pnlSideBar.SuspendLayout();
-            this.Pn_Main.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlContent)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSideBar
@@ -88,6 +85,7 @@
             this.btn_UserManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_UserManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_UserManagement.UseVisualStyleBackColor = true;
+            this.btn_UserManagement.Click += new System.EventHandler(this.btn_UserManagement_Click);
             // 
             // btn_BookManagement
             // 
@@ -248,22 +246,12 @@
             // 
             this.Pn_Main.BackColor = System.Drawing.Color.Transparent;
             this.Pn_Main.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Pn_Main.Controls.Add(this.pnlContent);
-            this.Pn_Main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Pn_Main.ForeColor = System.Drawing.Color.Black;
             this.Pn_Main.Location = new System.Drawing.Point(202, 97);
             this.Pn_Main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Pn_Main.Name = "Pn_Main";
             this.Pn_Main.Size = new System.Drawing.Size(1334, 722);
             this.Pn_Main.TabIndex = 10;
-            // 
-            // pnlContent
-            // 
-            this.pnlContent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlContent.Location = new System.Drawing.Point(0, 0);
-            this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1334, 722);
-            this.pnlContent.TabIndex = 0;
-            this.pnlContent.TabStop = false;
             // 
             // btn_Exit
             // 
@@ -408,8 +396,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Frm_Main";
             this.pnlSideBar.ResumeLayout(false);
-            this.Pn_Main.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pnlContent)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -437,6 +423,5 @@
         private System.Windows.Forms.Button btn_L;
         private System.Windows.Forms.Button btn_R;
         private System.Windows.Forms.Button btn_S;
-        private System.Windows.Forms.PictureBox pnlContent;
     }
 }
