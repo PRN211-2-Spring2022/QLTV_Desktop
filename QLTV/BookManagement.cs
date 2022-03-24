@@ -22,6 +22,17 @@ namespace QLTV
 
         QLTV_DesktopContext QLTV_Desktop = new QLTV_DesktopContext();
 
+        private static BookManagement _instance;
+        public static BookManagement Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new BookManagement();
+                return _instance;
+            }
+        }
+
         public void LoadBooks()
         {
             var books = (
