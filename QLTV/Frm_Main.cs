@@ -35,6 +35,7 @@ namespace QLTV
                 else
                     BookManagement.Instance.BringToFront();
             }
+            btn_BookManagement.BackColor = Color.White;
         }
 
         private void btn_UserManagement_Click(object sender, EventArgs e)
@@ -55,6 +56,7 @@ namespace QLTV
                 else
                     readerinformation.Instance.BringToFront();
             }
+            btn_ReaderManagement.BackColor = Color.White;
         }
     }
 }
