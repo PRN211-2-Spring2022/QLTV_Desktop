@@ -24,9 +24,20 @@ namespace BookLoanManager
         {
             var docgia = (
                 from d in QLTV.TbDocgia
-                select new { d.Mathedocgia, d.Hoten, d.Ngaysinh, d.Diachi }
+                select new { d.Mathedocgia, d.Hoten, d.Diachi }
             ).ToList();
             dgvthongtindocgia.DataSource = docgia;
+        }
+        public void Loadsach()
+        {
+            var sach = (
+                from d in QLTV.TbDausaches
+                join b in QLTV.TbSaches on d.Madausach equals b.Madausach
+                join c in QLTV.TbCtTacgia on b.Madausach equals c.Madausach
+                join e in QLTV.TbTacgia on c.Matacgia equals e.Matacgia
+                select new { b.Madausach, d.Tendausach, e.Tentacgia }
+            ).Distinct().ToList();
+            dgvthongtinsach.DataSource = sach;
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -34,6 +45,7 @@ namespace BookLoanManager
             try
             {
                 LoadDG();
+                Loadsach();
             }
             catch (Exception ex)
             {

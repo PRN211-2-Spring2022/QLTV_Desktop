@@ -7,8 +7,5 @@
     <Compile Update="FrmMain.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="FrmMuonSach.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
 </Project>
