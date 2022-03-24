@@ -35,6 +35,7 @@
             this.ListBorrower = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnphieubangiao = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btntraSach = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -100,13 +101,23 @@
             // 
             // btnphieubangiao
             // 
-            this.btnphieubangiao.Location = new System.Drawing.Point(105, 163);
+            this.btnphieubangiao.Location = new System.Drawing.Point(330, 163);
             this.btnphieubangiao.Name = "btnphieubangiao";
             this.btnphieubangiao.Size = new System.Drawing.Size(145, 29);
             this.btnphieubangiao.TabIndex = 16;
             this.btnphieubangiao.Text = "Phiếu Bàn Giao";
             this.btnphieubangiao.UseVisualStyleBackColor = true;
             this.btnphieubangiao.Click += new System.EventHandler(this.btnmuonSach_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(60, 163);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 29);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Tạo Phiếu";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btntraSach
             // 
@@ -122,6 +133,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btntraSach);
             this.Controls.Add(this.btnphieubangiao);
             this.Controls.Add(this.searchByCode);
@@ -147,6 +159,7 @@
         private System.Windows.Forms.Label ListBorrower;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnphieubangiao;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btntraSach;
     }
 }

@@ -51,7 +51,7 @@ namespace BookLoanManager
 
         private void btntraSach_Click(object sender, EventArgs e)
         {
-            FrmTraSach frmTraSach = new FrmTraSach();
+            ViewTraSach frmTraSach = new ViewTraSach();
             frmTraSach.ShowDialog();
         }
 
@@ -142,6 +142,11 @@ namespace BookLoanManager
             {
                 throw;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using QLTV;
 
 namespace BookLoanManager
 {
@@ -31,9 +32,11 @@ namespace BookLoanManager
         }
 
         QLTV_DesktopContext QLTV = new QLTV_DesktopContext();
-
+      
         public void load_Phieu()
         {
+
+
             var docgia = (
                 from p in QLTV.TbPhieubangiaosaches
                 join d in QLTV.TbDocgia on p.Mathedocgia equals d.Mathedocgia
@@ -48,8 +51,11 @@ namespace BookLoanManager
                     d.Hoten
                 }
             ).ToList();
-
+           
             txtName.DataBindings.Clear();
+            
+            txtMapbg.DataBindings.Add("Text",docgia, "Maphieubangiao");
+            txtmadg.DataBindings.Add("Text",docgia, "Mathedocgia");
 
             // txtName.DataBindings.Add("Text", docgia, "Hoten");
 
@@ -58,7 +64,7 @@ namespace BookLoanManager
 
             dataGridView1.DataSource = docgia;
         }
-
+        
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             string search = txtName.Text;
@@ -68,7 +74,9 @@ namespace BookLoanManager
                 var docgia = (
                     from p in QLTV.TbPhieubangiaosaches
                     join d in QLTV.TbDocgia on p.Mathedocgia equals d.Mathedocgia
-                    where d.Hoten.Contains(search)
+                  
+                    where p.Maphieubangiao.ToString() == search
+
                     select new
                     {
                         p.Maphieubangiao,
@@ -80,10 +88,14 @@ namespace BookLoanManager
                         d.Hoten
                     }
                 ).ToList();
-
+                
+                    txtMapbg.DataBindings.Add("Text", docgia, "Maphieubangiao");
+                    txtmadg.DataBindings.Add("Text", docgia, "Mathedocgia");
+                
                 if (txtName.Text.Trim().Length > 0)
                 {
                     dataGridView1.DataSource = docgia;
+
                 }
                 else
                 {
@@ -94,6 +106,21 @@ namespace BookLoanManager
             {
                 throw;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmTraSach frmTraSach   = new FrmTraSach();
+            frmTraSach.madg = txtmadg.Text;
+            frmTraSach.mapbg= txtMapbg.Text;
+
+            frmTraSach.ShowDialog();
+        }
+
+        private void btntraSach_Click(object sender, EventArgs e)
+        {
+            ViewTraSach frmTraSach = new ViewTraSach();
+            frmTraSach.ShowDialog();
         }
     }
 }

@@ -16,6 +16,9 @@
     <Compile Update="FrmTraSach.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ViewTraSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="viewMuonSach.cs">
       <SubType>Form</SubType>
     </Compile>
