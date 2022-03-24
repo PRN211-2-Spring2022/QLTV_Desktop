@@ -143,5 +143,11 @@ namespace BookLoanManager
                 throw;
             }
         }
+
+        private void btntaophieu_Click(object sender, EventArgs e)
+        {
+            var addphieu = new FrmMuonSach();
+            addphieu.Show();
+        }
     }
 }

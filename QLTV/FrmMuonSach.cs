@@ -24,10 +24,20 @@ namespace BookLoanManager
 
         public void Loadmuonsach()
         {
+            var loadsachmuon = (from a in qlms.TbDausaches
+                               join b in qlms.TbSaches on a.Madausach equals b.Madausach
+                               join c in qlms.TbCtTacgia on a.Madausach equals c.Madausach
+                               select new { b.Maquyensach, b.Madausach, a.Soluong, c.Matacgia }).ToList();
             lblMaSach.DataBindings.Clear();
             lblMaLoai.DataBindings.Clear();
             lblSoLuong.DataBindings.Clear();
             lblMaTG.DataBindings.Clear();
+            //cbChonMaSach.DataBindings.Clear();
+            //cbChonMaSach.DataBindings.Add("Text")
+            lblMaSach.DataBindings.Add("Text", loadsachmuon, "Maquyensach");
+            lblMaLoai.DataBindings.Add("Text", loadsachmuon, "Madausach");
+            lblSoLuong.DataBindings.Add("Text", loadsachmuon, "Soluong");
+            lblMaTG.DataBindings.Add("Text", loadsachmuon, "Matacgia");
         }
 
         private void FrmMuonSach_Load(object sender, EventArgs e)

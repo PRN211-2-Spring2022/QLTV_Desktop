@@ -36,6 +36,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnphieubangiao = new System.Windows.Forms.Button();
             this.btntraSach = new System.Windows.Forms.Button();
+            this.btntaophieu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,10 +119,21 @@
             this.btntraSach.UseVisualStyleBackColor = true;
             this.btntraSach.Click += new System.EventHandler(this.btntraSach_Click);
             // 
+            // btntaophieu
+            // 
+            this.btntaophieu.Location = new System.Drawing.Point(332, 163);
+            this.btntaophieu.Name = "btntaophieu";
+            this.btntaophieu.Size = new System.Drawing.Size(145, 29);
+            this.btntaophieu.TabIndex = 18;
+            this.btntaophieu.Text = "Tạo phiếu mượn";
+            this.btntaophieu.UseVisualStyleBackColor = true;
+            this.btntaophieu.Click += new System.EventHandler(this.btntaophieu_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btntaophieu);
             this.Controls.Add(this.btntraSach);
             this.Controls.Add(this.btnphieubangiao);
             this.Controls.Add(this.searchByCode);
@@ -148,5 +160,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnphieubangiao;
         private System.Windows.Forms.Button btntraSach;
+        private System.Windows.Forms.Button btntaophieu;
     }
 }

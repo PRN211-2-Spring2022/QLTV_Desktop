@@ -42,7 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbChonMaSach = new System.Windows.Forms.ComboBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblMaTG = new System.Windows.Forms.Label();
             this.lblSoLuong = new System.Windows.Forms.Label();
@@ -56,6 +55,9 @@
             this.label14 = new System.Windows.Forms.Label();
             this.btnCreatePhieu = new System.Windows.Forms.Button();
             this.btnKetThuc = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -181,7 +183,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cbChonMaSach);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtName);
             this.groupBox2.Controls.Add(this.lblMaTG);
             this.groupBox2.Controls.Add(this.lblSoLuong);
@@ -200,17 +204,9 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
-            // cbChonMaSach
-            // 
-            this.cbChonMaSach.FormattingEnabled = true;
-            this.cbChonMaSach.Location = new System.Drawing.Point(104, 108);
-            this.cbChonMaSach.Name = "cbChonMaSach";
-            this.cbChonMaSach.Size = new System.Drawing.Size(250, 28);
-            this.cbChonMaSach.TabIndex = 28;
-            // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(104, 39);
+            this.txtName.Location = new System.Drawing.Point(128, 26);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(250, 27);
             this.txtName.TabIndex = 27;
@@ -219,7 +215,7 @@
             // 
             this.lblMaTG.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.lblMaTG.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblMaTG.Location = new System.Drawing.Point(104, 306);
+            this.lblMaTG.Location = new System.Drawing.Point(158, 305);
             this.lblMaTG.Name = "lblMaTG";
             this.lblMaTG.Size = new System.Drawing.Size(163, 28);
             this.lblMaTG.TabIndex = 16;
@@ -228,7 +224,7 @@
             // 
             this.lblSoLuong.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.lblSoLuong.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblSoLuong.Location = new System.Drawing.Point(104, 255);
+            this.lblSoLuong.Location = new System.Drawing.Point(158, 255);
             this.lblSoLuong.Name = "lblSoLuong";
             this.lblSoLuong.Size = new System.Drawing.Size(163, 27);
             this.lblSoLuong.TabIndex = 15;
@@ -237,7 +233,7 @@
             // 
             this.lblMaLoai.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.lblMaLoai.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblMaLoai.Location = new System.Drawing.Point(104, 204);
+            this.lblMaLoai.Location = new System.Drawing.Point(158, 204);
             this.lblMaLoai.Name = "lblMaLoai";
             this.lblMaLoai.Size = new System.Drawing.Size(163, 27);
             this.lblMaLoai.TabIndex = 14;
@@ -247,51 +243,51 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(18, 307);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 20);
+            this.label8.Size = new System.Drawing.Size(79, 20);
             this.label8.TabIndex = 13;
-            this.label8.Text = "label8";
+            this.label8.Text = "Mã tác giả";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(18, 262);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 20);
+            this.label9.Size = new System.Drawing.Size(69, 20);
             this.label9.TabIndex = 12;
-            this.label9.Text = "label9";
+            this.label9.Text = "Số lượng";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(18, 211);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(58, 20);
+            this.label10.Size = new System.Drawing.Size(92, 20);
             this.label10.TabIndex = 11;
-            this.label10.Text = "label10";
+            this.label10.Text = "Mã đầu sách";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(18, 108);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(58, 20);
+            this.label11.Size = new System.Drawing.Size(134, 20);
             this.label11.TabIndex = 10;
-            this.label11.Text = "label11";
+            this.label11.Text = "Mã phiếu bàn giao";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(18, 166);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(58, 20);
+            this.label12.Size = new System.Drawing.Size(107, 20);
             this.label12.TabIndex = 9;
-            this.label12.Text = "label12";
+            this.label12.Text = "Mã quyển sách";
             // 
             // lblMaSach
             // 
             this.lblMaSach.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.lblMaSach.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblMaSach.Location = new System.Drawing.Point(104, 159);
+            this.lblMaSach.Location = new System.Drawing.Point(158, 159);
             this.lblMaSach.Name = "lblMaSach";
             this.lblMaSach.Size = new System.Drawing.Size(163, 27);
             this.lblMaSach.TabIndex = 6;
@@ -299,11 +295,11 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(18, 37);
+            this.label14.Location = new System.Drawing.Point(13, 29);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(58, 20);
+            this.label14.Size = new System.Drawing.Size(97, 20);
             this.label14.TabIndex = 7;
-            this.label14.Text = "label14";
+            this.label14.Text = "Mã nhân viên";
             // 
             // btnCreatePhieu
             // 
@@ -323,6 +319,33 @@
             this.btnKetThuc.TabIndex = 3;
             this.btnKetThuc.Text = "Kết Thúc";
             this.btnKetThuc.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label7.Location = new System.Drawing.Point(158, 107);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(163, 27);
+            this.label7.TabIndex = 28;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label13.Location = new System.Drawing.Point(158, 56);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(163, 27);
+            this.label13.TabIndex = 30;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(18, 57);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(134, 20);
+            this.label15.TabIndex = 29;
+            this.label15.Text = "Mã phiếu bàn giao";
             // 
             // FrmMuonSach
             // 
@@ -367,12 +390,14 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblMaSach;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox cbChonMaSach;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblMaTG;
         private System.Windows.Forms.Label lblSoLuong;
         private System.Windows.Forms.Label lblMaLoai;
         private System.Windows.Forms.Button btnCreatePhieu;
         private System.Windows.Forms.Button btnKetThuc;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label7;
     }
 }
