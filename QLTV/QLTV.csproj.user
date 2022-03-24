@@ -16,5 +16,23 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="FrmMuonSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmPhieuPhat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmTraSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="viewMuonSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
