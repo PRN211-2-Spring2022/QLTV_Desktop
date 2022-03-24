@@ -19,89 +19,38 @@ namespace BookLoanManager
         {
             InitializeComponent();
         }
-        TbSach objSach = new TbSach();
-
-        DataTable dtMuonTra, dtSach;
-
         
-        private void NapListviewMuonSach()
+        QLTV_DesktopContext qlms = new QLTV_DesktopContext();
+
+        public void Loadmuonsach()
         {
-            
-            foreach (DataRow dr in dtMuonTra.Rows)
-            {
-                ListViewItem li = new ListViewItem();
-                li.Text = dr["MaDG"].ToString();
-                li.SubItems.Add(dr["MaSach"].ToString());
-                li.SubItems.Add(dr["SoLuong"].ToString());
-                string ngaymuon = Convert.ToDateTime(dr["NgayMuon"].ToString()).ToShortDateString();
-                li.SubItems.Add(ngaymuon);
-                string ngayhentra = Convert.ToDateTime(dr["NgayHenTra"].ToString()).ToShortDateString();
-                li.SubItems.Add(ngayhentra);
-                //groupBox1.Items.Add(li);
-
-
-            }
-        }
-        
-
-        private void cbChonMaSach_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string strmasach = cbChonMaSach.SelectedValue.ToString();
-            
-            foreach (DataRow drw in dtSach.Rows)
-            {
-                lblMaSach.Text = drw["MaSach"].ToString();
-                lblMaLoai.Text = drw["MaLoaiSach"].ToString();
-                lblSoLuong.Text = drw["SoLuong"].ToString();
-                lblMaTG.Text = drw["MaTG"].ToString();
-            }
-
+            var loadsachmuon = (from a in qlms.TbDausaches
+                               join b in qlms.TbSaches on a.Madausach equals b.Madausach
+                               join c in qlms.TbCtTacgia on a.Madausach equals c.Madausach
+                               select new { b.Maquyensach, b.Madausach, a.Soluong, c.Matacgia }).ToList();
+            lbltensach.DataBindings.Clear();
+            lblMaLoai.DataBindings.Clear();
+            lblSoLuong.DataBindings.Clear();
+            lblMaTG.DataBindings.Clear();
+            //cbChonMaSach.DataBindings.Clear();
+            //cbChonMaSach.DataBindings.Add("Text")
+            lbltensach.DataBindings.Add("Text", loadsachmuon, "Maquyensach");
+            lblMaLoai.DataBindings.Add("Text", loadsachmuon, "Madausach");
+            lblSoLuong.DataBindings.Add("Text", loadsachmuon, "Soluong");
+            lblMaTG.DataBindings.Add("Text", loadsachmuon, "Matacgia");
         }
 
-        private void btnCreatePhieu_Click_1(object sender, EventArgs e)
+        private void FrmMuonSach_Load(object sender, EventArgs e)
         {
-            if (txtMaSach.Text == "")
+            try
             {
-                MessageBox.Show("Chưa nhập mã sách!");
-                txtMaSach.Focus();
+                Loadmuonsach();
             }
-            else if (txtSoLuong.Text == "")
+            catch (Exception)
             {
-                MessageBox.Show("Chưa nhập số lượng sách cho mượn!");
-                txtSoLuong.Focus();
-            }
-            else
-            {
-                try
-                {
-                    //lvwDanhSach.Items.Clear();
-                    DataRow dr = dtMuonTra.NewRow();
-                    dr["MaDG"] = cbMaDG.Text;
-                    dr["MaSach"] = txtMaSach.Text;
-                    dr["SoLuong"] = txtSoLuong.Text;
-                    dr["NgayMuon"] = dateNgayMuon.Value;
-                    dr["NgayHenTra"] = dateNgayTra.Text;
-                    dtMuonTra.Rows.Add(dr);
-                   
-                    //setButton();
-                    NapListviewMuonSach();
-                    MessageBox.Show("Đã cho mượn thành công!");
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Mã sách "+txtMaSach.Text+" không có trong kho sách!\nHãy nhập mã sách khác!");
-                    NapListviewMuonSach();
-                    txtMaSach.Focus();
-                }
+                MessageBox.Show("Error");
             }
         }
-
-        private void btnKetThuc_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        
 
         private void MuonTraSach_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -110,5 +59,9 @@ namespace BookLoanManager
                 e.Cancel = true;
         }
 
+        private void btnCreatePhieu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
