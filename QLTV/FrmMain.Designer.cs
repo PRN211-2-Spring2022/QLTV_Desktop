@@ -43,16 +43,24 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvthongtinsach = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtfind = new System.Windows.Forms.TextBox();
             this.btnfind = new System.Windows.Forms.Button();
             this.rbtnmathe = new System.Windows.Forms.RadioButton();
             this.rbtnten = new System.Windows.Forms.RadioButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtfindsach = new System.Windows.Forms.TextBox();
+            this.btnsearchsach = new System.Windows.Forms.Button();
+            this.rbtmasach = new System.Windows.Forms.RadioButton();
+            this.rbttensach = new System.Windows.Forms.RadioButton();
+            this.btntaophieu = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvthongtindocgia)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvthongtinsach)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvthongtindocgia
@@ -60,7 +68,7 @@
             this.dgvthongtindocgia.AllowUserToDeleteRows = false;
             this.dgvthongtindocgia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvthongtindocgia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvthongtindocgia.Location = new System.Drawing.Point(3, 226);
+            this.dgvthongtindocgia.Location = new System.Drawing.Point(12, 200);
             this.dgvthongtindocgia.Name = "dgvthongtindocgia";
             this.dgvthongtindocgia.ReadOnly = true;
             this.dgvthongtindocgia.RowHeadersWidth = 51;
@@ -70,7 +78,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1027, 519);
+            this.button1.Location = new System.Drawing.Point(1028, 516);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(145, 29);
             this.button1.TabIndex = 19;
@@ -91,9 +99,9 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(757, 85);
+            this.groupBox1.Location = new System.Drawing.Point(770, 109);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(425, 408);
+            this.groupBox1.Size = new System.Drawing.Size(425, 387);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phiếu";
@@ -197,18 +205,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Ngày mượn";
             // 
-            // dataGridView2
+            // dgvthongtinsach
             // 
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(377, 226);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 29;
-            this.dataGridView2.Size = new System.Drawing.Size(363, 345);
-            this.dataGridView2.TabIndex = 21;
+            this.dgvthongtinsach.AllowUserToDeleteRows = false;
+            this.dgvthongtinsach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvthongtinsach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvthongtinsach.Location = new System.Drawing.Point(386, 200);
+            this.dgvthongtinsach.Name = "dgvthongtinsach";
+            this.dgvthongtinsach.ReadOnly = true;
+            this.dgvthongtinsach.RowHeadersWidth = 51;
+            this.dgvthongtinsach.RowTemplate.Height = 29;
+            this.dgvthongtinsach.Size = new System.Drawing.Size(363, 345);
+            this.dgvthongtinsach.TabIndex = 21;
             // 
             // groupBox2
             // 
@@ -216,7 +224,7 @@
             this.groupBox2.Controls.Add(this.btnfind);
             this.groupBox2.Controls.Add(this.rbtnmathe);
             this.groupBox2.Controls.Add(this.rbtnten);
-            this.groupBox2.Location = new System.Drawing.Point(3, 135);
+            this.groupBox2.Location = new System.Drawing.Point(12, 109);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(353, 85);
             this.groupBox2.TabIndex = 34;
@@ -261,25 +269,101 @@
             this.rbtnten.Text = "Tên độc giả";
             this.rbtnten.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtfindsach);
+            this.groupBox3.Controls.Add(this.btnsearchsach);
+            this.groupBox3.Controls.Add(this.rbtmasach);
+            this.groupBox3.Controls.Add(this.rbttensach);
+            this.groupBox3.Location = new System.Drawing.Point(386, 109);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(363, 85);
+            this.groupBox3.TabIndex = 35;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Thông tin sách";
+            // 
+            // txtfindsach
+            // 
+            this.txtfindsach.Location = new System.Drawing.Point(6, 49);
+            this.txtfindsach.Name = "txtfindsach";
+            this.txtfindsach.Size = new System.Drawing.Size(236, 27);
+            this.txtfindsach.TabIndex = 0;
+            // 
+            // btnsearchsach
+            // 
+            this.btnsearchsach.Location = new System.Drawing.Point(255, 44);
+            this.btnsearchsach.Name = "btnsearchsach";
+            this.btnsearchsach.Size = new System.Drawing.Size(98, 38);
+            this.btnsearchsach.TabIndex = 1;
+            this.btnsearchsach.Text = "Tìm kiếm";
+            this.btnsearchsach.UseVisualStyleBackColor = true;
+            // 
+            // rbtmasach
+            // 
+            this.rbtmasach.AutoSize = true;
+            this.rbtmasach.Location = new System.Drawing.Point(6, 19);
+            this.rbtmasach.Name = "rbtmasach";
+            this.rbtmasach.Size = new System.Drawing.Size(128, 24);
+            this.rbtmasach.TabIndex = 29;
+            this.rbtmasach.TabStop = true;
+            this.rbtmasach.Text = "Mã quyển sách";
+            this.rbtmasach.UseVisualStyleBackColor = true;
+            // 
+            // rbttensach
+            // 
+            this.rbttensach.AutoSize = true;
+            this.rbttensach.Location = new System.Drawing.Point(142, 19);
+            this.rbttensach.Name = "rbttensach";
+            this.rbttensach.Size = new System.Drawing.Size(86, 24);
+            this.rbttensach.TabIndex = 30;
+            this.rbttensach.TabStop = true;
+            this.rbttensach.Text = "Tên sách";
+            this.rbttensach.UseVisualStyleBackColor = true;
+            // 
+            // btntaophieu
+            // 
+            this.btntaophieu.Location = new System.Drawing.Point(792, 516);
+            this.btntaophieu.Name = "btntaophieu";
+            this.btntaophieu.Size = new System.Drawing.Size(145, 29);
+            this.btntaophieu.TabIndex = 36;
+            this.btntaophieu.Text = "Tạo phiếu mượn";
+            this.btntaophieu.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(481, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(219, 31);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "Quản lý mượn sách";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btntaophieu);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dgvthongtinsach);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvthongtindocgia);
             this.Name = "FrmMain";
-            this.Size = new System.Drawing.Size(1198, 661);
+            this.Size = new System.Drawing.Size(1198, 599);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvthongtindocgia)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvthongtinsach)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -299,11 +383,18 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvthongtinsach;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtfind;
         private System.Windows.Forms.Button btnfind;
         private System.Windows.Forms.RadioButton rbtnmathe;
         private System.Windows.Forms.RadioButton rbtnten;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtfindsach;
+        private System.Windows.Forms.Button btnsearchsach;
+        private System.Windows.Forms.RadioButton rbtmasach;
+        private System.Windows.Forms.RadioButton rbttensach;
+        private System.Windows.Forms.Button btntaophieu;
+        private System.Windows.Forms.Label label3;
     }
 }
