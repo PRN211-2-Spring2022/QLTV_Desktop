@@ -20,6 +20,16 @@ namespace QLTV
         }
         QLTV_DesktopContext QLTV_qldg = new QLTV_DesktopContext();
 
+        private static readerinformation _instance;
+        public static readerinformation Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new readerinformation();
+                return _instance;
+            }
+        }
         public void Loadinformation()
         {
             var docgia = (from c in QLTV_qldg.TbDocgia
