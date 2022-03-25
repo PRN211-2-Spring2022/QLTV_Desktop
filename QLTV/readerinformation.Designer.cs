@@ -207,7 +207,7 @@
             this.dgvthongtindocgia.ReadOnly = true;
             this.dgvthongtindocgia.RowHeadersWidth = 51;
             this.dgvthongtindocgia.RowTemplate.Height = 29;
-            this.dgvthongtindocgia.Size = new System.Drawing.Size(849, 576);
+            this.dgvthongtindocgia.Size = new System.Drawing.Size(843, 576);
             this.dgvthongtindocgia.TabIndex = 24;
             this.dgvthongtindocgia.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvthongtindocgia_CellContentDoubleClick);
             // 
@@ -346,6 +346,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvthongtindocgia);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.Name = "readerinformation";
             this.Size = new System.Drawing.Size(1334, 722);
             this.Load += new System.EventHandler(this.readerinformation_Load);

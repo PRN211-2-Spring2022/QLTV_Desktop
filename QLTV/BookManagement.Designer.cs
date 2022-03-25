@@ -60,6 +60,7 @@
             this.dgvBook.MultiSelect = false;
             this.dgvBook.Name = "dgvBook";
             this.dgvBook.ReadOnly = true;
+            this.dgvBook.RowHeadersWidth = 51;
             this.dgvBook.RowTemplate.Height = 25;
             this.dgvBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBook.Size = new System.Drawing.Size(625, 600);
@@ -79,7 +80,7 @@
             // 
             this.txtSearch.Location = new System.Drawing.Point(3, 320);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(140, 23);
+            this.txtSearch.Size = new System.Drawing.Size(140, 27);
             this.txtSearch.TabIndex = 3;
             // 
             // labelSearch
@@ -87,7 +88,7 @@
             this.labelSearch.AutoSize = true;
             this.labelSearch.Location = new System.Drawing.Point(3, 302);
             this.labelSearch.Name = "labelSearch";
-            this.labelSearch.Size = new System.Drawing.Size(56, 15);
+            this.labelSearch.Size = new System.Drawing.Size(70, 20);
             this.labelSearch.TabIndex = 4;
             this.labelSearch.Text = "Tìm kiếm";
             // 
@@ -106,7 +107,7 @@
             this.txtBookID.Location = new System.Drawing.Point(3, 449);
             this.txtBookID.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.txtBookID.Name = "txtBookID";
-            this.txtBookID.Size = new System.Drawing.Size(140, 23);
+            this.txtBookID.Size = new System.Drawing.Size(140, 27);
             this.txtBookID.TabIndex = 8;
             // 
             // btnRefresh
@@ -132,6 +133,7 @@
             this.dgvAuthor.MultiSelect = false;
             this.dgvAuthor.Name = "dgvAuthor";
             this.dgvAuthor.ReadOnly = true;
+            this.dgvAuthor.RowHeadersWidth = 51;
             this.dgvAuthor.RowTemplate.Height = 25;
             this.dgvAuthor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAuthor.Size = new System.Drawing.Size(275, 600);
@@ -142,7 +144,7 @@
             this.txtAuthorID.Location = new System.Drawing.Point(3, 472);
             this.txtAuthorID.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.txtAuthorID.Name = "txtAuthorID";
-            this.txtAuthorID.Size = new System.Drawing.Size(140, 23);
+            this.txtAuthorID.Size = new System.Drawing.Size(140, 27);
             this.txtAuthorID.TabIndex = 11;
             // 
             // btnDeleteAuthor
@@ -170,7 +172,7 @@
             this.rdAuthor.AutoSize = true;
             this.rdAuthor.Location = new System.Drawing.Point(3, 374);
             this.rdAuthor.Name = "rdAuthor";
-            this.rdAuthor.Size = new System.Drawing.Size(83, 19);
+            this.rdAuthor.Size = new System.Drawing.Size(104, 24);
             this.rdAuthor.TabIndex = 14;
             this.rdAuthor.TabStop = true;
             this.rdAuthor.Text = "Tìm tác giả";
@@ -181,7 +183,7 @@
             this.rdBook.AutoSize = true;
             this.rdBook.Location = new System.Drawing.Point(3, 349);
             this.rdBook.Name = "rdBook";
-            this.rdBook.Size = new System.Drawing.Size(95, 19);
+            this.rdBook.Size = new System.Drawing.Size(117, 24);
             this.rdBook.TabIndex = 15;
             this.rdBook.TabStop = true;
             this.rdBook.Text = "Tìm đầu sách";
@@ -217,6 +219,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtAuthorID);
             this.Controls.Add(this.btnSearch);
+            this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.Name = "BookManagement";
             this.Size = new System.Drawing.Size(1050, 604);
             this.Load += new System.EventHandler(this.BookManagement_Load);
