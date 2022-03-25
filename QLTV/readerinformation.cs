@@ -96,7 +96,7 @@ namespace QLTV
                 MessageBox.Show("Đối tượng không thể để trống");
                 boxdoituong.Focus();
             }
-            else if(dtxtngaylamthe.Value > DateTime.Now)
+            else if(dtxtngaylamthe.Value > DateTime.Now || dtxtngaylamthe.Value < DateTime.Now)
             {
                 MessageBox.Show("Ngày làm thẻ là hôm nay");
                 dtxtngaylamthe.Value = DateTime.Now;
@@ -224,6 +224,11 @@ namespace QLTV
             if (txtfind.Text == "")
             {
                 MessageBox.Show("Thông tin tìm kiếm không thể để trống");
+                txtfind.Focus();
+            }
+            else if(!Regex.IsMatch(txtfind.Text.Trim(),@"\d{3}$") && rbtnmathe.Checked ==true)
+            {
+                MessageBox.Show("Mã thẻ độc giả có dạng 3 chữ số");
                 txtfind.Focus();
             }
             else if (rbtnmathe.Checked == true)
