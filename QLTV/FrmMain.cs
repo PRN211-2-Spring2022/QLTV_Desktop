@@ -20,6 +20,12 @@ namespace BookLoanManager
 
         QLTV_DesktopContext QLTV = new QLTV_DesktopContext();
 
+        public void Loadform()
+        {
+            //var phieusach = (from b in QLTV.TbCtPhieubangiaos
+             //                select new { b.Maquyensach, b.Maphieubangiao }).ToList();
+            
+        }
         public void LoadDG()
         {
             var docgia = (
@@ -27,6 +33,8 @@ namespace BookLoanManager
                 select new { d.Mathedocgia, d.Hoten, d.Diachi }
             ).ToList();
             dgvthongtindocgia.DataSource = docgia;
+            txtMaDocGia.DataBindings.Clear();
+            txtMaDocGia.DataBindings.Add("Text", docgia, "Mathedocgia");
         }
         public void Loadsach()
         {
@@ -35,9 +43,13 @@ namespace BookLoanManager
                 join b in QLTV.TbSaches on d.Madausach equals b.Madausach
                 join c in QLTV.TbCtTacgia on b.Madausach equals c.Madausach
                 join e in QLTV.TbTacgia on c.Matacgia equals e.Matacgia
-                select new { b.Madausach, d.Tendausach, e.Tentacgia }
-            ).Distinct().ToList();
+                select new {b.Maquyensach, b.Madausach, d.Tendausach, e.Tentacgia, b.Tinhtrangsach }
+            ).ToList();
             dgvthongtinsach.DataSource = sach;
+            txtmasach.DataBindings.Clear();
+            txtmasach.DataBindings.Add("Text", sach, "Maquyensach");
+            txtTTSach.DataBindings.Clear();
+            txtTTSach.DataBindings.Add("Text", sach, "Tinhtrangsach");
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -47,6 +59,7 @@ namespace BookLoanManager
             {
                 LoadDG();
                 Loadsach();
+                Loadform();
             }
             catch (Exception ex)
             {
@@ -126,45 +139,45 @@ namespace BookLoanManager
         {
             try
             {
-                if (txtName.Text != "" && txtMaDocGia.Text != "")
-                {
-                    var phieuQuery = QLTV_Desktop.TbPhieubangiaosaches.Add(
-                        new TbPhieubangiaosach
-                        {
-                            Manhanvien = int.Parse(txtName.Text),
-                            Mathedocgia = int.Parse(txtMaDocGia.Text),
-                            Maphieubangiao = int.Parse(lblbangiao.Text)
-                        }
-                        );
-                    var addedEmployee = QLTV_Desktop.TbNhanViens.OrderBy(b => b.Manhanvien).Last();                 
-                    var readerItem = QLTV_Desktop.TbPhieubangiaosaches.FirstOrDefault(
-                        a => a.Mathedocgia == int.Parse(txtMaDocGia.Text)
-                    );                  
-                    var ticketBangGiao = QLTV_Desktop.TbPhieubangiaosaches.FirstOrDefault(
-                        b => b.Maphieubangiao == int.Parse(lblbangiao.Text)
-                        );
-                    if (readerItem != null)
-                    {
-                        var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
-                            new TbPhieubangiaosach
-                            {
-                                Manhanvien = addedEmployee.Manhanvien,
-                                Mathedocgia = readerItem.Mathedocgia,
-                                Maphieubangiao = ticketBangGiao.Maphieubangiao,
-                                TbCtPhieubangiaos = "Chủ biên"
-                            }
-                        );
-                        QLTV_Desktop.SaveChanges();
+                //if (txtName.Text != "" && txtMaDocGia.Text != "")
+                //{
+                //    var phieuQuery = QLTV_Desktop.TbPhieubangiaosaches.Add(
+                //        new TbPhieubangiaosach
+                //        {
+                //            Manhanvien = int.Parse(txtName.Text),
+                //            Mathedocgia = int.Parse(txtMaDocGia.Text),
+                //            Maphieubangiao = int.Parse(lblbangiao.Text)
+                //        }
+                //        );
+                //    var addedEmployee = QLTV_Desktop.TbNhanViens.OrderBy(b => b.Manhanvien).Last();                 
+                //    var readerItem = QLTV_Desktop.TbPhieubangiaosaches.FirstOrDefault(
+                //        a => a.Mathedocgia == int.Parse(txtMaDocGia.Text)
+                //    );                  
+                //    var ticketBangGiao = QLTV_Desktop.TbPhieubangiaosaches.FirstOrDefault(
+                //        b => b.Maphieubangiao == int.Parse(lblbangiao.Text)
+                //        );
+                //    if (readerItem != null)
+                //    {
+                //        var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
+                //            new TbPhieubangiaosach
+                //            {
+                //                Manhanvien = addedEmployee.Manhanvien,
+                //                Mathedocgia = readerItem.Mathedocgia,
+                //                Maphieubangiao = ticketBangGiao.Maphieubangiao,
+                //                TbCtPhieubangiaos = "Chủ biên"
+                //            }
+                //        );
+                //        QLTV_Desktop.SaveChanges();
 
-                        MessageBox.Show("Thêm thành công.");
+                //        MessageBox.Show("Thêm thành công.");
                         
-                    }
+                //    }
 
-                }
-                else
-                {
-                    MessageBox.Show("Không được để trống thông tin.");
-                }
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Không được để trống thông tin.");
+                //}
             }
             catch (Exception ex)
             {
@@ -176,14 +189,14 @@ namespace BookLoanManager
         private void dgvthongtindocgia_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
            
-            txtName.DataBindings.Clear();
-            txtName.DataBindings.Add("text", dgvthongtindocgia.DataSource, "Manhanvien");
-            txtMaDocGia.DataBindings.Clear();
-            txtMaDocGia.DataBindings.Add("text", dgvthongtindocgia.DataSource, "Mathedocgia");
-            lblbangiao.DataBindings.Clear();
-            lblbangiao.DataBindings.Add("text", dgvthongtindocgia.DataSource, "TbCtPhieubangiaos");
-            txtTTSach.DataBindings.Clear();
-            txtTTSach.DataBindings.Add("text", dgvthongtindocgia.DataSource, "Tinhtrangkhigiao");
+            //txtName.DataBindings.Clear();
+            //txtName.DataBindings.Add("text", dgvthongtindocgia.DataSource, "Manhanvien");
+            //txtMaDocGia.DataBindings.Clear();
+            //txtMaDocGia.DataBindings.Add("text", dgvthongtindocgia.DataSource, "Mathedocgia");
+            //txtmasach.DataBindings.Clear();
+            //txtmasach.DataBindings.Add("text", dgvthongtindocgia.DataSource, "TbCtPhieubangiaos");
+            //txtTTSach.DataBindings.Clear();
+            //txtTTSach.DataBindings.Add("text", dgvthongtindocgia.DataSource, "Tinhtrangkhigiao");
 
         }
     }
