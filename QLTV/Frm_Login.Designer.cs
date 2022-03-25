@@ -70,7 +70,7 @@ namespace QLTV
             this.txtAccount.Location = new System.Drawing.Point(113, 159);
             this.txtAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAccount.Name = "txtAccount";
-            this.txtAccount.Size = new System.Drawing.Size(143, 27);
+            this.txtAccount.Size = new System.Drawing.Size(392, 27);
             this.txtAccount.TabIndex = 2;
             // 
             // txtPassword
@@ -78,14 +78,14 @@ namespace QLTV
             this.txtPassword.Location = new System.Drawing.Point(113, 208);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(143, 27);
+            this.txtPassword.Size = new System.Drawing.Size(392, 27);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLogin.Location = new System.Drawing.Point(274, 159);
+            this.btnLogin.Location = new System.Drawing.Point(511, 160);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(86, 80);
@@ -119,7 +119,7 @@ namespace QLTV
             // 
             this.btnExit.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnExit.Location = new System.Drawing.Point(274, 323);
+            this.btnExit.Location = new System.Drawing.Point(511, 324);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(86, 35);
@@ -164,14 +164,14 @@ namespace QLTV
             this.txtMnv.Location = new System.Drawing.Point(113, 255);
             this.txtMnv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMnv.Name = "txtMnv";
-            this.txtMnv.Size = new System.Drawing.Size(51, 27);
+            this.txtMnv.Size = new System.Drawing.Size(121, 27);
             this.txtMnv.TabIndex = 11;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 361);
+            this.ClientSize = new System.Drawing.Size(629, 361);
             this.Controls.Add(this.txtMnv);
             this.Controls.Add(this.lblMnv);
             this.Controls.Add(this.lblTime);
