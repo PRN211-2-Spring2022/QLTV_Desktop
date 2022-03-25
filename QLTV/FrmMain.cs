@@ -147,31 +147,34 @@ namespace BookLoanManager
             {
                 try
                 {
-                    var phieumuon = QLTV.TbPhieubangiaosaches.Add(
-                        new TbPhieubangiaosach
-                        {
-                            Mathedocgia = Int32.Parse(txtMaDocGia.Text),
-                            Manhanvien = Int32.Parse(txtName.Text),
-                            Ngaydukientra = dateNgayMuon.Value,
-                            Ngaymuon = dateNgayTra.Value,
-                            Tinhtrangkhigiao = cmbtinhtrangsach.Text
-                        }
-                    );
-                    QLTV.SaveChanges();
+                    TbPhieubangiaosach muonsach = new TbPhieubangiaosach()
+                    {
+                        Mathedocgia = int.Parse(txtMaDocGia.Text),
+                        Manhanvien = int.Parse(txtName.Text),
+                        Ngaymuon = dateNgayMuon.Value,
+                        Ngaydukientra = dateNgayTra.Value,
+                        Tinhtrangkhigiao = cmbtinhtrangsach.Text
+                    };
+                    var addma = QLTV.TbPhieubangiaosaches.OrderBy(b => b.Maphieubangiao).Last();
+                    TbCtPhieubangiao taophieu = new TbCtPhieubangiao()
+                    {
+                        Maquyensach = int.Parse(txtMaDocGia.Text),
+                        Maphieubangiao = addma.Maphieubangiao
 
-                    var laymaphieu = QLTV.TbPhieubangiaosaches
-                        .OrderBy(b => b.Maphieubangiao)
-                        .Last();
-                    var ctphieumuon = QLTV.TbCtPhieubangiaos.Add(
-                        new TbCtPhieubangiao
-                        {
-                            Maquyensach = int.Parse(txtName.Text),
-                            Maphieubangiao = laymaphieu.Maphieubangiao
-                        }
-                    );
-                    QLTV.SaveChanges();
+                    };
+                    try
+                    {
+                        QLTV.TbPhieubangiaosaches.Add(muonsach);
+                        QLTV.SaveChanges();
 
-                    MessageBox.Show("success");
+                        QLTV.TbCtPhieubangiaos.Add(taophieu);
+                        QLTV.SaveChanges();
+                        MessageBox.Show("Tạo phiếu mượn thành công");
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Tạo phiếu thất bại.");
+                    }
                 }
                 catch (Exception ex)
                 {
