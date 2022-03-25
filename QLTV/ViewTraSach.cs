@@ -10,7 +10,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace BookLoanManager
+namespace QLTV
 {
     public partial class ViewTraSach : Form
     {

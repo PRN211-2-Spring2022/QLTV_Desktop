@@ -1,6 +1,6 @@
-﻿namespace BookLoanManager
+﻿namespace QLTV
 {
-    partial class FrmMain
+    partial class Frm_Maintrasach
     {
         /// <summary> 
         /// Required designer variable.

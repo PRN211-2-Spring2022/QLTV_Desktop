@@ -1,4 +1,4 @@
-﻿namespace BookLoanManager
+﻿namespace QLTV
 {
     partial class FrmPhieuPhat
     {

@@ -10,17 +10,28 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using QLTV;
 
-namespace BookLoanManager
+namespace QLTV
+
 {
-    public partial class FrmMain : UserControl
+    public partial class Frm_Maintrasach : UserControl
     {
-        public FrmMain()
+        public Frm_Maintrasach()
         {
             InitializeComponent();
         }
 
         QLTV_DesktopContext QLTV = new QLTV_DesktopContext();
 
+        private static Frm_Maintrasach _instance;
+        public static Frm_Maintrasach Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new Frm_Maintrasach();
+                return _instance;
+            }
+        }
 
         public void load_Phieu()
         {

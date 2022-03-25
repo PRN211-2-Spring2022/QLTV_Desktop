@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using QLTV;
 
-namespace BookLoanManager
+namespace QLTV
 {
     public partial class Frmmuonsach : UserControl
     {
@@ -20,6 +20,17 @@ namespace BookLoanManager
         }
 
         QLTV_DesktopContext QLTV = new QLTV_DesktopContext();
+
+        private static Frmmuonsach _instance;
+        public static Frmmuonsach Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new Frmmuonsach();
+                return _instance;
+            }
+        }
 
         public void Loadform()
         {
