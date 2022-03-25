@@ -160,20 +160,21 @@ namespace BookLoanManager
                     Ngaydukientra = dateNgayTra.Value,
                     Tinhtrangkhigiao = cmbtinhtrangsach.Text,
                 };
+                var addphieubangiao = QLTV.TbPhieubangiaosaches.OrderBy(f => f.Maphieubangiao).Last();
+                
                 TbCtPhieubangiao phieubangiao1 = new TbCtPhieubangiao()
                 {
                     Maquyensach = int.Parse(txtmasach.Text),
-                    Maphieubangiao = phieubangiao.Maphieubangiao
+                    Maphieubangiao = addphieubangiao.Maphieubangiao
                 };
                 try
                 {
-                    QLTV.TbCtPhieubangiaos.Add(phieubangiao1);
                     QLTV.TbPhieubangiaosaches.Add(phieubangiao);
-                    int count = QLTV.SaveChanges();
-                    if (count > 0)
-                    {
-                        MessageBox.Show("Tạo phiếu thành công");
-                    }
+                    QLTV.SaveChanges();
+                    QLTV.TbCtPhieubangiaos.Add(phieubangiao1);
+                    QLTV.SaveChanges();
+                    MessageBox.Show("Tạo phiếu thành công");
+                    
                 }
                 catch (Exception ex)
                 {
