@@ -43,7 +43,7 @@
             this.dgvlichsu.Name = "dgvlichsu";
             this.dgvlichsu.RowHeadersWidth = 51;
             this.dgvlichsu.RowTemplate.Height = 29;
-            this.dgvlichsu.Size = new System.Drawing.Size(911, 363);
+            this.dgvlichsu.Size = new System.Drawing.Size(943, 363);
             this.dgvlichsu.TabIndex = 0;
             // 
             // txtfind
@@ -86,13 +86,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(962, 503);
+            this.ClientSize = new System.Drawing.Size(995, 503);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtfind);
             this.Controls.Add(this.dgvlichsu);
             this.Name = "frmlichsu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmlichsu";
             this.Load += new System.EventHandler(this.frmlichsu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvlichsu)).EndInit();

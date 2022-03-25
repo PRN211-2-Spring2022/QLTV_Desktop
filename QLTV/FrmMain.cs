@@ -56,7 +56,10 @@ namespace BookLoanManager
             ).ToList();
             foreach (var s in sach)
             {
-                if (s.Tinhtrangsach == 1) { }
+                if (s.Tinhtrangsach == 1)
+                {
+                    
+                }
             }
             dgvthongtinsach.DataSource = sach;
             txtmasach.DataBindings.Clear();

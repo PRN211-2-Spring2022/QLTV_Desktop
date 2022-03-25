@@ -22,9 +22,10 @@ namespace QLTV
         public void loadlichsu()
         {
             var lichsu = (from s in qltv.TbPhieubangiaosaches
+                          join d in qltv.TbCtPhieubangiaos on s.Maphieubangiao equals d.Maphieubangiao
                           select new
                           {
-                              s.Maphieubangiao, s.Mathedocgia, s.Manhanvien, s.Ngaymuon, s.Ngaydukientra, s.Tinhtrangkhigiao
+                            d.Maquyensach,  s.Maphieubangiao, s.Mathedocgia, s.Manhanvien, s.Ngaymuon, s.Ngaydukientra, s.Tinhtrangkhigiao
                           }).ToList();
             dgvlichsu.DataSource = lichsu;
         }
