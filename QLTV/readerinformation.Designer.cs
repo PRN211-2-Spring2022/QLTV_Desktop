@@ -311,11 +311,12 @@
             // 
             this.txtmathedocgia.AutoSize = true;
             this.txtmathedocgia.BackColor = System.Drawing.Color.White;
+            this.txtmathedocgia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.txtmathedocgia.Location = new System.Drawing.Point(409, 23);
             this.txtmathedocgia.Name = "txtmathedocgia";
-            this.txtmathedocgia.Size = new System.Drawing.Size(25, 20);
+            this.txtmathedocgia.Size = new System.Drawing.Size(43, 22);
             this.txtmathedocgia.TabIndex = 26;
-            this.txtmathedocgia.Text = "    ";
+            this.txtmathedocgia.Text = "        ";
             // 
             // label7
             // 
