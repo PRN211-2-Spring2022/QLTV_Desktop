@@ -263,6 +263,7 @@ namespace QLTV
                         db.TbCtNhanlais.Add(ctnl);
                         db.SaveChanges();
                         MessageBox.Show("Thêm thành Công");
+
                     }
                     catch (Exception ex)
                     {

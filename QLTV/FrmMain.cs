@@ -66,14 +66,7 @@ namespace BookLoanManager
 
 
 
-        public void LoadDG()
-        {
-            var docgia = (
-                from d in QLTV.TbDocgia
-                select new { d.Mathedocgia, d.Hoten, d.Ngaysinh, d.Diachi }
-            ).ToList();
-            dataGridView1.DataSource = docgia;
-        }
+        
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
