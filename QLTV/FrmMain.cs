@@ -160,8 +160,14 @@ namespace BookLoanManager
                     Ngaydukientra = dateNgayTra.Value,
                     Tinhtrangkhigiao = cmbtinhtrangsach.Text,
                 };
+                TbCtPhieubangiao phieubangiao1 = new TbCtPhieubangiao()
+                {
+                    Maquyensach = int.Parse(txtmasach.Text),
+                    Maphieubangiao = phieubangiao.Maphieubangiao
+                };
                 try
                 {
+                    QLTV.TbCtPhieubangiaos.Add(phieubangiao1);
                     QLTV.TbPhieubangiaosaches.Add(phieubangiao);
                     int count = QLTV.SaveChanges();
                     if (count > 0)
@@ -188,6 +194,11 @@ namespace BookLoanManager
             //txtmasach.DataBindings.Add("text", dgvthongtindocgia.DataSource, "TbCtPhieubangiaos");
             //txtTTSach.DataBindings.Clear();
             //txtTTSach.DataBindings.Add("text", dgvthongtindocgia.DataSource, "Tinhtrangkhigiao");
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
 
         }
     }
