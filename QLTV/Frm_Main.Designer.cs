@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Main));
-            this.pnlSideBar = new System.Windows.Forms.Panel();
             this.btn_UserManagement = new System.Windows.Forms.Button();
             this.btn_BookManagement = new System.Windows.Forms.Button();
             this.btn_Statistical = new System.Windows.Forms.Button();
@@ -42,26 +41,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.Pn_Main = new System.Windows.Forms.Panel();
             this.btn_Exit = new System.Windows.Forms.Button();
-            this.pnlSideBar.SuspendLayout();
+            this.Pn_SideBar = new System.Windows.Forms.FlowLayoutPanel();
+            this.Pn_SideBar.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlSideBar
-            // 
-            this.pnlSideBar.BackColor = System.Drawing.Color.Transparent;
-            this.pnlSideBar.Controls.Add(this.btn_UserManagement);
-            this.pnlSideBar.Controls.Add(this.btn_BookManagement);
-            this.pnlSideBar.Controls.Add(this.btn_Statistical);
-            this.pnlSideBar.Controls.Add(this.btn_ReturnManagement);
-            this.pnlSideBar.Controls.Add(this.btn_LoanManagement);
-            this.pnlSideBar.Controls.Add(this.btn_ReaderManagement);
-            this.pnlSideBar.Controls.Add(this.btn_HomePage);
-            this.pnlSideBar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlSideBar.ForeColor = System.Drawing.Color.Aqua;
-            this.pnlSideBar.Location = new System.Drawing.Point(0, 97);
-            this.pnlSideBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlSideBar.Name = "pnlSideBar";
-            this.pnlSideBar.Size = new System.Drawing.Size(199, 722);
-            this.pnlSideBar.TabIndex = 0;
             // 
             // btn_UserManagement
             // 
@@ -69,7 +51,7 @@
             this.btn_UserManagement.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_UserManagement.ForeColor = System.Drawing.Color.Black;
             this.btn_UserManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_UserManagement.Location = new System.Drawing.Point(1, 78);
+            this.btn_UserManagement.Location = new System.Drawing.Point(0, 75);
             this.btn_UserManagement.Margin = new System.Windows.Forms.Padding(0);
             this.btn_UserManagement.Name = "btn_UserManagement";
             this.btn_UserManagement.Size = new System.Drawing.Size(198, 71);
@@ -86,7 +68,7 @@
             this.btn_BookManagement.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_BookManagement.ForeColor = System.Drawing.Color.Black;
             this.btn_BookManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_BookManagement.Location = new System.Drawing.Point(1, 146);
+            this.btn_BookManagement.Location = new System.Drawing.Point(0, 146);
             this.btn_BookManagement.Margin = new System.Windows.Forms.Padding(0);
             this.btn_BookManagement.Name = "btn_BookManagement";
             this.btn_BookManagement.Size = new System.Drawing.Size(198, 71);
@@ -103,7 +85,7 @@
             this.btn_Statistical.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Statistical.ForeColor = System.Drawing.Color.Black;
             this.btn_Statistical.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Statistical.Location = new System.Drawing.Point(0, 446);
+            this.btn_Statistical.Location = new System.Drawing.Point(0, 444);
             this.btn_Statistical.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Statistical.Name = "btn_Statistical";
             this.btn_Statistical.Size = new System.Drawing.Size(199, 74);
@@ -119,7 +101,7 @@
             this.btn_ReturnManagement.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ReturnManagement.ForeColor = System.Drawing.Color.Black;
             this.btn_ReturnManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ReturnManagement.Location = new System.Drawing.Point(1, 372);
+            this.btn_ReturnManagement.Location = new System.Drawing.Point(0, 370);
             this.btn_ReturnManagement.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ReturnManagement.Name = "btn_ReturnManagement";
             this.btn_ReturnManagement.Size = new System.Drawing.Size(198, 74);
@@ -135,7 +117,7 @@
             this.btn_LoanManagement.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_LoanManagement.ForeColor = System.Drawing.Color.Black;
             this.btn_LoanManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_LoanManagement.Location = new System.Drawing.Point(0, 290);
+            this.btn_LoanManagement.Location = new System.Drawing.Point(0, 289);
             this.btn_LoanManagement.Margin = new System.Windows.Forms.Padding(0);
             this.btn_LoanManagement.Name = "btn_LoanManagement";
             this.btn_LoanManagement.Size = new System.Drawing.Size(199, 81);
@@ -151,7 +133,7 @@
             this.btn_ReaderManagement.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ReaderManagement.ForeColor = System.Drawing.Color.Black;
             this.btn_ReaderManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ReaderManagement.Location = new System.Drawing.Point(0, 218);
+            this.btn_ReaderManagement.Location = new System.Drawing.Point(0, 217);
             this.btn_ReaderManagement.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ReaderManagement.Name = "btn_ReaderManagement";
             this.btn_ReaderManagement.Size = new System.Drawing.Size(199, 72);
@@ -235,6 +217,21 @@
             this.btn_Exit.TabIndex = 11;
             this.btn_Exit.UseVisualStyleBackColor = false;
             // 
+            // Pn_SideBar
+            // 
+            this.Pn_SideBar.BackColor = System.Drawing.Color.Transparent;
+            this.Pn_SideBar.Controls.Add(this.btn_HomePage);
+            this.Pn_SideBar.Controls.Add(this.btn_UserManagement);
+            this.Pn_SideBar.Controls.Add(this.btn_BookManagement);
+            this.Pn_SideBar.Controls.Add(this.btn_ReaderManagement);
+            this.Pn_SideBar.Controls.Add(this.btn_LoanManagement);
+            this.Pn_SideBar.Controls.Add(this.btn_ReturnManagement);
+            this.Pn_SideBar.Controls.Add(this.btn_Statistical);
+            this.Pn_SideBar.Location = new System.Drawing.Point(0, 97);
+            this.Pn_SideBar.Name = "Pn_SideBar";
+            this.Pn_SideBar.Size = new System.Drawing.Size(200, 722);
+            this.Pn_SideBar.TabIndex = 12;
+            // 
             // Frm_Main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -243,22 +240,20 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1537, 818);
+            this.Controls.Add(this.Pn_SideBar);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.Pn_Main);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pnlSideBar);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Frm_Main";
-            this.pnlSideBar.ResumeLayout(false);
+            this.Pn_SideBar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlSideBar;
         private System.Windows.Forms.Button btn_HomePage;
         private System.Windows.Forms.Button btn_UserManagement;
         private System.Windows.Forms.Button btn_Statistical;
@@ -271,5 +266,6 @@
         private System.Windows.Forms.Panel Pn_Main;
         private System.Windows.Forms.Button btn_ReaderManagement;
         private System.Windows.Forms.Button btn_Exit;
+        private System.Windows.Forms.FlowLayoutPanel Pn_SideBar;
     }
 }
