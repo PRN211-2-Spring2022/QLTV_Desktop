@@ -40,7 +40,7 @@ namespace QLTV.Models
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
             IConfigurationRoot configuration = builder.Build();
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("MyStoreDB"));
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("QLTV_Desktop"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
