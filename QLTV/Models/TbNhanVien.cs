@@ -9,6 +9,7 @@ namespace QLTV.Models
     {
         public TbNhanVien()
         {
+            TbAccounts = new HashSet<TbAccount>();
             TbBbNhanlaisaches = new HashSet<TbBbNhanlaisach>();
             TbPhieubangiaosaches = new HashSet<TbPhieubangiaosach>();
         }
@@ -16,6 +17,7 @@ namespace QLTV.Models
         public int Manhanvien { get; set; }
         public string Tennhanvien { get; set; }
 
+        public virtual ICollection<TbAccount> TbAccounts { get; set; }
         public virtual ICollection<TbBbNhanlaisach> TbBbNhanlaisaches { get; set; }
         public virtual ICollection<TbPhieubangiaosach> TbPhieubangiaosaches { get; set; }
     }

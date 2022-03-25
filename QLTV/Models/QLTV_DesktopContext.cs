@@ -19,7 +19,7 @@ namespace QLTV.Models
         {
         }
 
-        public virtual DbSet<TbAcount> TbAcounts { get; set; }
+        public virtual DbSet<TbAccount> TbAccounts { get; set; }
         public virtual DbSet<TbBbNhanlaisach> TbBbNhanlaisaches { get; set; }
         public virtual DbSet<TbCtNhanlai> TbCtNhanlais { get; set; }
         public virtual DbSet<TbCtPhieubangiao> TbCtPhieubangiaos { get; set; }
@@ -40,38 +40,39 @@ namespace QLTV.Models
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
             IConfigurationRoot configuration = builder.Build();
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("QLTV_Desktop"));
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("MyStoreDB"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
-            modelBuilder.Entity<TbAcount>(entity =>
+            modelBuilder.Entity<TbAccount>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.Username)
+                    .HasName("PK_Account_Username");
 
-                entity.ToTable("tb_Acount");
+                entity.ToTable("tb_Account");
+
+                entity.Property(e => e.Username).HasMaxLength(50);
 
                 entity.Property(e => e.Gmail)
                     .IsRequired()
-                    .HasMaxLength(30);
+                    .HasMaxLength(50);
 
-                entity.Property(e => e.Manhanvien)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("manhanvien");
+                entity.Property(e => e.Manhanvien).HasColumnName("manhanvien");
 
                 entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasMaxLength(30);
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.Quyen).HasColumnName("quyen");
 
                 entity.HasOne(d => d.ManhanvienNavigation)
-                    .WithMany()
+                    .WithMany(p => p.TbAccounts)
                     .HasForeignKey(d => d.Manhanvien)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tb_Acount_tb_NhanVien");
+                    .HasConstraintName("FK_Account_NhanVien");
             });
 
             modelBuilder.Entity<TbBbNhanlaisach>(entity =>
@@ -108,7 +109,7 @@ namespace QLTV.Models
             modelBuilder.Entity<TbCtNhanlai>(entity =>
             {
                 entity.HasKey(e => new { e.Mabbnhanlai, e.Maquyensach })
-                    .HasName("PK__tb_ct_nh__0EEC7FE1AC5DBAC7");
+                    .HasName("PK__tb_ct_nh__0EEC7FE11DFDFE53");
 
                 entity.ToTable("tb_ct_nhanlai");
 
@@ -137,7 +138,7 @@ namespace QLTV.Models
             modelBuilder.Entity<TbCtPhieubangiao>(entity =>
             {
                 entity.HasKey(e => new { e.Maquyensach, e.Maphieubangiao })
-                    .HasName("PK__tb_ct_ph__0BB572DA98ABFB22");
+                    .HasName("PK__tb_ct_ph__0BB572DA2985C0B2");
 
                 entity.ToTable("tb_ct_phieubangiao");
 
@@ -161,7 +162,7 @@ namespace QLTV.Models
             modelBuilder.Entity<TbCtPhieuphat>(entity =>
             {
                 entity.HasKey(e => new { e.Maphieuphat, e.Maquyensach })
-                    .HasName("PK__tb_ct_ph__C4C1A2A68781388F");
+                    .HasName("PK__tb_ct_ph__C4C1A2A6C1AB3A85");
 
                 entity.ToTable("tb_ct_phieuphat");
 
@@ -192,7 +193,7 @@ namespace QLTV.Models
             modelBuilder.Entity<TbCtTacgium>(entity =>
             {
                 entity.HasKey(e => new { e.Matacgia, e.Madausach })
-                    .HasName("PK__tb_ct_ta__D0B63B9786F0F6CC");
+                    .HasName("PK__tb_ct_ta__D0B63B975807D730");
 
                 entity.ToTable("tb_ct_tacgia");
 

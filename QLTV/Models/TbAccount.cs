@@ -5,8 +5,9 @@ using System.Collections.Generic;
 
 namespace QLTV.Models
 {
-    public partial class TbAcount
+    public partial class TbAccount
     {
+        public string Username { get; set; }
         public string Gmail { get; set; }
         public string Password { get; set; }
         public int Manhanvien { get; set; }
