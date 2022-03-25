@@ -18,7 +18,9 @@ namespace QLTV.Models
         public int Soluong { get; set; }
         public int Sotrang { get; set; }
         public int? Tansuat { get; set; }
+        public int Manhaxuatban { get; set; }
 
+        public virtual TbNhaXuatBan ManhaxuatbanNavigation { get; set; }
         public virtual ICollection<TbCtTacgium> TbCtTacgia { get; set; }
         public virtual ICollection<TbSach> TbSaches { get; set; }
     }
