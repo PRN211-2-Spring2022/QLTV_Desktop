@@ -37,8 +37,8 @@ namespace QLTV.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var builder = new ConfigurationBuilder()
-                              .SetBasePath(Directory.GetCurrentDirectory())
-                              .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                             .SetBasePath(Directory.GetCurrentDirectory())
+                             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
             IConfigurationRoot configuration = builder.Build();
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("QLTV_Desktop"));
         }
@@ -108,7 +108,7 @@ namespace QLTV.Models
             modelBuilder.Entity<TbCtNhanlai>(entity =>
             {
                 entity.HasKey(e => new { e.Mabbnhanlai, e.Maquyensach })
-                    .HasName("PK__tb_ct_nh__0EEC7FE130D59BAF");
+                    .HasName("PK__tb_ct_nh__0EEC7FE13987F74E");
 
                 entity.ToTable("tb_ct_nhanlai");
 
@@ -137,7 +137,7 @@ namespace QLTV.Models
             modelBuilder.Entity<TbCtPhieubangiao>(entity =>
             {
                 entity.HasKey(e => new { e.Maquyensach, e.Maphieubangiao })
-                    .HasName("PK__tb_ct_ph__0BB572DA535FA907");
+                    .HasName("PK__tb_ct_ph__0BB572DA23E00FC7");
 
                 entity.ToTable("tb_ct_phieubangiao");
 
@@ -161,7 +161,7 @@ namespace QLTV.Models
             modelBuilder.Entity<TbCtPhieuphat>(entity =>
             {
                 entity.HasKey(e => new { e.Maphieuphat, e.Maquyensach })
-                    .HasName("PK__tb_ct_ph__C4C1A2A622E9F7DA");
+                    .HasName("PK__tb_ct_ph__C4C1A2A6DB5E680D");
 
                 entity.ToTable("tb_ct_phieuphat");
 
@@ -192,7 +192,7 @@ namespace QLTV.Models
             modelBuilder.Entity<TbCtTacgium>(entity =>
             {
                 entity.HasKey(e => new { e.Matacgia, e.Madausach })
-                    .HasName("PK__tb_ct_ta__D0B63B976BCC099B");
+                    .HasName("PK__tb_ct_ta__D0B63B97F24B69BB");
 
                 entity.ToTable("tb_ct_tacgia");
 
