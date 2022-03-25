@@ -27,6 +27,7 @@ namespace QLTV.Models
         public virtual DbSet<TbCtTacgium> TbCtTacgia { get; set; }
         public virtual DbSet<TbDausach> TbDausaches { get; set; }
         public virtual DbSet<TbDocgium> TbDocgia { get; set; }
+        public virtual DbSet<TbNhaXuatBan> TbNhaXuatBans { get; set; }
         public virtual DbSet<TbNhanVien> TbNhanViens { get; set; }
         public virtual DbSet<TbPhieubangiaosach> TbPhieubangiaosaches { get; set; }
         public virtual DbSet<TbPhieuphat> TbPhieuphats { get; set; }
@@ -36,10 +37,11 @@ namespace QLTV.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-            IConfigurationRoot config = builder.Build();
-            optionsBuilder.UseSqlServer(config.GetConnectionString("QLTV_Desktop"));
+                               .SetBasePath(Directory.GetCurrentDirectory())
+                               .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+            IConfigurationRoot configuration = builder.Build();
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("QLTV_Desktop"));
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -70,7 +72,7 @@ namespace QLTV.Models
                     .WithMany()
                     .HasForeignKey(d => d.Manhanvien)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__tb_Acount__manha__59063A47");
+                    .HasConstraintName("FK_tb_Acount_tb_NhanVien");
             });
 
             modelBuilder.Entity<TbBbNhanlaisach>(entity =>
@@ -107,7 +109,7 @@ namespace QLTV.Models
             modelBuilder.Entity<TbCtNhanlai>(entity =>
             {
                 entity.HasKey(e => new { e.Mabbnhanlai, e.Maquyensach })
-                    .HasName("PK__tb_ct_nh__0EEC7FE1E16EB8E4");
+                    .HasName("PK__tb_ct_nh__0EEC7FE11D6E379E");
 
                 entity.ToTable("tb_ct_nhanlai");
 
@@ -136,7 +138,7 @@ namespace QLTV.Models
             modelBuilder.Entity<TbCtPhieubangiao>(entity =>
             {
                 entity.HasKey(e => new { e.Maquyensach, e.Maphieubangiao })
-                    .HasName("PK__tb_ct_ph__0BB572DA63F17DAC");
+                    .HasName("PK__tb_ct_ph__0BB572DA895C3822");
 
                 entity.ToTable("tb_ct_phieubangiao");
 
@@ -160,7 +162,7 @@ namespace QLTV.Models
             modelBuilder.Entity<TbCtPhieuphat>(entity =>
             {
                 entity.HasKey(e => new { e.Maphieuphat, e.Maquyensach })
-                    .HasName("PK__tb_ct_ph__C4C1A2A6BC3AE23D");
+                    .HasName("PK__tb_ct_ph__C4C1A2A6578E42AD");
 
                 entity.ToTable("tb_ct_phieuphat");
 
@@ -191,7 +193,7 @@ namespace QLTV.Models
             modelBuilder.Entity<TbCtTacgium>(entity =>
             {
                 entity.HasKey(e => new { e.Matacgia, e.Madausach })
-                    .HasName("PK__tb_ct_ta__D0B63B97F026B7C9");
+                    .HasName("PK__tb_ct_ta__D0B63B97CB294DC1");
 
                 entity.ToTable("tb_ct_tacgia");
 
@@ -226,6 +228,8 @@ namespace QLTV.Models
 
                 entity.Property(e => e.Madausach).HasColumnName("madausach");
 
+                entity.Property(e => e.Manhaxuatban).HasColumnName("manhaxuatban");
+
                 entity.Property(e => e.Soluong)
                     .HasColumnName("soluong")
                     .HasDefaultValueSql("('0')");
@@ -240,6 +244,12 @@ namespace QLTV.Models
                     .IsRequired()
                     .HasMaxLength(30)
                     .HasColumnName("tendausach");
+
+                entity.HasOne(d => d.ManhaxuatbanNavigation)
+                    .WithMany(p => p.TbDausaches)
+                    .HasForeignKey(d => d.Manhaxuatban)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tb_dausach_tb_NhaXuatBan");
             });
 
             modelBuilder.Entity<TbDocgium>(entity =>
@@ -275,6 +285,20 @@ namespace QLTV.Models
                     .HasColumnType("date")
                     .HasColumnName("ngaysinh")
                     .HasDefaultValueSql("(getdate())");
+            });
+
+            modelBuilder.Entity<TbNhaXuatBan>(entity =>
+            {
+                entity.HasKey(e => e.Manhaxuatban);
+
+                entity.ToTable("tb_NhaXuatBan");
+
+                entity.Property(e => e.Manhaxuatban).HasColumnName("manhaxuatban");
+
+                entity.Property(e => e.Tennhaxuatban)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("tennhaxuatban");
             });
 
             modelBuilder.Entity<TbNhanVien>(entity =>

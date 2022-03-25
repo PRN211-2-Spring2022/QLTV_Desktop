@@ -28,89 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.searchByCode = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnSearchByName = new System.Windows.Forms.Button();
-            this.txtSearchByName = new System.Windows.Forms.TextBox();
-            this.ListBorrower = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnphieubangiao = new System.Windows.Forms.Button();
             this.btntraSach = new System.Windows.Forms.Button();
+            this.txtsearchbyname = new System.Windows.Forms.TextBox();
+            this.txtsearchbyphieu = new System.Windows.Forms.TextBox();
+            this.btntimen = new System.Windows.Forms.Button();
+            this.btntimpbg = new System.Windows.Forms.Button();
+            this.txtMapbg = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtmadg = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // searchByCode
-            // 
-            this.searchByCode.Location = new System.Drawing.Point(554, 18);
-            this.searchByCode.Name = "searchByCode";
-            this.searchByCode.Size = new System.Drawing.Size(126, 29);
-            this.searchByCode.TabIndex = 14;
-            this.searchByCode.Text = "serach by Code";
-            this.searchByCode.UseVisualStyleBackColor = true;
-            this.searchByCode.Click += new System.EventHandler(this.searchByCode_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(344, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(187, 27);
-            this.textBox1.TabIndex = 13;
-            // 
-            // btnSearchByName
-            // 
-            this.btnSearchByName.Location = new System.Drawing.Point(554, 80);
-            this.btnSearchByName.Name = "btnSearchByName";
-            this.btnSearchByName.Size = new System.Drawing.Size(126, 29);
-            this.btnSearchByName.TabIndex = 12;
-            this.btnSearchByName.Text = "serach by name";
-            this.btnSearchByName.UseVisualStyleBackColor = true;
-            this.btnSearchByName.Click += new System.EventHandler(this.btnSearchByName_Click);
-            // 
-            // txtSearchByName
-            // 
-            this.txtSearchByName.Location = new System.Drawing.Point(344, 82);
-            this.txtSearchByName.Name = "txtSearchByName";
-            this.txtSearchByName.Size = new System.Drawing.Size(187, 27);
-            this.txtSearchByName.TabIndex = 11;
-            // 
-            // ListBorrower
-            // 
-            this.ListBorrower.AutoSize = true;
-            this.ListBorrower.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.ListBorrower.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ListBorrower.Location = new System.Drawing.Point(22, 65);
-            this.ListBorrower.Name = "ListBorrower";
-            this.ListBorrower.Size = new System.Drawing.Size(207, 30);
-            this.ListBorrower.TabIndex = 10;
-            this.ListBorrower.Text = "Danh Sách Độc Giả";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(35, 233);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(805, 381);
-            this.dataGridView1.TabIndex = 9;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // btnphieubangiao
-            // 
-            this.btnphieubangiao.Location = new System.Drawing.Point(35, 175);
-            this.btnphieubangiao.Name = "btnphieubangiao";
-            this.btnphieubangiao.Size = new System.Drawing.Size(145, 29);
-            this.btnphieubangiao.TabIndex = 16;
-            this.btnphieubangiao.Text = "Phiếu Bàn Giao";
-            this.btnphieubangiao.UseVisualStyleBackColor = true;
-            this.btnphieubangiao.Click += new System.EventHandler(this.btnmuonSach_Click);
-            // 
             // btntraSach
             // 
-            this.btntraSach.Location = new System.Drawing.Point(477, 175);
+            this.btntraSach.Location = new System.Drawing.Point(324, 144);
             this.btntraSach.Name = "btntraSach";
             this.btntraSach.Size = new System.Drawing.Size(145, 29);
             this.btntraSach.TabIndex = 17;
@@ -118,20 +53,122 @@
             this.btntraSach.UseVisualStyleBackColor = true;
             this.btntraSach.Click += new System.EventHandler(this.btntraSach_Click);
             // 
+            // txtsearchbyname
+            // 
+            this.txtsearchbyname.Location = new System.Drawing.Point(698, 184);
+            this.txtsearchbyname.Name = "txtsearchbyname";
+            this.txtsearchbyname.Size = new System.Drawing.Size(190, 27);
+            this.txtsearchbyname.TabIndex = 35;
+            // 
+            // txtsearchbyphieu
+            // 
+            this.txtsearchbyphieu.Location = new System.Drawing.Point(1120, 182);
+            this.txtsearchbyphieu.Name = "txtsearchbyphieu";
+            this.txtsearchbyphieu.Size = new System.Drawing.Size(195, 27);
+            this.txtsearchbyphieu.TabIndex = 34;
+            // 
+            // btntimen
+            // 
+            this.btntimen.Location = new System.Drawing.Point(500, 184);
+            this.btntimen.Name = "btntimen";
+            this.btntimen.Size = new System.Drawing.Size(176, 29);
+            this.btntimen.TabIndex = 33;
+            this.btntimen.Text = "TÌm phiếu theo Tên DG";
+            this.btntimen.UseVisualStyleBackColor = true;
+            this.btntimen.Click += new System.EventHandler(this.btntimen_Click);
+            // 
+            // btntimpbg
+            // 
+            this.btntimpbg.Location = new System.Drawing.Point(924, 182);
+            this.btntimpbg.Name = "btntimpbg";
+            this.btntimpbg.Size = new System.Drawing.Size(149, 29);
+            this.btntimpbg.TabIndex = 32;
+            this.btntimpbg.Text = "TÌm theo mã Phiếu";
+            this.btntimpbg.UseVisualStyleBackColor = true;
+            this.btntimpbg.Click += new System.EventHandler(this.btntimpbg_Click);
+            // 
+            // txtMapbg
+            // 
+            this.txtMapbg.Location = new System.Drawing.Point(164, 290);
+            this.txtMapbg.Name = "txtMapbg";
+            this.txtMapbg.Size = new System.Drawing.Size(148, 27);
+            this.txtMapbg.TabIndex = 30;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(52, 290);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 20);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Ma Phieu BG";
+            // 
+            // txtmadg
+            // 
+            this.txtmadg.Enabled = false;
+            this.txtmadg.Location = new System.Drawing.Point(164, 242);
+            this.txtmadg.Name = "txtmadg";
+            this.txtmadg.Size = new System.Drawing.Size(148, 27);
+            this.txtmadg.TabIndex = 28;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(59, 249);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 20);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "MaDG";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(114, 382);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(156, 33);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Trả Sách";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(281, 39);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(188, 30);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Quản Lý Trả Sách";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(321, 231);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(994, 477);
+            this.dataGridView1.TabIndex = 24;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btntraSach);
-            this.Controls.Add(this.btnphieubangiao);
-            this.Controls.Add(this.searchByCode);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.btnSearchByName);
-            this.Controls.Add(this.txtSearchByName);
-            this.Controls.Add(this.ListBorrower);
+            this.Controls.Add(this.txtsearchbyname);
+            this.Controls.Add(this.txtsearchbyphieu);
+            this.Controls.Add(this.btntimen);
+            this.Controls.Add(this.btntimpbg);
+            this.Controls.Add(this.txtMapbg);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtmadg);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btntraSach);
             this.Name = "FrmMain";
-            this.Size = new System.Drawing.Size(881, 631);
+            this.Size = new System.Drawing.Size(1334, 722);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -140,13 +177,17 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button searchByCode;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnSearchByName;
-        private System.Windows.Forms.TextBox txtSearchByName;
-        private System.Windows.Forms.Label ListBorrower;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnphieubangiao;
         private System.Windows.Forms.Button btntraSach;
+        private System.Windows.Forms.TextBox txtsearchbyname;
+        private System.Windows.Forms.TextBox txtsearchbyphieu;
+        private System.Windows.Forms.Button btntimen;
+        private System.Windows.Forms.Button btntimpbg;
+        private System.Windows.Forms.TextBox txtMapbg;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtmadg;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

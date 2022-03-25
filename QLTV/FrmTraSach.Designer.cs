@@ -96,8 +96,7 @@
             this.cbtinhtrangsach.FormattingEnabled = true;
             this.cbtinhtrangsach.Items.AddRange(new object[] {
             "Nguyên Vẹn",
-            "Hỏng <30%",
-            "Hỏng >30%",
+            "Hỏng",
             "Mất"});
             this.cbtinhtrangsach.Location = new System.Drawing.Point(175, 356);
             this.cbtinhtrangsach.Name = "cbtinhtrangsach";
@@ -118,7 +117,7 @@
             // 
             // btntra
             // 
-            this.btntra.Location = new System.Drawing.Point(853, 420);
+            this.btntra.Location = new System.Drawing.Point(787, 430);
             this.btntra.Name = "btntra";
             this.btntra.Size = new System.Drawing.Size(154, 29);
             this.btntra.TabIndex = 7;
@@ -156,7 +155,7 @@
             this.label5.Text = "Tình Trạng Sách";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label5.UseMnemonic = false;
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+           // this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtmasach
             // 
@@ -218,7 +217,7 @@
             this.txtngayquahan.ReadOnly = true;
             this.txtngayquahan.Size = new System.Drawing.Size(250, 27);
             this.txtngayquahan.TabIndex = 21;
-            this.txtngayquahan.TextChanged += new System.EventHandler(this.txtngayquahan_TextChanged);
+          //  this.txtngayquahan.TextChanged += new System.EventHandler(this.txtngayquahan_TextChanged);
             // 
             // label10
             // 
@@ -259,11 +258,11 @@
             this.lbltienphat.Text = "Tiền Phạt:";
             this.lbltienphat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbltienphat.UseMnemonic = false;
-            this.lbltienphat.Click += new System.EventHandler(this.label6_Click);
+            //this.lbltienphat.Click += new System.EventHandler(this.label6_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(750, 364);
+            this.textBox1.Location = new System.Drawing.Point(787, 364);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(185, 27);
             this.textBox1.TabIndex = 25;
@@ -272,7 +271,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 471);
+            this.ClientSize = new System.Drawing.Size(1031, 471);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbltienphat);
             this.Controls.Add(this.dtpdu);
