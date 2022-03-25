@@ -85,6 +85,7 @@ namespace QLTV
             tbGmail.Text = "";
             tbPassword.Text = "";
             cbAdmin.Text = "";
+            tbUsername.ReadOnly = false;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
