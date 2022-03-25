@@ -24,8 +24,8 @@ namespace BookLoanManager
         {
             dateNgayMuon.Value = DateTime.Now;
             dateNgayTra.Value = DateTime.Now.AddMonths(1);
-
         }
+
         public void LoadDG()
         {
             var docgia = (
@@ -36,32 +36,34 @@ namespace BookLoanManager
             txtMaDocGia.DataBindings.Clear();
             txtMaDocGia.DataBindings.Add("Text", docgia, "Mathedocgia");
         }
+
         public void Loadsach()
         {
-
             var sach = (
                 from d in QLTV.TbDausaches
                 join b in QLTV.TbSaches on d.Madausach equals b.Madausach
                 join c in QLTV.TbCtTacgia on b.Madausach equals c.Madausach
                 join e in QLTV.TbTacgia on c.Matacgia equals e.Matacgia
-                select new { b.Maquyensach, b.Madausach, d.Tendausach, e.Tentacgia, b.Tinhtrangsach }
+                select new
+                {
+                    b.Maquyensach,
+                    b.Madausach,
+                    d.Tendausach,
+                    e.Tentacgia,
+                    b.Tinhtrangsach
+                }
             ).ToList();
             foreach (var s in sach)
             {
-                if (s.Tinhtrangsach == 1)
-                {
-
-                }
+                if (s.Tinhtrangsach == 1) { }
             }
             dgvthongtinsach.DataSource = sach;
             txtmasach.DataBindings.Clear();
             txtmasach.DataBindings.Add("Text", sach, "Maquyensach");
-
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-
             try
             {
                 LoadDG();
@@ -72,10 +74,7 @@ namespace BookLoanManager
             {
                 MessageBox.Show(ex.Message, "Error");
             }
-
         }
-
-
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
@@ -89,9 +88,7 @@ namespace BookLoanManager
 
         public void Loadbtsearchname()
         {
-            var findbyten = QLTV.TbDocgia
-                .Where(t => t.Hoten.Contains(txtfind.Text))
-                .ToList();
+            var findbyten = QLTV.TbDocgia.Where(t => t.Hoten.Contains(txtfind.Text)).ToList();
             dgvthongtindocgia.DataSource = findbyten;
         }
 
@@ -115,7 +112,6 @@ namespace BookLoanManager
                 MessageBox.Show("Bạn phải chọn thông tin tìm kiếm");
                 rbtnmathe.Focus();
             }
-
         }
 
         private void btnsearchsach_Click(object sender, EventArgs e)
@@ -138,13 +134,10 @@ namespace BookLoanManager
                 MessageBox.Show("Bạn phải chọn thông tin tìm kiếm");
                 rbtnmathe.Focus();
             }
-
         }
 
-        QLTV_DesktopContext QLTV_Desktop = new QLTV_DesktopContext();
         private void btntaophieu_Click(object sender, EventArgs e)
         {
-
             if (txtName.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập mã nhân viên");
@@ -154,36 +147,41 @@ namespace BookLoanManager
             {
                 try
                 {
-                    var phieumuon = QLTV.TbPhieubangiaosaches.Add(new TbPhieubangiaosach
-                    {
-                        Mathedocgia = int.Parse(txtMaDocGia.Text),
-                        Manhanvien = int.Parse(txtName.Text),
-                        Ngaydukientra = dateNgayMuon.Value,
-                        Ngaymuon = dateNgayTra.Value,
-                        Tinhtrangkhigiao = cmbtinhtrangsach.Text
-                    });
+                    var phieumuon = QLTV.TbPhieubangiaosaches.Add(
+                        new TbPhieubangiaosach
+                        {
+                            Mathedocgia = Int32.Parse(txtMaDocGia.Text),
+                            Manhanvien = Int32.Parse(txtName.Text),
+                            Ngaydukientra = dateNgayMuon.Value,
+                            Ngaymuon = dateNgayTra.Value,
+                            Tinhtrangkhigiao = cmbtinhtrangsach.Text
+                        }
+                    );
                     QLTV.SaveChanges();
-                    var laymaphieu = QLTV.TbPhieubangiaosaches.OrderBy(b => b.Maphieubangiao).Last();
-                    var ctphieumuon = QLTV.TbCtPhieubangiaos.Add(new TbCtPhieubangiao
-                    {
-                        Maquyensach = int.Parse(txtName.Text),
-                        Maphieubangiao = laymaphieu.Maphieubangiao
-                    });
-                    QLTV.SaveChanges();
-                    MessageBox.Show("success");
 
+                    var laymaphieu = QLTV.TbPhieubangiaosaches
+                        .OrderBy(b => b.Maphieubangiao)
+                        .Last();
+                    var ctphieumuon = QLTV.TbCtPhieubangiaos.Add(
+                        new TbCtPhieubangiao
+                        {
+                            Maquyensach = int.Parse(txtName.Text),
+                            Maphieubangiao = laymaphieu.Maphieubangiao
+                        }
+                    );
+                    QLTV.SaveChanges();
+
+                    MessageBox.Show("success");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Tạo phiếu thất bại.");
                 }
             }
-
         }
 
         private void dgvthongtindocgia_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
             //txtName.DataBindings.Clear();
             //txtName.DataBindings.Add("text", dgvthongtindocgia.DataSource, "Manhanvien");
             //txtMaDocGia.DataBindings.Clear();
@@ -195,10 +193,7 @@ namespace BookLoanManager
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
+        private void button1_Click(object sender, EventArgs e) { }
     }
 }
 /*if (bookItem == null)
