@@ -21,5 +21,42 @@ namespace QLTV
         {
 
         }
+
+        private void btn_BookManagement_Click(object sender, EventArgs e)
+        {
+            {
+                //Add module to panel control
+                if (!Pn_Main.Controls.Contains(BookManagement.Instance))
+                {
+                    Pn_Main.Controls.Add(BookManagement.Instance);
+                    BookManagement.Instance.Dock = DockStyle.Fill;
+                    BookManagement.Instance.BringToFront();
+                }
+                else
+                    BookManagement.Instance.BringToFront();
+            }
+            btn_BookManagement.BackColor = Color.White;
+        }
+
+        private void btn_UserManagement_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_ReaderManagement_Click(object sender, EventArgs e)
+        {
+            {
+                //Add module to panel control
+                if (!Pn_Main.Controls.Contains(readerinformation.Instance))
+                {
+                    Pn_Main.Controls.Add(readerinformation.Instance);
+                    readerinformation.Instance.Dock = DockStyle.Fill;
+                    readerinformation.Instance.BringToFront();
+                }
+                else
+                    readerinformation.Instance.BringToFront();
+            }
+            btn_ReaderManagement.BackColor = Color.White;
+        }
     }
 }
