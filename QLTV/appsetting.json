@@ -1,5 +1,0 @@
-{
-  "ConnectionStrings": {
-    "QLTV_Desktop": "server=(local);database=QLTV_Desktop;uid=sa; pwd=123456"
-  }
-}
