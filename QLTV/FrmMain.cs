@@ -155,10 +155,6 @@ namespace BookLoanManager
           
         }
 
-        private void btntaophieu_Click(object sender, EventArgs e)
-        {
-            FrmMuonSach frmMuonSach = new FrmMuonSach();
-            frmMuonSach.ShowDialog();
-        }
+      
     }
 }
