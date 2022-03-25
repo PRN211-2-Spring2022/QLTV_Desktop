@@ -31,6 +31,7 @@
             this.dgvthongtindocgia = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbtinhtrangsach = new System.Windows.Forms.ComboBox();
             this.txtMaDocGia = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtmasach = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.rbttensach = new System.Windows.Forms.RadioButton();
             this.btntaophieu = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.cmbtinhtrangsach = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvthongtindocgia)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvthongtinsach)).BeginInit();
@@ -73,7 +73,7 @@
             this.dgvthongtindocgia.ReadOnly = true;
             this.dgvthongtindocgia.RowHeadersWidth = 51;
             this.dgvthongtindocgia.RowTemplate.Height = 29;
-            this.dgvthongtindocgia.Size = new System.Drawing.Size(345, 345);
+            this.dgvthongtindocgia.Size = new System.Drawing.Size(345, 390);
             this.dgvthongtindocgia.TabIndex = 9;
             this.dgvthongtindocgia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvthongtindocgia_CellContentClick);
             // 
@@ -106,6 +106,18 @@
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phiếu";
+            // 
+            // cmbtinhtrangsach
+            // 
+            this.cmbtinhtrangsach.FormattingEnabled = true;
+            this.cmbtinhtrangsach.Items.AddRange(new object[] {
+            "Nguyên Vẹn",
+            "Hỏng",
+            "Mất"});
+            this.cmbtinhtrangsach.Location = new System.Drawing.Point(150, 309);
+            this.cmbtinhtrangsach.Name = "cmbtinhtrangsach";
+            this.cmbtinhtrangsach.Size = new System.Drawing.Size(250, 28);
+            this.cmbtinhtrangsach.TabIndex = 32;
             // 
             // txtMaDocGia
             // 
@@ -210,7 +222,7 @@
             this.dgvthongtinsach.ReadOnly = true;
             this.dgvthongtinsach.RowHeadersWidth = 51;
             this.dgvthongtinsach.RowTemplate.Height = 29;
-            this.dgvthongtinsach.Size = new System.Drawing.Size(533, 345);
+            this.dgvthongtinsach.Size = new System.Drawing.Size(533, 390);
             this.dgvthongtinsach.TabIndex = 21;
             // 
             // groupBox2
@@ -336,18 +348,6 @@
             this.label3.Size = new System.Drawing.Size(219, 31);
             this.label3.TabIndex = 37;
             this.label3.Text = "Quản lý mượn sách";
-            // 
-            // cmbtinhtrangsach
-            // 
-            this.cmbtinhtrangsach.FormattingEnabled = true;
-            this.cmbtinhtrangsach.Items.AddRange(new object[] {
-            "Nguyên Vẹn",
-            "Hỏng",
-            "Mất"});
-            this.cmbtinhtrangsach.Location = new System.Drawing.Point(150, 309);
-            this.cmbtinhtrangsach.Name = "cmbtinhtrangsach";
-            this.cmbtinhtrangsach.Size = new System.Drawing.Size(250, 28);
-            this.cmbtinhtrangsach.TabIndex = 32;
             // 
             // FrmMain
             // 

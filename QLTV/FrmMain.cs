@@ -22,8 +22,8 @@ namespace BookLoanManager
 
         public void Loadform()
         {
-            //var phieusach = (from b in QLTV.TbCtPhieubangiaos
-             //                select new { b.Maquyensach, b.Maphieubangiao }).ToList();
+            dateNgayMuon.Value = DateTime.Now;
+            dateNgayTra.Value = DateTime.Now.AddMonths(1);
             
         }
         public void LoadDG()
@@ -144,51 +144,35 @@ namespace BookLoanManager
         QLTV_DesktopContext QLTV_Desktop = new QLTV_DesktopContext();
         private void btntaophieu_Click(object sender, EventArgs e)
         {
-            try
+
+            if (txtName.Text == "")
             {
-                //if (txtName.Text != "" && txtMaDocGia.Text != "")
-                //{
-                //    var phieuQuery = QLTV_Desktop.TbPhieubangiaosaches.Add(
-                //        new TbPhieubangiaosach
-                //        {
-                //            Manhanvien = int.Parse(txtName.Text),
-                //            Mathedocgia = int.Parse(txtMaDocGia.Text),
-                //            Maphieubangiao = int.Parse(lblbangiao.Text)
-                //        }
-                //        );
-                //    var addedEmployee = QLTV_Desktop.TbNhanViens.OrderBy(b => b.Manhanvien).Last();                 
-                //    var readerItem = QLTV_Desktop.TbPhieubangiaosaches.FirstOrDefault(
-                //        a => a.Mathedocgia == int.Parse(txtMaDocGia.Text)
-                //    );                  
-                //    var ticketBangGiao = QLTV_Desktop.TbPhieubangiaosaches.FirstOrDefault(
-                //        b => b.Maphieubangiao == int.Parse(lblbangiao.Text)
-                //        );
-                //    if (readerItem != null)
-                //    {
-                //        var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
-                //            new TbPhieubangiaosach
-                //            {
-                //                Manhanvien = addedEmployee.Manhanvien,
-                //                Mathedocgia = readerItem.Mathedocgia,
-                //                Maphieubangiao = ticketBangGiao.Maphieubangiao,
-                //                TbCtPhieubangiaos = "Chủ biên"
-                //            }
-                //        );
-                //        QLTV_Desktop.SaveChanges();
-
-                //        MessageBox.Show("Thêm thành công.");
-                        
-                //    }
-
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Không được để trống thông tin.");
-                //}
+                MessageBox.Show("Vui lòng nhập mã nhân viên");
+                txtName.Focus();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message, "Thêm thất bại.");
+                TbPhieubangiaosach phieubangiao = new TbPhieubangiaosach()
+                {
+                    Manhanvien = int.Parse(txtName.Text),
+                    Mathedocgia = int.Parse(txtName.Text),
+                    Ngaymuon = DateTime.Now,
+                    Ngaydukientra = dateNgayTra.Value,
+                    Tinhtrangkhigiao = cmbtinhtrangsach.Text,
+                };
+                try
+                {
+                    QLTV.TbPhieubangiaosaches.Add(phieubangiao);
+                    int count = QLTV.SaveChanges();
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Tạo phiếu thành công");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Tạo phiếu thất bại.");
+                }
             }
 
         }
