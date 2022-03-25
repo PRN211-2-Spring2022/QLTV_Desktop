@@ -24,7 +24,7 @@ namespace BookLoanManager
         {
             dateNgayMuon.Value = DateTime.Now;
             dateNgayTra.Value = DateTime.Now.AddMonths(1);
-            
+
         }
         public void LoadDG()
         {
@@ -38,30 +38,30 @@ namespace BookLoanManager
         }
         public void Loadsach()
         {
-            
+
             var sach = (
                 from d in QLTV.TbDausaches
                 join b in QLTV.TbSaches on d.Madausach equals b.Madausach
                 join c in QLTV.TbCtTacgia on b.Madausach equals c.Madausach
                 join e in QLTV.TbTacgia on c.Matacgia equals e.Matacgia
-                select new {b.Maquyensach, b.Madausach, d.Tendausach, e.Tentacgia, b.Tinhtrangsach }
+                select new { b.Maquyensach, b.Madausach, d.Tendausach, e.Tentacgia, b.Tinhtrangsach }
             ).ToList();
             foreach (var s in sach)
             {
                 if (s.Tinhtrangsach == 1)
                 {
-                    
+
                 }
             }
             dgvthongtinsach.DataSource = sach;
             txtmasach.DataBindings.Clear();
             txtmasach.DataBindings.Add("Text", sach, "Maquyensach");
-            
+
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            
+
             try
             {
                 LoadDG();
@@ -72,10 +72,10 @@ namespace BookLoanManager
             {
                 MessageBox.Show(ex.Message, "Error");
             }
-            
+
         }
 
-        
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
@@ -152,29 +152,26 @@ namespace BookLoanManager
             }
             else
             {
-                TbPhieubangiaosach phieubangiao = new TbPhieubangiaosach()
-                {
-                    Manhanvien = int.Parse(txtName.Text),
-                    Mathedocgia = int.Parse(txtName.Text),
-                    Ngaymuon = DateTime.Now,
-                    Ngaydukientra = dateNgayTra.Value,
-                    Tinhtrangkhigiao = cmbtinhtrangsach.Text,
-                };
-                var addphieubangiao = QLTV.TbPhieubangiaosaches.OrderBy(f => f.Maphieubangiao).Last();
-                
-                TbCtPhieubangiao phieubangiao1 = new TbCtPhieubangiao()
-                {
-                    Maquyensach = int.Parse(txtmasach.Text),
-                    Maphieubangiao = addphieubangiao.Maphieubangiao
-                };
                 try
                 {
-                    QLTV.TbPhieubangiaosaches.Add(phieubangiao);
+                    var phieumuon = QLTV.TbPhieubangiaosaches.Add(new TbPhieubangiaosach
+                    {
+                        Mathedocgia = int.Parse(txtMaDocGia.Text),
+                        Manhanvien = int.Parse(txtName.Text),
+                        Ngaydukientra = dateNgayMuon.Value,
+                        Ngaymuon = dateNgayTra.Value,
+                        Tinhtrangkhigiao = cmbtinhtrangsach.Text
+                    });
                     QLTV.SaveChanges();
-                    QLTV.TbCtPhieubangiaos.Add(phieubangiao1);
+                    var laymaphieu = QLTV.TbPhieubangiaosaches.OrderBy(b => b.Maphieubangiao).Last();
+                    var ctphieumuon = QLTV.TbCtPhieubangiaos.Add(new TbCtPhieubangiao
+                    {
+                        Maquyensach = int.Parse(txtName.Text),
+                        Maphieubangiao = laymaphieu.Maphieubangiao
+                    });
                     QLTV.SaveChanges();
-                    MessageBox.Show("Tạo phiếu thành công");
-                    
+                    MessageBox.Show("success");
+
                 }
                 catch (Exception ex)
                 {
@@ -186,7 +183,7 @@ namespace BookLoanManager
 
         private void dgvthongtindocgia_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
             //txtName.DataBindings.Clear();
             //txtName.DataBindings.Add("text", dgvthongtindocgia.DataSource, "Manhanvien");
             //txtMaDocGia.DataBindings.Clear();
@@ -200,7 +197,91 @@ namespace BookLoanManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
+/*if (bookItem == null)
+                    {
+                        var publisherItem = QLTV_Desktop.TbNhaXuatBans.FirstOrDefault(
+                            p => p.Tennhaxuatban == cbPublisher.Text
+                        );
+
+                        if (publisherItem != null)
+                        {
+                            var bookQuery = QLTV_Desktop.TbDausaches.Add(
+                                new TbDausach
+                                {
+                                    Tendausach = txtName.Text,
+                                    Soluong = 0,
+                                    Sotrang = Int32.Parse(txtPage.Text),
+                                    Manhaxuatban = publisherItem.Manhaxuatban,
+                                }
+                            );
+                            QLTV_Desktop.SaveChanges();
+                        }
+                        else
+                        {
+                            var publisherQuery = QLTV_Desktop.TbNhaXuatBans.Add(
+                                new TbNhaXuatBan { Tennhaxuatban = cbPublisher.Text }
+                            );
+                            QLTV_Desktop.SaveChanges();
+
+                            var addedPublisher = QLTV_Desktop.TbNhaXuatBans
+                                .OrderBy(p => p.Manhaxuatban)
+                                .Last();
+                            var bookQuery = QLTV_Desktop.TbDausaches.Add(
+                                new TbDausach
+                                {
+                                    Tendausach = txtName.Text,
+                                    Soluong = 0,
+                                    Sotrang = Int32.Parse(txtPage.Text),
+                                    Manhaxuatban = addedPublisher.Manhaxuatban
+                                }
+                            );
+                            QLTV_Desktop.SaveChanges();
+                        }
+
+                        var addedBook = QLTV_Desktop.TbDausaches.OrderBy(b => b.Madausach).Last();
+                        var authorItem = QLTV_Desktop.TbTacgia.FirstOrDefault(
+                            a => a.Tentacgia == cbAuthor.Text
+                        );
+
+                        if (authorItem != null)
+                        {
+                            var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
+                                new TbCtTacgium
+                                {
+                                    Madausach = addedBook.Madausach,
+                                    Matacgia = authorItem.Matacgia,
+                                    Vaitrotacgia = "Chủ biên"
+                                }
+                            );
+                            QLTV_Desktop.SaveChanges();
+
+                            MessageBox.Show("Thêm thành công.");
+                            Close();
+                        }
+                        else
+                        {
+                            var authorQuery = QLTV_Desktop.TbTacgia.Add(
+                                new TbTacgium { Tentacgia = cbAuthor.Text }
+                            );
+                            QLTV_Desktop.SaveChanges();
+
+                            var addedAuthor = QLTV_Desktop.TbTacgia.OrderBy(a => a.Matacgia).Last();
+                            var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
+                                new TbCtTacgium
+                                {
+                                    Madausach = addedBook.Madausach,
+                                    Matacgia = addedAuthor.Matacgia,
+                                    Vaitrotacgia = "Chủ biên"
+                                }
+                            );
+                            QLTV_Desktop.SaveChanges();
+
+                            MessageBox.Show("Thêm thành công.");
+                            Close();
+                        }
+                    }
+                    else*/
