@@ -33,7 +33,7 @@
             // 
             // frmMain1
             // 
-            this.frmMain1.Location = new System.Drawing.Point(-4, 12);
+            this.frmMain1.Location = new System.Drawing.Point(-3, 26);
             this.frmMain1.Name = "frmMain1";
             this.frmMain1.Size = new System.Drawing.Size(1334, 722);
             this.frmMain1.TabIndex = 0;
@@ -46,11 +46,14 @@
             this.Controls.Add(this.frmMain1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             this.ResumeLayout(false);
 
         }
 
         private FrmMain frmMain1;
+
+        //  private FrmMain frmMain1;
 
         #endregion
 
