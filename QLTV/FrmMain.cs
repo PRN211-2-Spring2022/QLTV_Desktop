@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using QLTV;
 
 namespace BookLoanManager
 {
@@ -197,7 +198,8 @@ namespace BookLoanManager
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            var addbook = 
+            var lichsu = new frmlichsu();
+            lichsu.Show();
         }
     }
 }
