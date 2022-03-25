@@ -17,7 +17,7 @@ namespace QLTV
         {
             InitializeComponent();
         }
-        FrmMain frmMain = new FrmMain();
+        Frmmuonsach frmMain = new Frmmuonsach();
         private void Form1_Load(object sender, EventArgs e)
         {
             frmMain.Dock = DockStyle.Fill;

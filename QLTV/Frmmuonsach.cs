@@ -12,9 +12,9 @@ using QLTV;
 
 namespace BookLoanManager
 {
-    public partial class FrmMain : UserControl
+    public partial class Frmmuonsach : UserControl
     {
-        public FrmMain()
+        public Frmmuonsach()
         {
             InitializeComponent();
         }

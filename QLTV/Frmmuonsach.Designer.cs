@@ -1,6 +1,6 @@
 ﻿namespace BookLoanManager
 {
-    partial class FrmMain
+    partial class Frmmuonsach
     {
         /// <summary> 
         /// Required designer variable.
