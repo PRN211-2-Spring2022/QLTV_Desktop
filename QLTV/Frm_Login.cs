@@ -28,17 +28,36 @@ namespace QLTV
         {
             try
             {
-                string sql = "Select Count (*) From [QLTV_Desktop].[dbo].[tb_Acount] Where Gmail=@acc And Password=@pass";
+                string sql = "Select Count (*) From [QLTV_Desktop].[dbo].[tb_Acount] Where Gmail=@acc And Password=@pass And manhanvien=@mnv";
+                string account = txtAccount.Text;
+                string password = txtAccount.Text;
+                string mnv = txtMnv.Text;
+                if (account == null || account.Equals(""))
+                {
+                    MessageBox.Show("Please enter your gmail and password first!");
+                    return;
+                }
+                if (password == null || password.Equals(""))
+                {
+                    MessageBox.Show("Please enter your gmail and password first!");
+                    return;
+                }
+                if (mnv == null || mnv.Equals(""))
+                {
+                    MessageBox.Show("You haven't enter MNV !");
+                    return;
+                }
                 conn = new SqlConnection(strConnection);
                 conn.Open();
                 command = new SqlCommand(sql, conn);
                 command.Parameters.Add(new SqlParameter("@acc", txtAccount.Text));
                 command.Parameters.Add(new SqlParameter("@pass", txtPassword.Text));
+                command.Parameters.Add(new SqlParameter("@mnv", txtMnv.Text));
                 int x = (int)command.ExecuteScalar();
                 if (x == 1)
                 {
                     MessageBox.Show("Login Succeed!", "Notification",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                    Frm_Main frM = new Frm_Main();
+                    Frm_Main frM = new Frm_Main(account,mnv);
                     frM.Show();
                     this.Hide();
                 }
@@ -47,8 +66,10 @@ namespace QLTV
                     lblIncorrect.Text = "Account or Password is incorrect!";
                     txtAccount.Text = "";
                     txtPassword.Text = "";
+                    txtMnv.Text = "";
                     txtAccount.Focus();
                 }
+
             }
             catch (Exception ex)
             {

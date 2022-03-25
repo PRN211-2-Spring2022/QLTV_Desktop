@@ -40,6 +40,8 @@ namespace QLTV
             this.btnExit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTime = new System.Windows.Forms.Label();
+            this.lblMnv = new System.Windows.Forms.Label();
+            this.txtMnv = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,7 +95,7 @@ namespace QLTV
             // 
             this.lblIncorrect.AutoSize = true;
             this.lblIncorrect.ForeColor = System.Drawing.Color.Red;
-            this.lblIncorrect.Location = new System.Drawing.Point(99, 207);
+            this.lblIncorrect.Location = new System.Drawing.Point(99, 242);
             this.lblIncorrect.Name = "lblIncorrect";
             this.lblIncorrect.Size = new System.Drawing.Size(0, 15);
             this.lblIncorrect.TabIndex = 5;
@@ -101,7 +103,7 @@ namespace QLTV
             // ckbShowPassword
             // 
             this.ckbShowPassword.AutoSize = true;
-            this.ckbShowPassword.Location = new System.Drawing.Point(99, 185);
+            this.ckbShowPassword.Location = new System.Drawing.Point(99, 220);
             this.ckbShowPassword.Name = "ckbShowPassword";
             this.ckbShowPassword.Size = new System.Drawing.Size(108, 19);
             this.ckbShowPassword.TabIndex = 6;
@@ -111,13 +113,14 @@ namespace QLTV
             // 
             // btnExit
             // 
+            this.btnExit.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnExit.Location = new System.Drawing.Point(262, 242);
+            this.btnExit.Location = new System.Drawing.Point(240, 242);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(53, 26);
+            this.btnExit.Size = new System.Drawing.Size(75, 26);
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // pictureBox1
@@ -140,11 +143,30 @@ namespace QLTV
             this.lblTime.TabIndex = 9;
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // lblMnv
+            // 
+            this.lblMnv.AutoSize = true;
+            this.lblMnv.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblMnv.Location = new System.Drawing.Point(12, 192);
+            this.lblMnv.Name = "lblMnv";
+            this.lblMnv.Size = new System.Drawing.Size(36, 17);
+            this.lblMnv.TabIndex = 10;
+            this.lblMnv.Text = "MNV";
+            // 
+            // txtMnv
+            // 
+            this.txtMnv.Location = new System.Drawing.Point(99, 191);
+            this.txtMnv.Name = "txtMnv";
+            this.txtMnv.Size = new System.Drawing.Size(45, 23);
+            this.txtMnv.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(327, 271);
+            this.Controls.Add(this.txtMnv);
+            this.Controls.Add(this.lblMnv);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnExit);
@@ -177,5 +199,7 @@ namespace QLTV
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label lblMnv;
+        private System.Windows.Forms.TextBox txtMnv;
     }
 }

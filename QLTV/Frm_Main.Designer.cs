@@ -42,6 +42,8 @@
             this.Pn_Main = new System.Windows.Forms.Panel();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.Pn_SideBar = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbUsername = new System.Windows.Forms.Label();
             this.Pn_SideBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -233,6 +235,27 @@
             this.Pn_SideBar.Size = new System.Drawing.Size(200, 722);
             this.Pn_SideBar.TabIndex = 12;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(1262, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 32);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Hello,";
+            // 
+            // lbUsername
+            // 
+            this.lbUsername.AutoSize = true;
+            this.lbUsername.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbUsername.ForeColor = System.Drawing.Color.Maroon;
+            this.lbUsername.Location = new System.Drawing.Point(1349, 36);
+            this.lbUsername.Name = "lbUsername";
+            this.lbUsername.Size = new System.Drawing.Size(83, 27);
+            this.lbUsername.TabIndex = 13;
+            this.lbUsername.Text = "label3";
+            // 
             // Frm_Main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -241,6 +264,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1537, 818);
+            this.Controls.Add(this.lbUsername);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Pn_SideBar);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.Pn_Main);
@@ -251,6 +276,7 @@
             this.Name = "Frm_Main";
             this.Pn_SideBar.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -268,5 +294,7 @@
         private System.Windows.Forms.Button btn_ReaderManagement;
         private System.Windows.Forms.Button btn_Exit;
         private System.Windows.Forms.FlowLayoutPanel Pn_SideBar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbUsername;
     }
 }
