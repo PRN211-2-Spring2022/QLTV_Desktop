@@ -12,9 +12,10 @@ namespace QLTV
 {
     public partial class Frm_Main : Form
     {
-        public Frm_Main()
+        public Frm_Main(String account, string mnv)
         {
             InitializeComponent();
+            lbUsername.Text = account;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -61,6 +62,11 @@ namespace QLTV
                 else
                     readerinformation.Instance.BringToFront();
             //btn_ReaderManagement.BackColor = Color.White;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
