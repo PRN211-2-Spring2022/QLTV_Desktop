@@ -19,5 +19,8 @@
     <Compile Update="readerinformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserManagerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
