@@ -26,6 +26,31 @@ namespace QLTV
             var books = QLTV_Desktop.TbDausaches.FirstOrDefault(
                 b => b.Madausach == Int32.Parse(BookManagement.BookId)
             );
+            var authors = (
+                from a in QLTV_Desktop.TbTacgia
+                select new { a.Matacgia, a.Tentacgia }
+            ).ToList();
+            var publishers = (
+                from p in QLTV_Desktop.TbNhaXuatBans
+                select new { p.Manhaxuatban, p.Tennhaxuatban }
+            ).ToList();
+
+            // Clear dataBinding
+            txtName.DataBindings.Clear();
+            txtPage.DataBindings.Clear();
+            cbAuthor.DataBindings.Clear();
+            cbPublisher.DataBindings.Clear();
+
+            // Add dataBinding
+            txtName.DataBindings.Add("Text", books, "Tendausach");
+            txtPage.DataBindings.Add("Text", books, "Sotrang");
+            cbAuthor.DataSource = authors;
+            cbAuthor.DisplayMember = "Tentacgia";
+            cbAuthor.ValueMember = "Matacgia";
+            cbPublisher.DataSource = publishers;
+            cbPublisher.DisplayMember = "Tennhaxuatban";
+            cbPublisher.ValueMember = "Manhaxuatban";
+
             if (books != null)
             {
                 var authorBook = QLTV_Desktop.TbCtTacgia.FirstOrDefault(
@@ -33,21 +58,12 @@ namespace QLTV
                 );
                 if (authorBook != null)
                 {
-                    var authors = QLTV_Desktop.TbTacgia.FirstOrDefault(
+                    var author = QLTV_Desktop.TbTacgia.FirstOrDefault(
                         a => a.Matacgia == authorBook.Matacgia
                     );
-                    txtAuthor.Text = authors.Tentacgia;
+                    cbAuthor.SelectedValue = author.Matacgia;
                 }
             }
-
-            // Clear dataBinding
-            txtName.DataBindings.Clear();
-            txtPage.DataBindings.Clear();
-            txtAuthor.DataBindings.Clear();
-
-            // Add dataBinding
-            txtName.DataBindings.Add("Text", books, "Tendausach");
-            txtPage.DataBindings.Add("Text", books, "Sotrang");
         }
 
         private void EditBook_Load(object sender, EventArgs e)
@@ -66,7 +82,7 @@ namespace QLTV
         {
             try
             {
-                if (txtName.Text != "" && txtAuthor.Text != "")
+                if (txtName.Text != "")
                 {
                     var bookItem = QLTV_Desktop.TbDausaches.FirstOrDefault(
                         b => b.Madausach == Int32.Parse(BookManagement.BookId)
@@ -74,15 +90,34 @@ namespace QLTV
 
                     if (bookItem != null)
                     {
-                        bookItem.Tendausach = txtName.Text.Trim();
-                        bookItem.Sotrang = Int32.Parse(txtPage.Text.Trim());
-                        QLTV_Desktop.SaveChanges();
+                        var publisherItem = QLTV_Desktop.TbNhaXuatBans.FirstOrDefault(
+                            p => p.Tennhaxuatban == cbPublisher.Text
+                        );
+
+                        if (publisherItem != null)
+                        {
+                            bookItem.Tendausach = txtName.Text.Trim();
+                            bookItem.Sotrang = Int32.Parse(txtPage.Text.Trim());
+                            bookItem.Manhaxuatban = publisherItem.Manhaxuatban;
+                            QLTV_Desktop.SaveChanges();
+                        }
+                        else
+                        {
+                            var publisherQuery = QLTV_Desktop.TbNhaXuatBans.Add(
+                                new TbNhaXuatBan { Tennhaxuatban = cbPublisher.Text }
+                            );
+                            var addedPublisher = QLTV_Desktop.TbNhaXuatBans.OrderBy(p => p.Manhaxuatban).Last();
+                            bookItem.Tendausach = txtName.Text.Trim();
+                            bookItem.Sotrang = Int32.Parse(txtPage.Text.Trim());
+                            bookItem.Manhaxuatban = addedPublisher.Manhaxuatban;
+                            QLTV_Desktop.SaveChanges();
+                        }
 
                         var authorBook = QLTV_Desktop.TbCtTacgia.FirstOrDefault(
                             ab => ab.Madausach == bookItem.Madausach
                         );
                         var authorItem = QLTV_Desktop.TbTacgia.FirstOrDefault(
-                            a => a.Tentacgia == txtAuthor.Text
+                            a => a.Tentacgia == cbAuthor.Text
                         );
 
                         if (authorItem != null)
@@ -106,7 +141,7 @@ namespace QLTV
                         else
                         {
                             var authorQuery = QLTV_Desktop.TbTacgia.Add(
-                                new TbTacgium { Tentacgia = txtAuthor.Text }
+                                new TbTacgium { Tentacgia = cbAuthor.Text }
                             );
                             QLTV_Desktop.SaveChanges();
 

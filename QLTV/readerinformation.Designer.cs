@@ -134,6 +134,7 @@
             // 
             // dtxtngaylamthe
             // 
+            this.dtxtngaylamthe.Enabled = false;
             this.dtxtngaylamthe.Location = new System.Drawing.Point(159, 118);
             this.dtxtngaylamthe.MaxDate = new System.DateTime(2022, 3, 31, 0, 0, 0, 0);
             this.dtxtngaylamthe.MinDate = new System.DateTime(1909, 3, 16, 0, 0, 0, 0);
@@ -144,7 +145,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(477, 85);
+            this.button1.Location = new System.Drawing.Point(159, 262);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 54);
             this.button1.TabIndex = 8;
@@ -154,7 +155,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(477, 145);
+            this.button2.Location = new System.Drawing.Point(270, 262);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(89, 54);
             this.button2.TabIndex = 9;
@@ -164,7 +165,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(477, 205);
+            this.button3.Location = new System.Drawing.Point(379, 262);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(89, 54);
             this.button3.TabIndex = 21;
@@ -177,7 +178,7 @@
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.button4.FlatAppearance.BorderSize = 3;
             this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
-            this.button4.Location = new System.Drawing.Point(477, 23);
+            this.button4.Location = new System.Drawing.Point(41, 261);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(89, 56);
             this.button4.TabIndex = 22;
@@ -201,13 +202,16 @@
             // 
             this.dgvthongtindocgia.AllowUserToAddRows = false;
             this.dgvthongtindocgia.AllowUserToDeleteRows = false;
+            this.dgvthongtindocgia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvthongtindocgia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvthongtindocgia.Location = new System.Drawing.Point(581, 116);
+            this.dgvthongtindocgia.Location = new System.Drawing.Point(488, 116);
             this.dgvthongtindocgia.Name = "dgvthongtindocgia";
             this.dgvthongtindocgia.ReadOnly = true;
             this.dgvthongtindocgia.RowHeadersWidth = 51;
             this.dgvthongtindocgia.RowTemplate.Height = 29;
-            this.dgvthongtindocgia.Size = new System.Drawing.Size(756, 576);
+            this.dgvthongtindocgia.Size = new System.Drawing.Size(843, 603);
             this.dgvthongtindocgia.TabIndex = 24;
             this.dgvthongtindocgia.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvthongtindocgia_CellContentDoubleClick);
             // 
@@ -302,7 +306,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
             this.groupBox2.Location = new System.Drawing.Point(3, 318);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(572, 261);
+            this.groupBox2.Size = new System.Drawing.Size(479, 374);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Quản lý độc giả";
@@ -346,6 +350,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvthongtindocgia);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.Name = "readerinformation";
             this.Size = new System.Drawing.Size(1334, 722);
             this.Load += new System.EventHandler(this.readerinformation_Load);
