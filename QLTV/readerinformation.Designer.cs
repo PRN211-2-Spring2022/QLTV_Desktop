@@ -134,6 +134,7 @@
             // 
             // dtxtngaylamthe
             // 
+            this.dtxtngaylamthe.Enabled = false;
             this.dtxtngaylamthe.Location = new System.Drawing.Point(159, 118);
             this.dtxtngaylamthe.MaxDate = new System.DateTime(2022, 3, 31, 0, 0, 0, 0);
             this.dtxtngaylamthe.MinDate = new System.DateTime(1909, 3, 16, 0, 0, 0, 0);

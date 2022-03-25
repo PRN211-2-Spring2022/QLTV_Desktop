@@ -96,34 +96,6 @@ namespace QLTV
                 MessageBox.Show("Đối tượng không thể để trống");
                 boxdoituong.Focus();
             }
-            else if(dtxtngaylamthe.Value > DateTime.Now || dtxtngaylamthe.Value < DateTime.Now)
-            {
-                MessageBox.Show("Ngày làm thẻ là hôm nay");
-                dtxtngaylamthe.Value = DateTime.Now;
-                TbDocgium docgia = new TbDocgium()
-                {
-                    Hoten = txthoten.Text,
-                    Ngaysinh = dtxtngaysinh.Value,
-                    //Ngaylamthe = dtxtngaylamthe.Value,
-                    Ngaylamthe = DateTime.Now,
-                    Doituongdocgia = boxdoituong.Text,
-                    Diachi = txtdiachi.Text,
-                };
-                try
-                {
-                    QLTV_qldg.TbDocgia.Add(docgia);
-                    int count = QLTV_qldg.SaveChanges();
-                    if (count > 0)
-                    {
-                        MessageBox.Show("Thêm thành công");
-                        Loadinformation();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error");
-                }
-            }
             else
             {
                 TbDocgium docgia = new TbDocgium()
