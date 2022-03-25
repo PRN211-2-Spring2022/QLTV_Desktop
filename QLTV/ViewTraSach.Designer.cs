@@ -62,9 +62,9 @@
             this.label5.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(517, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(152, 30);
+            this.label5.Size = new System.Drawing.Size(181, 30);
             this.label5.TabIndex = 18;
-            this.label5.Text = "Phiếu Trả Sách";
+            this.label5.Text = "Danh Sách Đã Trả";
             // 
             // txtngaytra
             // 
@@ -118,7 +118,7 @@
             // 
             // txtMadg
             // 
-            this.txtMadg.Location = new System.Drawing.Point(266, 159);
+            this.txtMadg.Location = new System.Drawing.Point(238, 179);
             this.txtMadg.Name = "txtMadg";
             this.txtMadg.Size = new System.Drawing.Size(213, 27);
             this.txtMadg.TabIndex = 25;
@@ -126,7 +126,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(161, 162);
+            this.label7.Location = new System.Drawing.Point(133, 182);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 20);
             this.label7.TabIndex = 24;
@@ -134,7 +134,7 @@
             // 
             // txtmatrasachs
             // 
-            this.txtmatrasachs.Location = new System.Drawing.Point(266, 102);
+            this.txtmatrasachs.Location = new System.Drawing.Point(238, 122);
             this.txtmatrasachs.Name = "txtmatrasachs";
             this.txtmatrasachs.Size = new System.Drawing.Size(213, 27);
             this.txtmatrasachs.TabIndex = 27;
@@ -142,7 +142,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(161, 105);
+            this.label8.Location = new System.Drawing.Point(133, 125);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(87, 20);
             this.label8.TabIndex = 26;

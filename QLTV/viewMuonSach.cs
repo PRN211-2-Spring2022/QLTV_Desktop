@@ -35,11 +35,16 @@ namespace BookLoanManager
       
         public void load_Phieu()
         {
+            
 
+            var phieu = (
+                from 
 
-            var docgia = (
-                from p in QLTV.TbPhieubangiaosaches
+                 p in QLTV.TbPhieubangiaosaches
+
                 join d in QLTV.TbDocgia on p.Mathedocgia equals d.Mathedocgia
+                
+
                 select new
                 {
                     p.Maphieubangiao,
@@ -52,60 +57,27 @@ namespace BookLoanManager
                 }
             ).ToList();
            
-            txtName.DataBindings.Clear();
+            txtmadg.DataBindings.Clear();
+            txtMapbg.DataBindings.Clear();  
+            txtsearchbyname.DataBindings.Clear();
+            txtsearchbyphieu.DataBindings.Clear();  
+
+
             
-            txtMapbg.DataBindings.Add("Text",docgia, "Maphieubangiao");
-            txtmadg.DataBindings.Add("Text",docgia, "Mathedocgia");
+            txtMapbg.DataBindings.Add("Text", phieu, "Maphieubangiao");
+            txtmadg.DataBindings.Add("Text", phieu, "Mathedocgia");
 
             // txtName.DataBindings.Add("Text", docgia, "Hoten");
 
 
 
 
-            dataGridView1.DataSource = docgia;
+            dataGridView1.DataSource = phieu;
         }
         
         private void txtName_TextChanged(object sender, EventArgs e)
         {
-            string search = txtName.Text;
-
-            try
-            {
-                var docgia = (
-                    from p in QLTV.TbPhieubangiaosaches
-                    join d in QLTV.TbDocgia on p.Mathedocgia equals d.Mathedocgia
-                  
-                    where p.Maphieubangiao.ToString() == search
-
-                    select new
-                    {
-                        p.Maphieubangiao,
-                        p.Mathedocgia,
-                        p.Manhanvien,
-                        p.Ngaymuon,
-                        p.Ngaydukientra,
-                        p.Tinhtrangkhigiao,
-                        d.Hoten
-                    }
-                ).ToList();
-                
-                    txtMapbg.DataBindings.Add("Text", docgia, "Maphieubangiao");
-                    txtmadg.DataBindings.Add("Text", docgia, "Mathedocgia");
-                
-                if (txtName.Text.Trim().Length > 0)
-                {
-                    dataGridView1.DataSource = docgia;
-
-                }
-                else
-                {
-                    load_Phieu();
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -121,6 +93,110 @@ namespace BookLoanManager
         {
             ViewTraSach frmTraSach = new ViewTraSach();
             frmTraSach.ShowDialog();
+        }
+
+        private void btntimen_Click(object sender, EventArgs e)
+        {
+
+            txtmadg.DataBindings.Clear();
+            txtMapbg.DataBindings.Clear();
+            txtsearchbyname.DataBindings.Clear();
+            txtsearchbyphieu.DataBindings.Clear();
+            txtsearchbyphieu.DataBindings.Clear();
+
+
+            string search = txtsearchbyname.Text;
+            
+            try
+            {
+                var docgia0 = (
+                   from
+
+                 p in QLTV.TbPhieubangiaosaches
+                   join d in QLTV.TbDocgia on p.Mathedocgia equals d.Mathedocgia
+
+                   where d.Hoten.Contains(search)
+
+                   select new
+                   {
+                       p.Maphieubangiao,
+                       p.Mathedocgia,
+                       p.Manhanvien,
+                       p.Ngaymuon,
+                       p.Ngaydukientra,
+                       p.Tinhtrangkhigiao,
+                       d.Hoten
+
+                   }
+
+                ).ToList();
+
+               
+                if (txtsearchbyname.Text.Trim().Length > 0)
+                {
+
+                    dataGridView1.DataSource = docgia0;
+                }
+                else
+                {
+                    load_Phieu();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"error");
+            }
+        }
+
+        private void btntimpbg_Click(object sender, EventArgs e)
+        {
+            
+
+
+            txtmadg.DataBindings.Clear();
+            txtMapbg.DataBindings.Clear();
+            txtsearchbyname.DataBindings.Clear();
+            txtsearchbyphieu.DataBindings.Clear();
+            string search = txtsearchbyphieu.Text;
+
+            try
+            {
+                var docgia1 = (
+                   from
+
+                 p in QLTV.TbPhieubangiaosaches
+                   join d in QLTV.TbDocgia on p.Mathedocgia equals d.Mathedocgia
+
+                   where p.Maphieubangiao.ToString()==search
+
+                   select new
+                   {
+                       p.Maphieubangiao,
+                       p.Mathedocgia,
+                       p.Manhanvien,
+                       p.Ngaymuon,
+                       p.Ngaydukientra,
+                       p.Tinhtrangkhigiao,
+                       d.Hoten
+
+                   }
+
+                ).ToList();
+               
+
+                if (txtsearchbyphieu.Text.Length >0)
+                {
+                    dataGridView1.DataSource = docgia1;
+                }
+                else
+                {
+                    load_Phieu();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "error");
+            }
         }
     }
 }

@@ -34,7 +34,7 @@ namespace BookLoanManager
                 join nv in QLTV.TbNhanViens on pbg.Manhanvien equals nv.Manhanvien
                 join tr in QLTV.TbBbNhanlaisaches on nv.Manhanvien equals tr.Manhanvien
                 join nl in QLTV.TbCtNhanlais on tr.Mabbnhanlai equals nl.Mabbnhanlai
-                select new
+                select  new
                 {    
                     tr.Mabbnhanlai,
                     tr.Mathedocgia,
@@ -56,6 +56,7 @@ namespace BookLoanManager
             txtmatrasachs.DataBindings.Add("Text", trasach, "Mabbnhanlai");
             textBox1.DataBindings.Add("Text", trasach, "Ngaydukientra");
             txtMadg.DataBindings.Add("Text", trasach, "Mathedocgia");
+           
 
             /*  DateTime dt = DateTime.ParseExact(txtngaytra.Text.ToString(), "dd-MM-yyyy-HH", CultureInfo.InvariantCulture);
             DateTime dt1 = DateTime.ParseExact(textBox1.Text.ToString(), "dd-MM-yyyy-HH", CultureInfo.InvariantCulture);
@@ -88,13 +89,16 @@ namespace BookLoanManager
 
         private void btnphieuphat_Click(object sender, EventArgs e)
         {
+            FrmPhieuPhat frm    = new FrmPhieuPhat();
+            frm.ShowDialog();
+            /*
             Form2 form2 = new Form2();
             form2.Madg = txtMadg.Text.ToString();
             form2.masach = txtmatrasachs.Text.ToString();
             form2.ngaydukien = textBox1.Text.ToString();
             form2.ngaytra = txtngaytra.Text.ToString();
             
-            form2.ShowDialog();
+            form2.ShowDialog();*/
 
             /* 
             {

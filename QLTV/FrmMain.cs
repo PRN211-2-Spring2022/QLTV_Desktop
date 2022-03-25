@@ -57,16 +57,22 @@ namespace BookLoanManager
 
         private void searchByCode_Click(object sender, EventArgs e)
         {
-            txtSearchByName.DataBindings.Clear();
+          
             string search = textBox1.Text;
 
             try
             {
                 var docgia = (
                     from d in QLTV.TbDocgia
+
+
                     where d.Mathedocgia.ToString() == search
+
+
                     select new { d.Mathedocgia, d.Hoten, d.Ngaysinh, d.Diachi }
+
                 ).ToList();
+
 
                 if (textBox1.Text.Trim().Length > 0)
                 {
@@ -147,6 +153,12 @@ namespace BookLoanManager
         private void button1_Click(object sender, EventArgs e)
         {
           
+        }
+
+        private void btntaophieu_Click(object sender, EventArgs e)
+        {
+            FrmMuonSach frmMuonSach = new FrmMuonSach();
+            frmMuonSach.ShowDialog();
         }
     }
 }

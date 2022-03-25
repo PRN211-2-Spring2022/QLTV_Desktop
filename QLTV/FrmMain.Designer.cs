@@ -115,7 +115,7 @@
             this.btntraSach.Name = "btntraSach";
             this.btntraSach.Size = new System.Drawing.Size(145, 29);
             this.btntraSach.TabIndex = 17;
-            this.btntraSach.Text = "Thông tin trả Sách";
+            this.btntraSach.Text = "Lịch Sử Trả Sách";
             this.btntraSach.UseVisualStyleBackColor = true;
             this.btntraSach.Click += new System.EventHandler(this.btntraSach_Click);
             // 
