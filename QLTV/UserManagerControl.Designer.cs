@@ -46,9 +46,9 @@ namespace QLTV
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbShowPassword = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbUsername = new System.Windows.Forms.TextBox();
+            this.cbShowPassword = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.viewEmployee)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +66,7 @@ namespace QLTV
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "Xoá";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // label8
             // 
@@ -233,6 +234,7 @@ namespace QLTV
             this.btnEdit.TabIndex = 28;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // groupBox1
             // 
@@ -260,17 +262,6 @@ namespace QLTV
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             // 
-            // cbShowPassword
-            // 
-            this.cbShowPassword.AutoSize = true;
-            this.cbShowPassword.Location = new System.Drawing.Point(165, 392);
-            this.cbShowPassword.Name = "cbShowPassword";
-            this.cbShowPassword.Size = new System.Drawing.Size(127, 24);
-            this.cbShowPassword.TabIndex = 29;
-            this.cbShowPassword.Text = "Hiện mật khẩu";
-            this.cbShowPassword.UseVisualStyleBackColor = true;
-            this.cbShowPassword.CheckedChanged += new System.EventHandler(this.cbShowPassword_CheckedChanged);
-            // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -287,8 +278,20 @@ namespace QLTV
             // 
             this.tbUsername.Location = new System.Drawing.Point(165, 200);
             this.tbUsername.Name = "tbUsername";
+            this.tbUsername.ReadOnly = true;
             this.tbUsername.Size = new System.Drawing.Size(310, 27);
             this.tbUsername.TabIndex = 31;
+            // 
+            // cbShowPassword
+            // 
+            this.cbShowPassword.AutoSize = true;
+            this.cbShowPassword.Location = new System.Drawing.Point(165, 392);
+            this.cbShowPassword.Name = "cbShowPassword";
+            this.cbShowPassword.Size = new System.Drawing.Size(127, 24);
+            this.cbShowPassword.TabIndex = 29;
+            this.cbShowPassword.Text = "Hiện mật khẩu";
+            this.cbShowPassword.UseVisualStyleBackColor = true;
+            this.cbShowPassword.CheckedChanged += new System.EventHandler(this.cbShowPassword_CheckedChanged);
             // 
             // UserManagerControl
             // 
