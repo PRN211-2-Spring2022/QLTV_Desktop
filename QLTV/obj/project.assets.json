@@ -6137,19 +6137,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {}
+    "C:\\Users\\lqkha\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Schoolwork\\5th_semester\\PRN211\\Exercise\\Assignment\\QLTV\\QLTV.csproj",
+      "projectUniqueName": "C:\\Users\\lqkha\\OneDrive\\Máy tính\\QLTV_rdmg\\QLTV\\QLTV.csproj",
       "projectName": "QLTV",
-      "projectPath": "D:\\Schoolwork\\5th_semester\\PRN211\\Exercise\\Assignment\\QLTV\\QLTV.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "D:\\Schoolwork\\5th_semester\\PRN211\\Exercise\\Assignment\\QLTV\\obj\\",
+      "projectPath": "C:\\Users\\lqkha\\OneDrive\\Máy tính\\QLTV_rdmg\\QLTV\\QLTV.csproj",
+      "packagesPath": "C:\\Users\\lqkha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lqkha\\OneDrive\\Máy tính\\QLTV_rdmg\\QLTV\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lqkha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6216,7 +6216,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
