@@ -38,6 +38,7 @@ namespace BookLoanManager
         }
         public void Loadsach()
         {
+            
             var sach = (
                 from d in QLTV.TbDausaches
                 join b in QLTV.TbSaches on d.Madausach equals b.Madausach
@@ -45,11 +46,17 @@ namespace BookLoanManager
                 join e in QLTV.TbTacgia on c.Matacgia equals e.Matacgia
                 select new {b.Maquyensach, b.Madausach, d.Tendausach, e.Tentacgia, b.Tinhtrangsach }
             ).ToList();
+            foreach (var s in sach)
+            {
+                if (s.Tinhtrangsach == 1)
+                {
+                    
+                }
+            }
             dgvthongtinsach.DataSource = sach;
             txtmasach.DataBindings.Clear();
             txtmasach.DataBindings.Add("Text", sach, "Maquyensach");
-            txtTTSach.DataBindings.Clear();
-            txtTTSach.DataBindings.Add("Text", sach, "Tinhtrangsach");
+            
         }
 
         private void FrmMain_Load(object sender, EventArgs e)

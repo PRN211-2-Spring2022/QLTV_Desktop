@@ -35,7 +35,6 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtmasach = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.txtTTSach = new System.Windows.Forms.TextBox();
             this.dateNgayTra = new System.Windows.Forms.DateTimePicker();
             this.dateNgayMuon = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,6 +55,7 @@
             this.rbttensach = new System.Windows.Forms.RadioButton();
             this.btntaophieu = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.cmbtinhtrangsach = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvthongtindocgia)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvthongtinsach)).BeginInit();
@@ -88,11 +88,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbtinhtrangsach);
             this.groupBox1.Controls.Add(this.txtMaDocGia);
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.txtmasach);
             this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.txtTTSach);
             this.groupBox1.Controls.Add(this.dateNgayTra);
             this.groupBox1.Controls.Add(this.dateNgayMuon);
             this.groupBox1.Controls.Add(this.label6);
@@ -140,14 +140,6 @@
             this.label15.Size = new System.Drawing.Size(63, 20);
             this.label15.TabIndex = 29;
             this.label15.Text = "Mã sách";
-            // 
-            // txtTTSach
-            // 
-            this.txtTTSach.Location = new System.Drawing.Point(150, 306);
-            this.txtTTSach.Multiline = true;
-            this.txtTTSach.Name = "txtTTSach";
-            this.txtTTSach.Size = new System.Drawing.Size(228, 63);
-            this.txtTTSach.TabIndex = 28;
             // 
             // dateNgayTra
             // 
@@ -345,6 +337,18 @@
             this.label3.TabIndex = 37;
             this.label3.Text = "Quản lý mượn sách";
             // 
+            // cmbtinhtrangsach
+            // 
+            this.cmbtinhtrangsach.FormattingEnabled = true;
+            this.cmbtinhtrangsach.Items.AddRange(new object[] {
+            "Nguyên Vẹn",
+            "Hỏng",
+            "Mất"});
+            this.cmbtinhtrangsach.Location = new System.Drawing.Point(150, 309);
+            this.cmbtinhtrangsach.Name = "cmbtinhtrangsach";
+            this.cmbtinhtrangsach.Size = new System.Drawing.Size(250, 28);
+            this.cmbtinhtrangsach.TabIndex = 32;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -380,7 +384,6 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label txtmasach;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtTTSach;
         private System.Windows.Forms.DateTimePicker dateNgayTra;
         private System.Windows.Forms.DateTimePicker dateNgayMuon;
         private System.Windows.Forms.Label label6;
@@ -402,5 +405,6 @@
         private System.Windows.Forms.Button btntaophieu;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label txtMaDocGia;
+        private System.Windows.Forms.ComboBox cmbtinhtrangsach;
     }
 }
