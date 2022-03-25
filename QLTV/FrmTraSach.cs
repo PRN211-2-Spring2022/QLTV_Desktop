@@ -29,9 +29,9 @@ namespace QLTV
 
      
         
-            private void FrmTraSach_Load(object sender, EventArgs e)
 
-        { 
+        public void loadform()
+        {
 
             txtmadg.Text = madg;
 
@@ -56,7 +56,7 @@ namespace QLTV
 
 
 
-                           select   new
+                           select new
 
                            {
                                s.Maquyensach,
@@ -89,24 +89,24 @@ namespace QLTV
 
             txttendg.DataBindings.Add("Text", trasach, "Hoten");
 
-     
-            txtmasach.DataBindings.Add("Text", trasach, "Maquyensach");
-            
 
-            
+            txtmasach.DataBindings.Add("Text", trasach, "Maquyensach");
+
+
+
             DateTime dt1 = dtpngaytra.Value;
-           
-             DateTime dt2 = dtpdu.Value;
-              TimeSpan diff1 = dt1.Subtract(dt2);
-            
-            if(diff1.Days > 0)
+
+            DateTime dt2 = dtpdu.Value;
+            TimeSpan diff1 = dt1.Subtract(dt2);
+
+            if (diff1.Days > 0)
             {
 
-               
+
                 txtngayquahan.Text = diff1.Days.ToString();
                 txtngayquahan.ForeColor = Color.Red;
-                
-                lbltienphat.Text = "Tiền Phạt: "+diff1.Days*1000+".0";
+
+                lbltienphat.Text = "Tiền Phạt: " + diff1.Days * 1000 + ".0";
 
             }
             else
@@ -114,14 +114,19 @@ namespace QLTV
                 txtngayquahan.Text = "0";
                 lbltienphat.Text = "0.0";
             }
-            
 
 
 
 
 
-            cbtinhtrangsach.SelectedIndex = 0;  
 
+            cbtinhtrangsach.SelectedIndex = 0;
+        }
+            private void FrmTraSach_Load(object sender, EventArgs e)
+
+        {
+
+            loadform();
 
 
 
@@ -263,20 +268,21 @@ namespace QLTV
                         db.TbCtNhanlais.Add(ctnl);
                         db.SaveChanges();
                         MessageBox.Show("Thêm thành Công");
-<<<<<<< HEAD
 
-=======
                         try
                         {
                         var delete = db.TbCtPhieubangiaos.SingleOrDefault(d => d.Maphieubangiao == int.Parse(txtmaphieubg.Text));
-                        if (delete != null)
+                        var delete1 = db.TbPhieubangiaosaches.SingleOrDefault(e => e.Maphieubangiao == int.Parse(txtmaphieubg.Text));
+                        if (delete != null && delete1 != null)
                         {
                             db.TbCtPhieubangiaos.Remove(delete);
+                            db.TbPhieubangiaosaches.Remove(delete1);
                             int count = db.SaveChanges();
                             if (count > 0)
                             {
                                 MessageBox.Show("Phiếu mượn sách đã được xóa");
                                 Close();
+                               
                             }
                         }
                         }
@@ -284,7 +290,6 @@ namespace QLTV
                         {
                             MessageBox.Show(ex.Message, "Error");
                         }
->>>>>>> 70eab6231becd71a9731e0540b4a0c7b0540c60b
                     }
                     catch (Exception ex)
                     {
@@ -363,6 +368,7 @@ namespace QLTV
                                 {
                                 MessageBox.Show("Phiếu mượn sách đã được xóa");
                                     Close();
+                                
                                 }
                             }
                         }

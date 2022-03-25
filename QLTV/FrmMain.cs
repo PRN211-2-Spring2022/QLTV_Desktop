@@ -32,11 +32,13 @@ namespace BookLoanManager
                  p in QLTV.TbPhieubangiaosaches
 
                 join d in QLTV.TbDocgia on p.Mathedocgia equals d.Mathedocgia
+                
+                join ctp in QLTV.TbCtPhieubangiaos on p.Maphieubangiao equals ctp.Maphieubangiao
 
 
                 select new
                 {
-                    p.Maphieubangiao,
+                    ctp.Maphieubangiao,
                     p.Mathedocgia,
                     p.Manhanvien,
                     p.Ngaymuon,
@@ -240,6 +242,11 @@ namespace BookLoanManager
             {
                 MessageBox.Show(ex.Message, "error");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            load_Phieu();
         }
     }
 }
