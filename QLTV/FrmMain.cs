@@ -42,6 +42,7 @@ namespace BookLoanManager
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            
             try
             {
                 LoadDG();
@@ -51,7 +52,10 @@ namespace BookLoanManager
             {
                 MessageBox.Show(ex.Message, "Error");
             }
+            
         }
+
+        
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
@@ -114,6 +118,72 @@ namespace BookLoanManager
                 MessageBox.Show("Bạn phải chọn thông tin tìm kiếm");
                 rbtnmathe.Focus();
             }
+
+        }
+
+        QLTV_DesktopContext QLTV_Desktop = new QLTV_DesktopContext();
+        private void btntaophieu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtName.Text != "" && txtMaDocGia.Text != "")
+                {
+                    var phieuQuery = QLTV_Desktop.TbPhieubangiaosaches.Add(
+                        new TbPhieubangiaosach
+                        {
+                            Manhanvien = int.Parse(txtName.Text),
+                            Mathedocgia = int.Parse(txtMaDocGia.Text),
+                            Maphieubangiao = int.Parse(lblbangiao.Text)
+                        }
+                        );
+                    var addedEmployee = QLTV_Desktop.TbNhanViens.OrderBy(b => b.Manhanvien).Last();                 
+                    var readerItem = QLTV_Desktop.TbPhieubangiaosaches.FirstOrDefault(
+                        a => a.Mathedocgia == int.Parse(txtMaDocGia.Text)
+                    );                  
+                    var ticketBangGiao = QLTV_Desktop.TbPhieubangiaosaches.FirstOrDefault(
+                        b => b.Maphieubangiao == int.Parse(lblbangiao.Text)
+                        );
+                    if (readerItem != null)
+                    {
+                        var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
+                            new TbPhieubangiaosach
+                            {
+                                Manhanvien = addedEmployee.Manhanvien,
+                                Mathedocgia = readerItem.Mathedocgia,
+                                Maphieubangiao = ticketBangGiao.Maphieubangiao,
+                                TbCtPhieubangiaos = "Chủ biên"
+                            }
+                        );
+                        QLTV_Desktop.SaveChanges();
+
+                        MessageBox.Show("Thêm thành công.");
+                        
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Không được để trống thông tin.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thêm thất bại.");
+            }
+
+        }
+
+        private void dgvthongtindocgia_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            txtName.DataBindings.Clear();
+            txtName.DataBindings.Add("text", dgvthongtindocgia.DataSource, "Manhanvien");
+            txtMaDocGia.DataBindings.Clear();
+            txtMaDocGia.DataBindings.Add("text", dgvthongtindocgia.DataSource, "Mathedocgia");
+            lblbangiao.DataBindings.Clear();
+            lblbangiao.DataBindings.Add("text", dgvthongtindocgia.DataSource, "TbCtPhieubangiaos");
+            txtTTSach.DataBindings.Clear();
+            txtTTSach.DataBindings.Add("text", dgvthongtindocgia.DataSource, "Tinhtrangkhigiao");
 
         }
     }

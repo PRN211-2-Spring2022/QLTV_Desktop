@@ -31,9 +31,9 @@
             this.dgvthongtindocgia = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtMaDocGia = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblbangiao = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.txtTTSach = new System.Windows.Forms.TextBox();
             this.dateNgayTra = new System.Windows.Forms.DateTimePicker();
@@ -56,6 +56,7 @@
             this.rbttensach = new System.Windows.Forms.RadioButton();
             this.btntaophieu = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             ((System.ComponentModel.ISupportInitialize)(this.dgvthongtindocgia)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvthongtinsach)).BeginInit();
@@ -75,6 +76,7 @@
             this.dgvthongtindocgia.RowTemplate.Height = 29;
             this.dgvthongtindocgia.Size = new System.Drawing.Size(353, 345);
             this.dgvthongtindocgia.TabIndex = 9;
+            this.dgvthongtindocgia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvthongtindocgia_CellContentClick);
             // 
             // button1
             // 
@@ -87,9 +89,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtMaDocGia);
             this.groupBox1.Controls.Add(this.txtName);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.lblbangiao);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.txtTTSach);
             this.groupBox1.Controls.Add(this.dateNgayTra);
@@ -106,6 +108,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phiếu";
             // 
+            // txtMaDocGia
+            // 
+            this.txtMaDocGia.BackColor = System.Drawing.Color.White;
+            this.txtMaDocGia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.txtMaDocGia.Location = new System.Drawing.Point(165, 91);
+            this.txtMaDocGia.Name = "txtMaDocGia";
+            this.txtMaDocGia.Size = new System.Drawing.Size(163, 25);
+            this.txtMaDocGia.TabIndex = 31;
+            // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(165, 37);
@@ -113,21 +124,14 @@
             this.txtName.Size = new System.Drawing.Size(163, 27);
             this.txtName.TabIndex = 27;
             // 
-            // textBox2
+            // lblbangiao
             // 
-            this.textBox2.Location = new System.Drawing.Point(165, 93);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(163, 27);
-            this.textBox2.TabIndex = 28;
-            // 
-            // label13
-            // 
-            this.label13.BackColor = System.Drawing.Color.White;
-            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label13.Location = new System.Drawing.Point(165, 148);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(163, 27);
-            this.label13.TabIndex = 30;
+            this.lblbangiao.BackColor = System.Drawing.Color.White;
+            this.lblbangiao.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblbangiao.Location = new System.Drawing.Point(165, 148);
+            this.lblbangiao.Name = "lblbangiao";
+            this.lblbangiao.Size = new System.Drawing.Size(163, 27);
+            this.lblbangiao.TabIndex = 30;
             // 
             // label15
             // 
@@ -330,6 +334,7 @@
             this.btntaophieu.TabIndex = 36;
             this.btntaophieu.Text = "Tạo phiếu mượn";
             this.btntaophieu.UseVisualStyleBackColor = true;
+            this.btntaophieu.Click += new System.EventHandler(this.btntaophieu_Click);
             // 
             // label3
             // 
@@ -340,6 +345,13 @@
             this.label3.Size = new System.Drawing.Size(219, 31);
             this.label3.TabIndex = 37;
             this.label3.Text = "Quản lý mượn sách";
+            // 
+            // sqlCommand1
+            // 
+            this.sqlCommand1.CommandTimeout = 30;
+            this.sqlCommand1.Connection = null;
+            this.sqlCommand1.Notification = null;
+            this.sqlCommand1.Transaction = null;
             // 
             // FrmMain
             // 
@@ -374,8 +386,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblbangiao;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtTTSach;
         private System.Windows.Forms.DateTimePicker dateNgayTra;
@@ -398,5 +409,7 @@
         private System.Windows.Forms.RadioButton rbttensach;
         private System.Windows.Forms.Button btntaophieu;
         private System.Windows.Forms.Label label3;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
+        private System.Windows.Forms.Label txtMaDocGia;
     }
 }
