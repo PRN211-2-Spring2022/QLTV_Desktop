@@ -263,6 +263,24 @@ namespace QLTV
                         db.TbCtNhanlais.Add(ctnl);
                         db.SaveChanges();
                         MessageBox.Show("Thêm thành Công");
+                        try
+                        {
+                        var delete = db.TbCtPhieubangiaos.SingleOrDefault(d => d.Maphieubangiao == int.Parse(txtmaphieubg.Text));
+                        if (delete != null)
+                        {
+                            db.TbCtPhieubangiaos.Remove(delete);
+                            int count = db.SaveChanges();
+                            if (count > 0)
+                            {
+                                MessageBox.Show("Phiếu mượn sách đã được xóa");
+                                Close();
+                            }
+                        }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Error");
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -330,7 +348,25 @@ namespace QLTV
                         db.TbCtPhieuphats.Add(ctpp);
                         db.SaveChanges();
                         MessageBox.Show("Thêm thành Công");
+                        try
+                        {
+                            var delete = db.TbCtPhieubangiaos.SingleOrDefault(d => d.Maphieubangiao == int.Parse(txtmaphieubg.Text));
+                            if (delete != null)
+                            {
+                                db.TbCtPhieubangiaos.Remove(delete);
+                                int count = db.SaveChanges();
+                                if (count > 0)
+                                {
+                                MessageBox.Show("Phiếu mượn sách đã được xóa");
+                                    Close();
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                        MessageBox.Show(ex.Message, "Error");
                     }
+                }
                     catch (Exception ex)
                     {
 
