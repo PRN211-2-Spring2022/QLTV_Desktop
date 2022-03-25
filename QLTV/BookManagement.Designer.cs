@@ -62,7 +62,7 @@
             this.dgvBook.ReadOnly = true;
             this.dgvBook.RowTemplate.Height = 25;
             this.dgvBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBook.Size = new System.Drawing.Size(450, 600);
+            this.dgvBook.Size = new System.Drawing.Size(625, 600);
             this.dgvBook.TabIndex = 0;
             // 
             // btnAdd
@@ -127,14 +127,14 @@
             this.dgvAuthor.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAuthor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAuthor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAuthor.Location = new System.Drawing.Point(596, 0);
+            this.dgvAuthor.Location = new System.Drawing.Point(771, 0);
             this.dgvAuthor.Margin = new System.Windows.Forms.Padding(0, 4, 4, 4);
             this.dgvAuthor.MultiSelect = false;
             this.dgvAuthor.Name = "dgvAuthor";
             this.dgvAuthor.ReadOnly = true;
             this.dgvAuthor.RowTemplate.Height = 25;
             this.dgvAuthor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAuthor.Size = new System.Drawing.Size(450, 600);
+            this.dgvAuthor.Size = new System.Drawing.Size(275, 600);
             this.dgvAuthor.TabIndex = 10;
             // 
             // txtAuthorID
