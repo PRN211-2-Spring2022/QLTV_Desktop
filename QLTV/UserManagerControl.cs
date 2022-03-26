@@ -138,6 +138,7 @@ namespace QLTV
                 {
                     MessageBox.Show("Tài khoản đã tồn tại.");
                 }
+                LoadInfo();
             }
         }
 
