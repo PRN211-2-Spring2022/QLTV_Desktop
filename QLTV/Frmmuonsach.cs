@@ -158,6 +158,10 @@ namespace QLTV
                 MessageBox.Show("Vui lòng nhập mã nhân viên");
                 txtName.Focus();
             }
+            else if (cmbtinhtrangsach.SelectedIndex == 1)
+            {
+                MessageBox.Show("Không cho mượn sách hỏng");
+            }
             else
             {
                 try
@@ -220,87 +224,4 @@ namespace QLTV
         }
     }
 }
-/*if (bookItem == null)
-                    {
-                        var publisherItem = QLTV_Desktop.TbNhaXuatBans.FirstOrDefault(
-                            p => p.Tennhaxuatban == cbPublisher.Text
-                        );
 
-                        if (publisherItem != null)
-                        {
-                            var bookQuery = QLTV_Desktop.TbDausaches.Add(
-                                new TbDausach
-                                {
-                                    Tendausach = txtName.Text,
-                                    Soluong = 0,
-                                    Sotrang = Int32.Parse(txtPage.Text),
-                                    Manhaxuatban = publisherItem.Manhaxuatban,
-                                }
-                            );
-                            QLTV_Desktop.SaveChanges();
-                        }
-                        else
-                        {
-                            var publisherQuery = QLTV_Desktop.TbNhaXuatBans.Add(
-                                new TbNhaXuatBan { Tennhaxuatban = cbPublisher.Text }
-                            );
-                            QLTV_Desktop.SaveChanges();
-
-                            var addedPublisher = QLTV_Desktop.TbNhaXuatBans
-                                .OrderBy(p => p.Manhaxuatban)
-                                .Last();
-                            var bookQuery = QLTV_Desktop.TbDausaches.Add(
-                                new TbDausach
-                                {
-                                    Tendausach = txtName.Text,
-                                    Soluong = 0,
-                                    Sotrang = Int32.Parse(txtPage.Text),
-                                    Manhaxuatban = addedPublisher.Manhaxuatban
-                                }
-                            );
-                            QLTV_Desktop.SaveChanges();
-                        }
-
-                        var addedBook = QLTV_Desktop.TbDausaches.OrderBy(b => b.Madausach).Last();
-                        var authorItem = QLTV_Desktop.TbTacgia.FirstOrDefault(
-                            a => a.Tentacgia == cbAuthor.Text
-                        );
-
-                        if (authorItem != null)
-                        {
-                            var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
-                                new TbCtTacgium
-                                {
-                                    Madausach = addedBook.Madausach,
-                                    Matacgia = authorItem.Matacgia,
-                                    Vaitrotacgia = "Chủ biên"
-                                }
-                            );
-                            QLTV_Desktop.SaveChanges();
-
-                            MessageBox.Show("Thêm thành công.");
-                            Close();
-                        }
-                        else
-                        {
-                            var authorQuery = QLTV_Desktop.TbTacgia.Add(
-                                new TbTacgium { Tentacgia = cbAuthor.Text }
-                            );
-                            QLTV_Desktop.SaveChanges();
-
-                            var addedAuthor = QLTV_Desktop.TbTacgia.OrderBy(a => a.Matacgia).Last();
-                            var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
-                                new TbCtTacgium
-                                {
-                                    Madausach = addedBook.Madausach,
-                                    Matacgia = addedAuthor.Matacgia,
-                                    Vaitrotacgia = "Chủ biên"
-                                }
-                            );
-                            QLTV_Desktop.SaveChanges();
-
-                            MessageBox.Show("Thêm thành công.");
-                            Close();
-                        }
-                    }
-                    else*/
