@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using QLTV.Models;
+using System.Drawing;
+using System.Windows.Forms;
+using System.ComponentModel;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace QLTV
 {
@@ -17,6 +17,7 @@ namespace QLTV
         {
             InitializeComponent();
         }
+
         QLTV_DesktopContext context = new QLTV_DesktopContext();
 
         private static UserManagerControl _instance;
@@ -36,7 +37,7 @@ namespace QLTV
                 from a in context.TbAccounts
                 join e in context.TbNhanViens on a.Manhanvien equals e.Manhanvien
                 select new { e.Manhanvien, a.Username, e.Tennhanvien, a.Gmail, a.Password, a.Quyen }
-                ).ToList();
+            ).ToList();
 
             //Clear data binding
             tbID.DataBindings.Clear();
@@ -112,10 +113,7 @@ namespace QLTV
             }
             else
             {
-                TbNhanVien nv = new TbNhanVien()
-                {
-                    Tennhanvien = tbEmployee.Text.Trim(),
-                };
+                TbNhanVien nv = new TbNhanVien() { Tennhanvien = tbEmployee.Text.Trim(), };
                 context.TbNhanViens.Add(nv);
                 context.SaveChanges();
                 nv = (from emp in context.TbNhanViens select emp).ToList().Last();
@@ -127,12 +125,18 @@ namespace QLTV
                     Password = tbPassword.Text.Trim(),
                     Quyen = (int)Convert.ToUInt32(cbAdmin.Text.ToString()),
                 };
-                context.TbAccounts.Add(account);
-                int confirm = context.SaveChanges();
-                if (confirm > 0)
+                var accountItem = context.TbAccounts.FirstOrDefault(
+                    x => x.Username == tbUsername.Text.Trim()
+                );
+                if (accountItem == null)
                 {
+                    context.TbAccounts.Add(account);
+                    context.SaveChanges();
                     MessageBox.Show("Thêm thành công");
-                    LoadInfo();
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản đã tồn tại.");
                 }
             }
         }
@@ -161,8 +165,12 @@ namespace QLTV
             }
             else
             {
-                TbNhanVien nv = context.TbNhanViens.SingleOrDefault(emp => emp.Manhanvien.ToString().Equals(tbID.Text.Trim()));
-                TbAccount account = context.TbAccounts.SingleOrDefault(acc => acc.Manhanvien.ToString().Equals(tbID.Text.Trim()));
+                TbNhanVien nv = context.TbNhanViens.SingleOrDefault(
+                    emp => emp.Manhanvien.ToString().Equals(tbID.Text.Trim())
+                );
+                TbAccount account = context.TbAccounts.SingleOrDefault(
+                    acc => acc.Manhanvien.ToString().Equals(tbID.Text.Trim())
+                );
                 if (nv != null && account != null)
                 {
                     nv.Tennhanvien = tbEmployee.Text.Trim();
@@ -182,11 +190,19 @@ namespace QLTV
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            TbNhanVien nv = context.TbNhanViens.SingleOrDefault(emp => emp.Manhanvien.ToString().Equals(tbID.Text.Trim()));
-            TbAccount account = context.TbAccounts.SingleOrDefault(acc => acc.Manhanvien.ToString().Equals(tbID.Text.Trim()));
+            TbNhanVien nv = context.TbNhanViens.SingleOrDefault(
+                emp => emp.Manhanvien.ToString().Equals(tbID.Text.Trim())
+            );
+            TbAccount account = context.TbAccounts.SingleOrDefault(
+                acc => acc.Manhanvien.ToString().Equals(tbID.Text.Trim())
+            );
             if (nv != null || account != null)
             {
-                DialogResult box = MessageBox.Show("Bạn có chắc chắn muốn xóa người dùng này?", "Thông báo", MessageBoxButtons.YesNo);
+                DialogResult box = MessageBox.Show(
+                    "Bạn có chắc chắn muốn xóa người dùng này?",
+                    "Thông báo",
+                    MessageBoxButtons.YesNo
+                );
                 if (box == DialogResult.Yes)
                 {
                     context.TbNhanViens.Remove(nv);
