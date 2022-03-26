@@ -268,7 +268,7 @@ namespace QLTV
 
                         db.TbCtNhanlais.Add(ctnl);
                         db.SaveChanges();
-                        MessageBox.Show("Thêm thành Công");
+                        MessageBox.Show("Trả thành Công");
 
                         try
                         {
@@ -361,7 +361,7 @@ namespace QLTV
 
                         db.TbCtPhieuphats.Add(ctpp);
                         db.SaveChanges();
-                        MessageBox.Show("Thêm thành Công");
+                        MessageBox.Show("trả và thanh toán thành Công");
                         try
                         {
                         var delete = db.TbCtPhieubangiaos.SingleOrDefault(d => d.Maphieubangiao == int.Parse(txtmaphieubg.Text));
@@ -371,6 +371,7 @@ namespace QLTV
                         if (delete != null && delete1 != null)
                         {
                             db.TbCtPhieubangiaos.Remove(delete);
+
                             db.TbPhieubangiaosaches.Remove(delete1);
 
                             int count = db.SaveChanges();
@@ -382,9 +383,9 @@ namespace QLTV
                                 }
                             }
                         }
-                        catch (Exception ex)
+                        catch (Exception xx)
                         {
-                        MessageBox.Show(ex.Message, "Error");
+                        MessageBox.Show(xx.Message, "Error");
                     }
                 }
                     catch (Exception ex)
