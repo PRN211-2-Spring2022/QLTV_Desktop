@@ -32,12 +32,12 @@ namespace QLTV
                 QLTV_DesktopContext Des = new QLTV_DesktopContext();
                 if (account == null || account.Equals(""))
                 {
-                    MessageBox.Show("Please enter your gmail and password first!");
+                    MessageBox.Show("Chưa nhập tên tài khoản!");
                     return;
                 }
                 if (password == null || password.Equals(""))
                 {
-                    MessageBox.Show("Please enter your gmail and password first!");
+                    MessageBox.Show("Chưa nhập mật khẩu!");
                     return;
                 }
                 TbAccount acc = Des.TbAccounts.SingleOrDefault(a => a.Username.Equals(txtAccount.Text.Trim()) && a.Password.Equals(txtPassword.Text.Trim()));
@@ -45,7 +45,7 @@ namespace QLTV
 
                 if (account != null)
                 {
-                    MessageBox.Show("Login Succeed!", "Notification",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Đăng nhập thành công!", "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     Frm_Main frM = new Frm_Main(acc,nv);
                     frM.Show();
                     this.Hide();
@@ -61,7 +61,7 @@ namespace QLTV
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác !");
             }
         }
 
