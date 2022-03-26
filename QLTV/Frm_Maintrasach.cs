@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 
 namespace QLTV
-
 {
     public partial class Frm_Maintrasach : UserControl
     {
@@ -35,19 +34,10 @@ namespace QLTV
 
         public void load_Phieu()
         {
-
-
             var phieu = (
-                from
-
-                 p in QLTV.TbPhieubangiaosaches
-
+                from p in QLTV.TbPhieubangiaosaches
                 join d in QLTV.TbDocgia on p.Mathedocgia equals d.Mathedocgia
-                
                 join ctp in QLTV.TbCtPhieubangiaos on p.Maphieubangiao equals ctp.Maphieubangiao
-
-
-
                 select new
                 {
                     ctp.Maphieubangiao,
@@ -58,15 +48,12 @@ namespace QLTV
                     p.Tinhtrangkhigiao,
                     d.Hoten
                 }
-
             ).ToList();
 
             txtmadg.DataBindings.Clear();
             txtMapbg.DataBindings.Clear();
             txtsearchbyname.DataBindings.Clear();
             txtsearchbyphieu.DataBindings.Clear();
-
-
 
             txtMapbg.DataBindings.Add("Text", phieu, "Maphieubangiao");
             txtmadg.DataBindings.Add("Text", phieu, "Mathedocgia");
@@ -78,10 +65,6 @@ namespace QLTV
 
             dataGridView1.DataSource = phieu;
         }
-
-
-
-        
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
@@ -97,35 +80,20 @@ namespace QLTV
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
-        
-
         private void btntraSach_Click(object sender, EventArgs e)
         {
             ViewTraSach frmTraSach = new ViewTraSach();
             frmTraSach.ShowDialog();
         }
 
-       
-
-       
-
-        
-
-        
-
-       
-
         private void button2_Click(object sender, EventArgs e)
         {
             FrmTraSach frmTraSach = new FrmTraSach();
-            
+
             frmTraSach.madg = txtmadg.Text;
             frmTraSach.mapbg = txtMapbg.Text;
 
             frmTraSach.ShowDialog();
-
-
-
         }
 
         private void btntimpbg_Click(object sender, EventArgs e)
@@ -139,27 +107,20 @@ namespace QLTV
             try
             {
                 var docgia1 = (
-                   from
-
-                 p in QLTV.TbPhieubangiaosaches
-                   join d in QLTV.TbDocgia on p.Mathedocgia equals d.Mathedocgia
-
-                   where p.Maphieubangiao.ToString() == search
-
-                   select new
-                   {
-                       p.Maphieubangiao,
-                       p.Mathedocgia,
-                       p.Manhanvien,
-                       p.Ngaymuon,
-                       p.Ngaydukientra,
-                       p.Tinhtrangkhigiao,
-                       d.Hoten
-
-                   }
-
+                    from p in QLTV.TbPhieubangiaosaches
+                    join d in QLTV.TbDocgia on p.Mathedocgia equals d.Mathedocgia
+                    where p.Maphieubangiao.ToString() == search
+                    select new
+                    {
+                        p.Maphieubangiao,
+                        p.Mathedocgia,
+                        p.Manhanvien,
+                        p.Ngaymuon,
+                        p.Ngaydukientra,
+                        p.Tinhtrangkhigiao,
+                        d.Hoten
+                    }
                 ).ToList();
-
 
                 if (txtsearchbyphieu.Text.Length > 0)
                 {
@@ -184,37 +145,28 @@ namespace QLTV
             txtsearchbyphieu.DataBindings.Clear();
             txtsearchbyphieu.DataBindings.Clear();
 
-
             string search = txtsearchbyname.Text;
 
             try
             {
                 var docgia0 = (
-                   from
-
-                 p in QLTV.TbPhieubangiaosaches
-                   join d in QLTV.TbDocgia on p.Mathedocgia equals d.Mathedocgia
-
-                   where d.Hoten.Contains(search)
-
-                   select new
-                   {
-                       p.Maphieubangiao,
-                       p.Mathedocgia,
-                       p.Manhanvien,
-                       p.Ngaymuon,
-                       p.Ngaydukientra,
-                       p.Tinhtrangkhigiao,
-                       d.Hoten
-
-                   }
-
+                    from p in QLTV.TbPhieubangiaosaches
+                    join d in QLTV.TbDocgia on p.Mathedocgia equals d.Mathedocgia
+                    where d.Hoten.Contains(search)
+                    select new
+                    {
+                        p.Maphieubangiao,
+                        p.Mathedocgia,
+                        p.Manhanvien,
+                        p.Ngaymuon,
+                        p.Ngaydukientra,
+                        p.Tinhtrangkhigiao,
+                        d.Hoten
+                    }
                 ).ToList();
-
 
                 if (txtsearchbyname.Text.Trim().Length > 0)
                 {
-
                     dataGridView1.DataSource = docgia0;
                 }
                 else

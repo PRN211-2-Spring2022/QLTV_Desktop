@@ -18,6 +18,7 @@ namespace QLTV
         {
             InitializeComponent();
         }
+
         QLTV_DesktopContext QLTV_qldg = new QLTV_DesktopContext();
 
         private static readerinformation _instance;
@@ -30,10 +31,21 @@ namespace QLTV
                 return _instance;
             }
         }
+
         public void Loadinformation()
         {
-            var docgia = (from c in QLTV_qldg.TbDocgia
-                          select new { c.Mathedocgia, c.Hoten, c.Ngaysinh, c.Ngaylamthe, c.Doituongdocgia, c.Diachi }).ToList();
+            var docgia = (
+                from c in QLTV_qldg.TbDocgia
+                select new
+                {
+                    c.Mathedocgia,
+                    c.Hoten,
+                    c.Ngaysinh,
+                    c.Ngaylamthe,
+                    c.Doituongdocgia,
+                    c.Diachi
+                }
+            ).ToList();
             dgvthongtindocgia.DataSource = docgia;
             txthoten.DataBindings.Clear();
             txtdiachi.DataBindings.Clear();
@@ -51,6 +63,7 @@ namespace QLTV
             txthoten.DataBindings.Add("Text", docgia, "Hoten");
             txtdiachi.DataBindings.Add("Text", docgia, "Diachi");
         }
+
         private void readerinformation_Load(object sender, EventArgs e)
         {
             try
@@ -68,7 +81,8 @@ namespace QLTV
             Loadinformation();
             //dgvthongtindocgia.DataSource = docgia;
             txthoten.Text = "";
-            txtdiachi.Text = ""; ;
+            txtdiachi.Text = "";
+            ;
             boxdoituong.Text = "";
             txtfind.Text = "";
             rbtnmathe.DataBindings.Clear();
@@ -153,7 +167,9 @@ namespace QLTV
                 };
                 try
                 {
-                    var update = QLTV_qldg.TbDocgia.SingleOrDefault(c => c.Mathedocgia == int.Parse(txtmathedocgia.Text));
+                    var update = QLTV_qldg.TbDocgia.SingleOrDefault(
+                        c => c.Mathedocgia == int.Parse(txtmathedocgia.Text)
+                    );
                     if (update != null)
                     {
                         update.Hoten = txthoten.Text.Trim();
@@ -166,7 +182,7 @@ namespace QLTV
                             MessageBox.Show("Chỉnh sửa thành công");
                             Loadinformation();
                         }
-                    }                    
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -185,9 +201,7 @@ namespace QLTV
 
         public void Loadbtsearchname()
         {
-            var findbyten = QLTV_qldg.TbDocgia
-                .Where(t => t.Hoten.Contains(txtfind.Text))
-                .ToList();
+            var findbyten = QLTV_qldg.TbDocgia.Where(t => t.Hoten.Contains(txtfind.Text)).ToList();
             dgvthongtindocgia.DataSource = findbyten;
         }
 
@@ -198,7 +212,7 @@ namespace QLTV
                 MessageBox.Show("Thông tin tìm kiếm không thể để trống");
                 txtfind.Focus();
             }
-            else if(!Regex.IsMatch(txtfind.Text.Trim(),@"\d{3}$") && rbtnmathe.Checked ==true)
+            else if (!Regex.IsMatch(txtfind.Text.Trim(), @"\d{3}$") && rbtnmathe.Checked == true)
             {
                 MessageBox.Show("Mã thẻ độc giả có dạng 3 chữ số");
                 txtfind.Focus();
@@ -216,17 +230,22 @@ namespace QLTV
                 MessageBox.Show("Bạn phải chọn thông tin tìm kiếm");
                 rbtnmathe.Focus();
             }
-
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             try
             {
-                var delete = QLTV_qldg.TbDocgia.SingleOrDefault(c => c.Mathedocgia == int.Parse(txtmathedocgia.Text));
+                var delete = QLTV_qldg.TbDocgia.SingleOrDefault(
+                    c => c.Mathedocgia == int.Parse(txtmathedocgia.Text)
+                );
                 if (delete != null)
                 {
-                    DialogResult box = MessageBox.Show("Bạn có chắc chắn muốn xóa độc giả này?", "Thông báo", MessageBoxButtons.YesNo);
+                    DialogResult box = MessageBox.Show(
+                        "Bạn có chắc chắn muốn xóa độc giả này?",
+                        "Thông báo",
+                        MessageBoxButtons.YesNo
+                    );
                     if (box == DialogResult.Yes)
                     {
                         QLTV_qldg.TbDocgia.Remove(delete);
@@ -245,7 +264,10 @@ namespace QLTV
             }
         }
 
-        private void dgvthongtindocgia_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvthongtindocgia_CellContentDoubleClick(
+            object sender,
+            DataGridViewCellEventArgs e
+        )
         {
             Loadinformation();
         }

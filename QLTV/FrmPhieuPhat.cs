@@ -22,22 +22,25 @@ namespace QLTV
 
         public void load_phieuphat()
         {
-            var showphieu = (from ctpp in QLTV.TbCtPhieuphats
-                              join pp in QLTV.TbPhieuphats on ctpp.Maphieuphat equals pp.Maphieuphat
-                              join nl in QLTV.TbBbNhanlaisaches on pp.Mabbnhanlai equals nl.Mabbnhanlai
-                              join ctnl in QLTV.TbCtNhanlais on nl.Mabbnhanlai equals ctnl.Mabbnhanlai
-                              join d in QLTV.TbDocgia on nl.Mathedocgia equals d.Mathedocgia
-                              select new
-                              {
-                                  ctpp.Maphieuphat,
-                                  d.Hoten,
-                                  ctpp.Maquyensach,
-                                  ctpp.Songayquahan,
-                                  ctnl.Tinhtrangnhanlai,
-                                  pp.Tongtien
-                              }
-                         ).Distinct().ToList(); 
-            
+            var showphieu = (
+                from ctpp in QLTV.TbCtPhieuphats
+                join pp in QLTV.TbPhieuphats on ctpp.Maphieuphat equals pp.Maphieuphat
+                join nl in QLTV.TbBbNhanlaisaches on pp.Mabbnhanlai equals nl.Mabbnhanlai
+                join ctnl in QLTV.TbCtNhanlais on nl.Mabbnhanlai equals ctnl.Mabbnhanlai
+                join d in QLTV.TbDocgia on nl.Mathedocgia equals d.Mathedocgia
+                select new
+                {
+                    ctpp.Maphieuphat,
+                    d.Hoten,
+                    ctpp.Maquyensach,
+                    ctpp.Songayquahan,
+                    ctnl.Tinhtrangnhanlai,
+                    pp.Tongtien
+                }
+            )
+                .Distinct()
+                .ToList();
+
             txtName.DataBindings.Clear();
             txtMaSach.DataBindings.Clear();
             txtngayhethan.DataBindings.Clear();

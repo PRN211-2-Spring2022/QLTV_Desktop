@@ -36,7 +36,7 @@ namespace QLTV
         {
             dateNgayMuon.Value = DateTime.Now;
             dateNgayTra.Value = DateTime.Now.AddMonths(1);
-            txtName.Text =Convert.ToString(Frm_Main.tbc.Manhanvien);
+            txtName.Text = Convert.ToString(Frm_Main.tbc.Manhanvien);
         }
 
         public void LoadDG()
@@ -68,10 +68,7 @@ namespace QLTV
             ).ToList();
             foreach (var s in sach)
             {
-                if (s.Tinhtrangsach == 1)
-                {
-                    
-                }
+                if (s.Tinhtrangsach == 1) { }
             }
             dgvthongtinsach.DataSource = sach;
             txtmasach.DataBindings.Clear();
@@ -175,15 +172,13 @@ namespace QLTV
                         Ngaydukientra = dateNgayTra.Value,
                         Tinhtrangkhigiao = cmbtinhtrangsach.Text
                     };
-                    
+
                     var addma = QLTV.TbPhieubangiaosaches.OrderBy(b => b.Maphieubangiao).Last();
                     int mbg = addma.Maphieubangiao + 2;
                     TbCtPhieubangiao taophieu = new TbCtPhieubangiao()
                     {
-                        
                         Maquyensach = int.Parse(txtmasach.Text),
                         Maphieubangiao = mbg
-
                     };
                     try
                     {
@@ -194,7 +189,7 @@ namespace QLTV
                         QLTV.SaveChanges();
                         MessageBox.Show("Tạo phiếu mượn thành công");
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Tạo phiếu thất bại.");
                     }
@@ -219,7 +214,8 @@ namespace QLTV
 
         }
 
-        private void button1_Click(object sender, EventArgs e) {
+        private void button1_Click(object sender, EventArgs e)
+        {
             var lichsu = new frmlichsu();
             lichsu.Show();
         }
@@ -239,4 +235,3 @@ namespace QLTV
         }
     }
 }
-

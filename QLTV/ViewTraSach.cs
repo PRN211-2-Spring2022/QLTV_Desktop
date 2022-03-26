@@ -34,8 +34,8 @@ namespace QLTV
                 join nv in QLTV.TbNhanViens on pbg.Manhanvien equals nv.Manhanvien
                 join tr in QLTV.TbBbNhanlaisaches on nv.Manhanvien equals tr.Manhanvien
                 join nl in QLTV.TbCtNhanlais on tr.Mabbnhanlai equals nl.Mabbnhanlai
-                select  new
-                {    
+                select new
+                {
                     tr.Mabbnhanlai,
                     tr.Mathedocgia,
                     d.Hoten,
@@ -56,7 +56,6 @@ namespace QLTV
             txtmatrasachs.DataBindings.Add("Text", trasach, "Mabbnhanlai");
             textBox1.DataBindings.Add("Text", trasach, "Ngaydukientra");
             txtMadg.DataBindings.Add("Text", trasach, "Mathedocgia");
-           
 
             /*  DateTime dt = DateTime.ParseExact(txtngaytra.Text.ToString(), "dd-MM-yyyy-HH", CultureInfo.InvariantCulture);
             DateTime dt1 = DateTime.ParseExact(textBox1.Text.ToString(), "dd-MM-yyyy-HH", CultureInfo.InvariantCulture);
@@ -89,7 +88,7 @@ namespace QLTV
 
         private void btnphieuphat_Click(object sender, EventArgs e)
         {
-            FrmPhieuPhat frm    = new FrmPhieuPhat();
+            FrmPhieuPhat frm = new FrmPhieuPhat();
             frm.ShowDialog();
             /*
             Form2 form2 = new Form2();
@@ -151,10 +150,7 @@ namespace QLTV
                 join nv in QLTV.TbNhanViens on pbg.Manhanvien equals nv.Manhanvien
                 join tr in QLTV.TbBbNhanlaisaches on nv.Manhanvien equals tr.Manhanvien
                 join nl in QLTV.TbCtNhanlais on tr.Mabbnhanlai equals nl.Mabbnhanlai
-
                 where d.Hoten.Contains(seach)
-
-
                 select new
                 {
                     nl.Mabbnhanlai,
@@ -186,7 +182,6 @@ namespace QLTV
             {
                 load_traSach();
             }
-
         }
 
         private void label5_Click(object sender, EventArgs e) { }
@@ -196,9 +191,6 @@ namespace QLTV
             DataGridViewCellMouseEventArgs e
         ) { }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-         
-        }
+        private void button1_Click(object sender, EventArgs e) { }
     }
 }
