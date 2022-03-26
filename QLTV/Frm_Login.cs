@@ -47,7 +47,7 @@ namespace QLTV
                     e => e.Manhanvien.Equals(acc.Manhanvien)
                 );
 
-                if (account != null)
+                if (acc != null)
                 {
                     MessageBox.Show(
                         "Đăng nhập thành công!",
