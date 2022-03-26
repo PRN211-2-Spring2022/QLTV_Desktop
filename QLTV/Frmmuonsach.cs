@@ -114,11 +114,15 @@ namespace QLTV
             }
             else if (rbtnmathe.Checked == true)
             {
-                Loadbtnsearchma();
+                var findbyma = QLTV.TbDocgia
+                    .Where(m => m.Mathedocgia == int.Parse(txtfind.Text))
+                    .ToList();
+                dgvthongtindocgia.DataSource = findbyma;
             }
             else if (rbtnten.Checked == true)
             {
-                Loadbtsearchname();
+                var findbyten = QLTV.TbDocgia.Where(t => t.Hoten.Contains(txtfind.Text)).ToList();
+                dgvthongtindocgia.DataSource = findbyten;
             }
             else if (rbtnmathe.Checked == false && rbtnten.Checked == false)
             {
@@ -136,11 +140,29 @@ namespace QLTV
             }
             else if (rbtmasach.Checked == true)
             {
-                Loadbtnsearchma();
+                var findbyma = QLTV.TbSaches
+                    .Where(m => m.Madausach == int.Parse(txtfindsach.Text))
+                    .ToList();
+                dgvthongtinsach.DataSource = findbyma;
             }
             else if (rbttensach.Checked == true)
             {
-                Loadbtsearchname();
+                var findbyten = (
+                    from d in QLTV.TbDausaches
+                    join b in QLTV.TbSaches on d.Madausach equals b.Madausach
+                    join c in QLTV.TbCtTacgia on b.Madausach equals c.Madausach
+                    join a in QLTV.TbTacgia on c.Matacgia equals a.Matacgia
+                    where d.Tendausach.Contains(txtfindsach.Text)
+                    select new
+                    {
+                        b.Maquyensach,
+                        b.Madausach,
+                        d.Tendausach,
+                        a.Tentacgia,
+                        b.Tinhtrangsach
+                    }
+                ).ToList();
+                dgvthongtinsach.DataSource = findbyten;
             }
             else if (rbtmasach.Checked == false && rbttensach.Checked == false)
             {
