@@ -13,22 +13,22 @@ using System.Windows.Forms;
 
 namespace QLTV
 {
-   
+
     public partial class FrmTraSach : Form
     {
-       QLTV_DesktopContext db = new QLTV_DesktopContext();
+        QLTV_DesktopContext db = new QLTV_DesktopContext();
         public FrmTraSach()
         {
             InitializeComponent();
         }
 
-         public string mapbg="";
-        public  string madg="";
-       
-     
+        public string mapbg = "";
+        public string madg = "";
 
-     
-        
+
+
+
+
 
         public void loadform()
         {
@@ -75,7 +75,7 @@ namespace QLTV
 
             txtngayquahan.DataBindings.Clear();
             txtmadg.DataBindings.Clear();
-            txtmanv.DataBindings.Clear();
+           
             lbltienphat.DataBindings.Clear();
             txtmaphieubg.DataBindings.Clear();
             txtmasach.DataBindings.Clear(); ;
@@ -91,6 +91,11 @@ namespace QLTV
 
 
             txtmasach.DataBindings.Add("Text", trasach, "Maquyensach");
+
+
+
+            txtmanv.Text = Convert.ToString( Frm_Main.tbc.Manhanvien);
+
 
 
 
@@ -122,7 +127,7 @@ namespace QLTV
 
             cbtinhtrangsach.SelectedIndex = 0;
         }
-            private void FrmTraSach_Load(object sender, EventArgs e)
+        private void FrmTraSach_Load(object sender, EventArgs e)
 
         {
 
@@ -131,12 +136,13 @@ namespace QLTV
 
 
 
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-           
+
+
             try
 
             {
@@ -146,9 +152,9 @@ namespace QLTV
                 DateTime dt2 = dtpdu.Value;
                 TimeSpan diff1 = dt1.Subtract(dt2);
 
-              
+
                 double tong = 0;
-                if (diff1.Days > 0 )
+                if (diff1.Days > 0)
                 {
                     double day = Convert.ToInt64(txtngayquahan.Text.ToString());
                     double tien = day * 1000;
@@ -174,7 +180,7 @@ namespace QLTV
                     }
 
                 }
-                else 
+                else
                 {
                     int tien = 0;
                     if (cbtinhtrangsach.SelectedIndex == 0)
@@ -199,81 +205,81 @@ namespace QLTV
                     }
                 }
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "error");
             }
-            
-            
-          
+
+
+
 
 
         }
 
         private void btntra_Click(object sender, EventArgs e)
         {
-           /* try
-            {*/
-                int a = Convert.ToInt32(textBox1.Text);
+            /* try
+             {*/
+            int a = Convert.ToInt32(textBox1.Text);
 
 
 
-               // int tinhtrang = 0;
-                string tinhtrangsach = "";
-              
-                if(cbtinhtrangsach.SelectedIndex == 0)
+            // int tinhtrang = 0;
+            string tinhtrangsach = "";
+
+            if (cbtinhtrangsach.SelectedIndex == 0)
+            {
+                tinhtrangsach += "Nguyên Vẹn";
+            }
+            else if (cbtinhtrangsach.SelectedIndex == 1)
+            {
+                tinhtrangsach += "Hỏng";
+            }
+            else if (cbtinhtrangsach.SelectedIndex == 2)
+            {
+                tinhtrangsach += "mất";
+            }
+
+            if (a == 0)
+            {
+                // insert to bảng nhận lại không có tiền phạt
+
+                TbBbNhanlaisach tbnl = new TbBbNhanlaisach()
                 {
-                    tinhtrangsach +="Nguyên Vẹn";
-                }
-                else if(cbtinhtrangsach.SelectedIndex == 1)
-                {
-                    tinhtrangsach += "Hỏng";
-                }
-                else if(cbtinhtrangsach.SelectedIndex == 2)
-                {
-                    tinhtrangsach += "mất";
-                }
-               
-                if (a == 0)
-                {
-                    // insert to bảng nhận lại không có tiền phạt
 
-                    TbBbNhanlaisach tbnl = new TbBbNhanlaisach()
-                    {
+                    Mathedocgia = int.Parse(txtmadg.Text),
+                    Manhanvien = int.Parse(txtmanv.Text),
 
-                        Mathedocgia = int.Parse(txtmadg.Text),
-                        Manhanvien = int.Parse(txtmanv.Text),
-                        
-                        Ngaytra = DateTime.Now
+                    Ngaytra = DateTime.Now
 
 
 
-                    };
-                    var addmabb = db.TbBbNhanlaisaches.OrderBy( n => n.Mabbnhanlai).Last();
+                };
+                var addmabb = db.TbBbNhanlaisaches.OrderBy(n => n.Mabbnhanlai).Last();
                 int manl = addmabb.Mabbnhanlai + 2;
-                    TbCtNhanlai ctnl = new TbCtNhanlai()
-                    {
-                        Mabbnhanlai= manl,
-                        Maquyensach=int.Parse(txtmasach.Text),
-                        Tinhtrangnhanlai = tinhtrangsach.ToString(),
+                TbCtNhanlai ctnl = new TbCtNhanlai()
+                {
+                    Mabbnhanlai = manl,
+                    Maquyensach = int.Parse(txtmasach.Text),
+                    Tinhtrangnhanlai = tinhtrangsach.ToString(),
 
-                    };
+                };
+
+                try
+                {
+                    db.TbBbNhanlaisaches.Add(tbnl);
+                    db.SaveChanges();
+
+
+                    db.TbCtNhanlais.Add(ctnl);
+                    db.SaveChanges();
+                    MessageBox.Show("Trả thành Công");
 
                     try
                     {
-                        db.TbBbNhanlaisaches.Add(tbnl);
-                        db.SaveChanges();
-
-
-                        db.TbCtNhanlais.Add(ctnl);
-                        db.SaveChanges();
-                        MessageBox.Show("Trả thành Công");
-
-                        try
-                        {
                         var delete = db.TbCtPhieubangiaos.SingleOrDefault(d => d.Maphieubangiao == int.Parse(txtmaphieubg.Text));
-                        
+
                         var delete1 = db.TbPhieubangiaosaches.SingleOrDefault(e => e.Maphieubangiao == int.Parse(txtmaphieubg.Text));
 
                         if (delete != null && delete1 != null)
@@ -285,85 +291,85 @@ namespace QLTV
                             {
                                 MessageBox.Show("Phiếu mượn sách đã được xóa");
                                 Close();
-                               
+
                             }
-                        }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, "Error");
                         }
                     }
                     catch (Exception ex)
                     {
-
-                        MessageBox.Show(ex.Message,"error");
+                        MessageBox.Show(ex.Message, "Error");
                     }
+                }
+                catch (Exception ex)
+                {
 
-
-
-
+                    MessageBox.Show(ex.Message, "error");
                 }
 
 
 
-                else
-                
+
+            }
+
+
+
+            else
+
+            {
+                // insert to bảng nhận lại kèm bảng phiếu phạt
+
+                TbBbNhanlaisach tbnl = new TbBbNhanlaisach()
                 {
-                    // insert to bảng nhận lại kèm bảng phiếu phạt
 
-                    TbBbNhanlaisach tbnl = new TbBbNhanlaisach()
-                    {
+                    Mathedocgia = int.Parse(txtmadg.Text),
+                    Manhanvien = int.Parse(txtmanv.Text),
 
-                        Mathedocgia = int.Parse(txtmadg.Text),
-                        Manhanvien = int.Parse(txtmanv.Text),
-
-                        Ngaytra = DateTime.Now
+                    Ngaytra = DateTime.Now
 
 
 
-                    };
-                    var addmabb = db.TbBbNhanlaisaches.OrderBy(n => n.Mabbnhanlai).Last();
-                 int manl1 = addmabb.Mabbnhanlai + 2;
-                    TbCtNhanlai ctnl = new TbCtNhanlai()
-                    {
-                        Mabbnhanlai = manl1,
-                        Maquyensach = int.Parse(txtmasach.Text),
-                        Tinhtrangnhanlai = tinhtrangsach.ToString(),
+                };
+                var addmabb = db.TbBbNhanlaisaches.OrderBy(n => n.Mabbnhanlai).Last();
+                int manl1 = addmabb.Mabbnhanlai + 2;
+                TbCtNhanlai ctnl = new TbCtNhanlai()
+                {
+                    Mabbnhanlai = manl1,
+                    Maquyensach = int.Parse(txtmasach.Text),
+                    Tinhtrangnhanlai = tinhtrangsach.ToString(),
 
-                    };
+                };
 
-                    TbPhieuphat pp = new TbPhieuphat()
-                    {
-                        Mabbnhanlai = addmabb.Mabbnhanlai,
-                        Tongtien = a,
-                    };
-                    var addmapp = db.TbPhieuphats.OrderBy(n => n.Maphieuphat).Last();
+                TbPhieuphat pp = new TbPhieuphat()
+                {
+                    Mabbnhanlai = addmabb.Mabbnhanlai,
+                    Tongtien = a,
+                };
+                var addmapp = db.TbPhieuphats.OrderBy(n => n.Maphieuphat).Last();
                 int mapp = addmapp.Maphieuphat + 2;
-                    TbCtPhieuphat ctpp = new TbCtPhieuphat()
-                    {
-                        Maphieuphat = mapp,
-                        Maquyensach = int.Parse(txtmasach.Text),
-                        Songayquahan = int.Parse(txtngayquahan.Text),
-                        Tinhtranghong = tinhtrangsach.ToString()
-                    };
+                TbCtPhieuphat ctpp = new TbCtPhieuphat()
+                {
+                    Maphieuphat = mapp,
+                    Maquyensach = int.Parse(txtmasach.Text),
+                    Songayquahan = int.Parse(txtngayquahan.Text),
+                    Tinhtranghong = tinhtrangsach.ToString()
+                };
+                try
+                {
+                    db.TbBbNhanlaisaches.Add(tbnl);
+                    db.SaveChanges();
+
+
+                    db.TbCtNhanlais.Add(ctnl);
+                    db.SaveChanges();
+
+                    db.TbPhieuphats.Add(pp);
+                    db.SaveChanges();
+
+                    db.TbCtPhieuphats.Add(ctpp);
+                    db.SaveChanges();
+                    MessageBox.Show("trả và thanh toán thành Công");
                     try
                     {
-                        db.TbBbNhanlaisaches.Add(tbnl);
-                        db.SaveChanges();
-
-
-                        db.TbCtNhanlais.Add(ctnl);
-                        db.SaveChanges();
-
-                        db.TbPhieuphats.Add(pp);
-                        db.SaveChanges();
-
-                        db.TbCtPhieuphats.Add(ctpp);
-                        db.SaveChanges();
-                        MessageBox.Show("trả và thanh toán thành Công");
-                        try
-                        {
                         var delete = db.TbCtPhieubangiaos.SingleOrDefault(d => d.Maphieubangiao == int.Parse(txtmaphieubg.Text));
 
                         var delete1 = db.TbPhieubangiaosaches.SingleOrDefault(e => e.Maphieubangiao == int.Parse(txtmaphieubg.Text));
@@ -375,39 +381,39 @@ namespace QLTV
                             db.TbPhieubangiaosaches.Remove(delete1);
 
                             int count = db.SaveChanges();
-                                if (count > 0)
-                                {
+                            if (count > 0)
+                            {
                                 MessageBox.Show("Phiếu mượn sách đã được xóa");
-                                    Close();
-                                
-                                }
+                                Close();
+
                             }
                         }
-                        catch (Exception xx)
-                        {
+                    }
+                    catch (Exception xx)
+                    {
                         MessageBox.Show(xx.Message, "Error");
                     }
                 }
-                    catch (Exception ex)
-                    {
+                catch (Exception ex)
+                {
 
-                        MessageBox.Show(ex.Message, "error");
-                    }
-
-
-
+                    MessageBox.Show(ex.Message, "error");
                 }
 
 
 
-              //  }
-           /* catch (Exception)
-            {
+            }
 
-                throw;
-            }*/
+
+
+            //  }
+            /* catch (Exception)
+             {
+
+                 throw;
+             }*/
         }
 
-       
+
     }
 }

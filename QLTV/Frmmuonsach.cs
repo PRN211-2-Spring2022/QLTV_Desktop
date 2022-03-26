@@ -36,6 +36,7 @@ namespace QLTV
         {
             dateNgayMuon.Value = DateTime.Now;
             dateNgayTra.Value = DateTime.Now.AddMonths(1);
+            txtName.Text =Convert.ToString(Frm_Main.tbc.Manhanvien);
         }
 
         public void LoadDG()

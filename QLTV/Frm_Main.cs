@@ -24,7 +24,7 @@ namespace QLTV
             lbUsername.Text = nv.Tennhanvien;
             tbc = account;
         }
-        public TbAccount tbc { get; set; }
+      public  static TbAccount tbc { get; set; }
 
         private void Form1_Load(object sender, EventArgs e)
         {
