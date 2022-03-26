@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLTV;
+using System;
 using QLTV.Models;
 using System.Data;
 using System.Linq;
@@ -8,7 +9,6 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using QLTV;
 
 namespace QLTV
 {
@@ -222,6 +222,20 @@ namespace QLTV
         private void button1_Click(object sender, EventArgs e) {
             var lichsu = new frmlichsu();
             lichsu.Show();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LoadDG();
+                Loadsach();
+                Loadform();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
     }
 }
