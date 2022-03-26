@@ -80,6 +80,7 @@ namespace QLTV
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            LoadInfo();
             tbID.Text = "";
             tbUsername.Text = "";
             tbEmployee.Text = "";
