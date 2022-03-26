@@ -8,15 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using QLTV.Models;
 namespace QLTV
 {
     public partial class Form1 : Form
     {
         
         
-        string strConnection = @"Data Source=DESKTOP-DI5QIMA\SQLEXPRESS;Initial Catalog=QLTV_Desktop;Integrated Security=True";
-        SqlConnection conn;
-        SqlCommand command;
+
         public Form1()
         {
             InitializeComponent();
@@ -28,10 +27,9 @@ namespace QLTV
         {
             try
             {
-                string sql = "Select Count (*) From [QLTV_Desktop].[dbo].[tb_Acount] Where Gmail=@acc And Password=@pass And manhanvien=@mnv";
                 string account = txtAccount.Text;
                 string password = txtAccount.Text;
-                string mnv = txtMnv.Text;
+                QLTV_DesktopContext Des = new QLTV_DesktopContext();
                 if (account == null || account.Equals(""))
                 {
                     MessageBox.Show("Please enter your gmail and password first!");
@@ -42,22 +40,13 @@ namespace QLTV
                     MessageBox.Show("Please enter your gmail and password first!");
                     return;
                 }
-                if (mnv == null || mnv.Equals(""))
-                {
-                    MessageBox.Show("You haven't enter MNV !");
-                    return;
-                }
-                conn = new SqlConnection(strConnection);
-                conn.Open();
-                command = new SqlCommand(sql, conn);
-                command.Parameters.Add(new SqlParameter("@acc", txtAccount.Text));
-                command.Parameters.Add(new SqlParameter("@pass", txtPassword.Text));
-                command.Parameters.Add(new SqlParameter("@mnv", txtMnv.Text));
-                int x = (int)command.ExecuteScalar();
-                if (x == 1)
+                TbAccount acc = Des.TbAccounts.SingleOrDefault(a => a.Username.Equals(txtAccount.Text.Trim()) && a.Password.Equals(txtPassword.Text.Trim()));
+                TbNhanVien nv = Des.TbNhanViens.SingleOrDefault(e => e.Manhanvien.Equals(acc.Manhanvien));
+
+                if (account != null)
                 {
                     MessageBox.Show("Login Succeed!", "Notification",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                    Frm_Main frM = new Frm_Main(account,mnv);
+                    Frm_Main frM = new Frm_Main(acc,nv);
                     frM.Show();
                     this.Hide();
                 }
@@ -66,7 +55,6 @@ namespace QLTV
                     lblIncorrect.Text = "Account or Password is incorrect!";
                     txtAccount.Text = "";
                     txtPassword.Text = "";
-                    txtMnv.Text = "";
                     txtAccount.Focus();
                 }
 

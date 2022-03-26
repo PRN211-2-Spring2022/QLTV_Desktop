@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\duan1\\Desktop\\New folder (3)\\QLTV\\QLTV.csproj": {}
+    "C:\\Users\\duccd\\OneDrive\\Máy tính\\qltvnew\\QLTV\\QLTV.csproj": {}
   },
   "projects": {
-    "C:\\Users\\duan1\\Desktop\\New folder (3)\\QLTV\\QLTV.csproj": {
+    "C:\\Users\\duccd\\OneDrive\\Máy tính\\qltvnew\\QLTV\\QLTV.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\duan1\\Desktop\\New folder (3)\\QLTV\\QLTV.csproj",
+        "projectUniqueName": "C:\\Users\\duccd\\OneDrive\\Máy tính\\qltvnew\\QLTV\\QLTV.csproj",
         "projectName": "QLTV",
-        "projectPath": "C:\\Users\\duan1\\Desktop\\New folder (3)\\QLTV\\QLTV.csproj",
-        "packagesPath": "C:\\Users\\duan1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\duan1\\Desktop\\New folder (3)\\QLTV\\obj\\",
+        "projectPath": "C:\\Users\\duccd\\OneDrive\\Máy tính\\qltvnew\\QLTV\\QLTV.csproj",
+        "packagesPath": "C:\\Users\\duccd\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\duccd\\OneDrive\\Máy tính\\qltvnew\\QLTV\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\duan1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\duccd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -85,7 +89,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
