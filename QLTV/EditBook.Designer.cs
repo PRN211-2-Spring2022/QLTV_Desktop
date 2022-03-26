@@ -132,6 +132,7 @@
             this.Controls.Add(this.btnConfirm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EditBook";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chỉnh sửa thông tin đầu sách";
             this.Load += new System.EventHandler(this.EditBook_Load);
             this.ResumeLayout(false);

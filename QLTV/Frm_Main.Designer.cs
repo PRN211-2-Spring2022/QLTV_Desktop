@@ -207,7 +207,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(1262, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 40);
+            this.label2.Size = new System.Drawing.Size(81, 32);
             this.label2.TabIndex = 0;
             this.label2.Text = "Hello,";
             // 
@@ -218,7 +218,7 @@
             this.lbUsername.ForeColor = System.Drawing.Color.Maroon;
             this.lbUsername.Location = new System.Drawing.Point(1349, 36);
             this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(86, 31);
+            this.lbUsername.Size = new System.Drawing.Size(70, 25);
             this.lbUsername.TabIndex = 13;
             this.lbUsername.Text = "label3";
             // 

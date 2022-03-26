@@ -132,6 +132,7 @@
             this.Controls.Add(this.txtName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddBook";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm đầu sách";
             this.Load += new System.EventHandler(this.AddBook_Load);
             this.ResumeLayout(false);
