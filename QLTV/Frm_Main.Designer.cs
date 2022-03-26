@@ -31,11 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Main));
             this.btn_UserManagement = new System.Windows.Forms.Button();
             this.btn_BookManagement = new System.Windows.Forms.Button();
-            this.btn_Statistical = new System.Windows.Forms.Button();
             this.btn_ReturnManagement = new System.Windows.Forms.Button();
             this.btn_LoanManagement = new System.Windows.Forms.Button();
             this.btn_ReaderManagement = new System.Windows.Forms.Button();
-            this.btn_HomePage = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -53,7 +51,7 @@
             this.btn_UserManagement.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_UserManagement.ForeColor = System.Drawing.Color.Black;
             this.btn_UserManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_UserManagement.Location = new System.Drawing.Point(0, 75);
+            this.btn_UserManagement.Location = new System.Drawing.Point(0, 0);
             this.btn_UserManagement.Margin = new System.Windows.Forms.Padding(0);
             this.btn_UserManagement.Name = "btn_UserManagement";
             this.btn_UserManagement.Size = new System.Drawing.Size(198, 71);
@@ -70,7 +68,7 @@
             this.btn_BookManagement.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_BookManagement.ForeColor = System.Drawing.Color.Black;
             this.btn_BookManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_BookManagement.Location = new System.Drawing.Point(0, 146);
+            this.btn_BookManagement.Location = new System.Drawing.Point(0, 71);
             this.btn_BookManagement.Margin = new System.Windows.Forms.Padding(0);
             this.btn_BookManagement.Name = "btn_BookManagement";
             this.btn_BookManagement.Size = new System.Drawing.Size(198, 71);
@@ -81,29 +79,13 @@
             this.btn_BookManagement.UseVisualStyleBackColor = true;
             this.btn_BookManagement.Click += new System.EventHandler(this.btn_BookManagement_Click);
             // 
-            // btn_Statistical
-            // 
-            this.btn_Statistical.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Statistical.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_Statistical.ForeColor = System.Drawing.Color.Black;
-            this.btn_Statistical.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Statistical.Location = new System.Drawing.Point(0, 444);
-            this.btn_Statistical.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Statistical.Name = "btn_Statistical";
-            this.btn_Statistical.Size = new System.Drawing.Size(199, 74);
-            this.btn_Statistical.TabIndex = 7;
-            this.btn_Statistical.Text = "Thống kê";
-            this.btn_Statistical.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Statistical.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_Statistical.UseVisualStyleBackColor = true;
-            // 
             // btn_ReturnManagement
             // 
             this.btn_ReturnManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ReturnManagement.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ReturnManagement.ForeColor = System.Drawing.Color.Black;
             this.btn_ReturnManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ReturnManagement.Location = new System.Drawing.Point(0, 370);
+            this.btn_ReturnManagement.Location = new System.Drawing.Point(0, 295);
             this.btn_ReturnManagement.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ReturnManagement.Name = "btn_ReturnManagement";
             this.btn_ReturnManagement.Size = new System.Drawing.Size(198, 74);
@@ -112,6 +94,7 @@
             this.btn_ReturnManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_ReturnManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_ReturnManagement.UseVisualStyleBackColor = true;
+            this.btn_ReturnManagement.Click += new System.EventHandler(this.btn_ReturnManagement_Click);
             // 
             // btn_LoanManagement
             // 
@@ -119,7 +102,7 @@
             this.btn_LoanManagement.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_LoanManagement.ForeColor = System.Drawing.Color.Black;
             this.btn_LoanManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_LoanManagement.Location = new System.Drawing.Point(0, 289);
+            this.btn_LoanManagement.Location = new System.Drawing.Point(0, 214);
             this.btn_LoanManagement.Margin = new System.Windows.Forms.Padding(0);
             this.btn_LoanManagement.Name = "btn_LoanManagement";
             this.btn_LoanManagement.Size = new System.Drawing.Size(199, 81);
@@ -128,6 +111,7 @@
             this.btn_LoanManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_LoanManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_LoanManagement.UseVisualStyleBackColor = true;
+            this.btn_LoanManagement.Click += new System.EventHandler(this.btn_LoanManagement_Click);
             // 
             // btn_ReaderManagement
             // 
@@ -135,7 +119,7 @@
             this.btn_ReaderManagement.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ReaderManagement.ForeColor = System.Drawing.Color.Black;
             this.btn_ReaderManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ReaderManagement.Location = new System.Drawing.Point(0, 217);
+            this.btn_ReaderManagement.Location = new System.Drawing.Point(0, 142);
             this.btn_ReaderManagement.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ReaderManagement.Name = "btn_ReaderManagement";
             this.btn_ReaderManagement.Size = new System.Drawing.Size(199, 72);
@@ -145,21 +129,6 @@
             this.btn_ReaderManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_ReaderManagement.UseVisualStyleBackColor = true;
             this.btn_ReaderManagement.Click += new System.EventHandler(this.btn_ReaderManagement_Click);
-            // 
-            // btn_HomePage
-            // 
-            this.btn_HomePage.BackColor = System.Drawing.Color.Transparent;
-            this.btn_HomePage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_HomePage.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_HomePage.ForeColor = System.Drawing.Color.Black;
-            this.btn_HomePage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_HomePage.Location = new System.Drawing.Point(0, 0);
-            this.btn_HomePage.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_HomePage.Name = "btn_HomePage";
-            this.btn_HomePage.Size = new System.Drawing.Size(199, 75);
-            this.btn_HomePage.TabIndex = 1;
-            this.btn_HomePage.Text = "Trang chủ";
-            this.btn_HomePage.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -173,7 +142,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "          Quản Lý Thư Viện";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel3
             // 
@@ -223,13 +191,11 @@
             // Pn_SideBar
             // 
             this.Pn_SideBar.BackColor = System.Drawing.Color.Transparent;
-            this.Pn_SideBar.Controls.Add(this.btn_HomePage);
             this.Pn_SideBar.Controls.Add(this.btn_UserManagement);
             this.Pn_SideBar.Controls.Add(this.btn_BookManagement);
             this.Pn_SideBar.Controls.Add(this.btn_ReaderManagement);
             this.Pn_SideBar.Controls.Add(this.btn_LoanManagement);
             this.Pn_SideBar.Controls.Add(this.btn_ReturnManagement);
-            this.Pn_SideBar.Controls.Add(this.btn_Statistical);
             this.Pn_SideBar.Location = new System.Drawing.Point(0, 97);
             this.Pn_SideBar.Name = "Pn_SideBar";
             this.Pn_SideBar.Size = new System.Drawing.Size(200, 722);
@@ -241,18 +207,18 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(1262, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 32);
+            this.label2.Size = new System.Drawing.Size(99, 40);
             this.label2.TabIndex = 0;
             this.label2.Text = "Hello,";
             // 
             // lbUsername
             // 
             this.lbUsername.AutoSize = true;
-            this.lbUsername.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbUsername.ForeColor = System.Drawing.Color.Maroon;
             this.lbUsername.Location = new System.Drawing.Point(1349, 36);
             this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(83, 27);
+            this.lbUsername.Size = new System.Drawing.Size(86, 31);
             this.lbUsername.TabIndex = 13;
             this.lbUsername.Text = "label3";
             // 
@@ -281,9 +247,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btn_HomePage;
         private System.Windows.Forms.Button btn_UserManagement;
-        private System.Windows.Forms.Button btn_Statistical;
         private System.Windows.Forms.Button btn_ReturnManagement;
         private System.Windows.Forms.Button btn_LoanManagement;
         private System.Windows.Forms.Button btn_BookManagement;

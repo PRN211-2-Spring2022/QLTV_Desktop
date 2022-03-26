@@ -12,6 +12,11 @@ namespace QLTV
 {
     public partial class Frm_Main : Form
     {
+        public Frm_Main()
+        {
+            InitializeComponent();
+        }
+
         public Frm_Main(String account, string mnv)
         {
             InitializeComponent();
@@ -63,10 +68,31 @@ namespace QLTV
                     readerinformation.Instance.BringToFront();
             //btn_ReaderManagement.BackColor = Color.White;
         }
-
-        private void label1_Click(object sender, EventArgs e)
+       
+        private void btn_ReturnManagement_Click(object sender, EventArgs e)
         {
+            //Add module to panel control
+            if (!Pn_Main.Controls.Contains(Frm_Maintrasach.Instance))
+            {
+                Pn_Main.Controls.Add(Frm_Maintrasach.Instance);
+                Frm_Maintrasach.Instance.Dock = DockStyle.Fill;
+                Frm_Maintrasach.Instance.BringToFront();
+            }
+            else
+                Frm_Maintrasach.Instance.BringToFront();
+        }
 
+        private void btn_LoanManagement_Click(object sender, EventArgs e)
+        {
+            //Add module to panel control
+            if (!Pn_Main.Controls.Contains(Frmmuonsach.Instance))
+            {
+                Pn_Main.Controls.Add(Frmmuonsach.Instance);
+                Frmmuonsach.Instance.Dock = DockStyle.Fill;
+                Frmmuonsach.Instance.BringToFront();
+            }
+            else
+                Frmmuonsach.Instance.BringToFront();
         }
     }
 }

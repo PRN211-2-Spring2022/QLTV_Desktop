@@ -48,44 +48,47 @@ namespace QLTV
             // lblAccount
             // 
             this.lblAccount.AutoSize = true;
-            this.lblAccount.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblAccount.Location = new System.Drawing.Point(12, 120);
+            this.lblAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblAccount.Location = new System.Drawing.Point(14, 160);
             this.lblAccount.Name = "lblAccount";
-            this.lblAccount.Size = new System.Drawing.Size(70, 17);
+            this.lblAccount.Size = new System.Drawing.Size(70, 20);
             this.lblAccount.TabIndex = 0;
             this.lblAccount.Text = "Account";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPassword.Location = new System.Drawing.Point(12, 157);
+            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPassword.Location = new System.Drawing.Point(14, 209);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(82, 17);
+            this.lblPassword.Size = new System.Drawing.Size(83, 20);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Password";
             // 
             // txtAccount
             // 
-            this.txtAccount.Location = new System.Drawing.Point(99, 119);
+            this.txtAccount.Location = new System.Drawing.Point(113, 159);
+            this.txtAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAccount.Name = "txtAccount";
-            this.txtAccount.Size = new System.Drawing.Size(126, 23);
+            this.txtAccount.Size = new System.Drawing.Size(392, 27);
             this.txtAccount.TabIndex = 2;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(99, 156);
+            this.txtPassword.Location = new System.Drawing.Point(113, 208);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(126, 23);
+            this.txtPassword.Size = new System.Drawing.Size(392, 27);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLogin.Location = new System.Drawing.Point(240, 119);
+            this.btnLogin.Location = new System.Drawing.Point(511, 160);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 60);
+            this.btnLogin.Size = new System.Drawing.Size(86, 80);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -95,17 +98,18 @@ namespace QLTV
             // 
             this.lblIncorrect.AutoSize = true;
             this.lblIncorrect.ForeColor = System.Drawing.Color.Red;
-            this.lblIncorrect.Location = new System.Drawing.Point(99, 242);
+            this.lblIncorrect.Location = new System.Drawing.Point(113, 323);
             this.lblIncorrect.Name = "lblIncorrect";
-            this.lblIncorrect.Size = new System.Drawing.Size(0, 15);
+            this.lblIncorrect.Size = new System.Drawing.Size(0, 20);
             this.lblIncorrect.TabIndex = 5;
             // 
             // ckbShowPassword
             // 
             this.ckbShowPassword.AutoSize = true;
-            this.ckbShowPassword.Location = new System.Drawing.Point(99, 220);
+            this.ckbShowPassword.Location = new System.Drawing.Point(113, 293);
+            this.ckbShowPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ckbShowPassword.Name = "ckbShowPassword";
-            this.ckbShowPassword.Size = new System.Drawing.Size(108, 19);
+            this.ckbShowPassword.Size = new System.Drawing.Size(134, 24);
             this.ckbShowPassword.TabIndex = 6;
             this.ckbShowPassword.Text = "Show password";
             this.ckbShowPassword.UseVisualStyleBackColor = true;
@@ -115,9 +119,10 @@ namespace QLTV
             // 
             this.btnExit.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnExit.Location = new System.Drawing.Point(240, 242);
+            this.btnExit.Location = new System.Drawing.Point(511, 324);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 26);
+            this.btnExit.Size = new System.Drawing.Size(86, 35);
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -126,9 +131,10 @@ namespace QLTV
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(83, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(95, 1);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(167, 112);
+            this.pictureBox1.Size = new System.Drawing.Size(191, 149);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
@@ -137,34 +143,35 @@ namespace QLTV
             // 
             this.lblTime.AutoSize = true;
             this.lblTime.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblTime.Location = new System.Drawing.Point(12, 249);
+            this.lblTime.Location = new System.Drawing.Point(14, 332);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(0, 15);
+            this.lblTime.Size = new System.Drawing.Size(0, 20);
             this.lblTime.TabIndex = 9;
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblMnv
             // 
             this.lblMnv.AutoSize = true;
-            this.lblMnv.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblMnv.Location = new System.Drawing.Point(12, 192);
+            this.lblMnv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblMnv.Location = new System.Drawing.Point(14, 256);
             this.lblMnv.Name = "lblMnv";
-            this.lblMnv.Size = new System.Drawing.Size(36, 17);
+            this.lblMnv.Size = new System.Drawing.Size(46, 20);
             this.lblMnv.TabIndex = 10;
             this.lblMnv.Text = "MNV";
             // 
             // txtMnv
             // 
-            this.txtMnv.Location = new System.Drawing.Point(99, 191);
+            this.txtMnv.Location = new System.Drawing.Point(113, 255);
+            this.txtMnv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMnv.Name = "txtMnv";
-            this.txtMnv.Size = new System.Drawing.Size(45, 23);
+            this.txtMnv.Size = new System.Drawing.Size(121, 27);
             this.txtMnv.TabIndex = 11;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 271);
+            this.ClientSize = new System.Drawing.Size(629, 361);
             this.Controls.Add(this.txtMnv);
             this.Controls.Add(this.lblMnv);
             this.Controls.Add(this.lblTime);
@@ -177,9 +184,11 @@ namespace QLTV
             this.Controls.Add(this.txtAccount);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblAccount);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

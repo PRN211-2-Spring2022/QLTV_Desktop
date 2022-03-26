@@ -69,7 +69,7 @@ namespace QLTV
                         join p in QLTV_Desktop.TbNhaXuatBans on b.Manhaxuatban equals p.Manhaxuatban
                         where b.Tendausach == txtName.Text && p.Tennhaxuatban == cbPublisher.Text
                         select b
-                    );
+                    ).FirstOrDefault();
 
                     if (bookItem == null)
                     {

@@ -106,7 +106,9 @@ namespace QLTV
                             var publisherQuery = QLTV_Desktop.TbNhaXuatBans.Add(
                                 new TbNhaXuatBan { Tennhaxuatban = cbPublisher.Text }
                             );
-                            var addedPublisher = QLTV_Desktop.TbNhaXuatBans.OrderBy(p => p.Manhaxuatban).Last();
+                            var addedPublisher = QLTV_Desktop.TbNhaXuatBans
+                                .OrderBy(p => p.Manhaxuatban)
+                                .Last();
                             bookItem.Tendausach = txtName.Text.Trim();
                             bookItem.Sotrang = Int32.Parse(txtPage.Text.Trim());
                             bookItem.Manhaxuatban = addedPublisher.Manhaxuatban;
@@ -122,8 +124,11 @@ namespace QLTV
 
                         if (authorItem != null)
                         {
-                            QLTV_Desktop.Remove(authorBook);
-                            QLTV_Desktop.SaveChanges();
+                            if (authorBook != null)
+                            {
+                                QLTV_Desktop.Remove(authorBook);
+                                QLTV_Desktop.SaveChanges();
+                            }
 
                             var authorBookQuery = QLTV_Desktop.TbCtTacgia.Add(
                                 new TbCtTacgium
