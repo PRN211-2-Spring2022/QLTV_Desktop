@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.frmMain1 = new BookLoanManager.FrmMain();
+            this.frmMain1 = new BookLoanManager.Frm_Maintrasach();
             this.SuspendLayout();
             // 
             // frmMain1
@@ -51,7 +51,7 @@
 
         }
 
-        private FrmMain frmMain1;
+        private Frm_Maintrasach frmMain1;
 
         //  private FrmMain frmMain1;
 

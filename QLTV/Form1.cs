@@ -17,7 +17,7 @@ namespace BookLoanManager
             InitializeComponent();
         }
 
-        FrmMain frmMain = new FrmMain();
+        Frm_Maintrasach frmMain = new Frm_Maintrasach();
 
         private void Form1_Load(object sender, EventArgs e)
         {
