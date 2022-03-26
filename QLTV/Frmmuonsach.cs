@@ -104,6 +104,14 @@ namespace QLTV
             var findbyten = QLTV.TbDocgia.Where(t => t.Hoten.Contains(txtfind.Text)).ToList();
             dgvthongtindocgia.DataSource = findbyten;
         }
+        public void Loadbtnsearchmasach()
+        {
+            var findbyma = QLTV.TbSaches
+                .Where(m => m.Maquyensach == int.Parse(txtfindsach.Text))
+                .ToList();
+            dgvthongtinsach.DataSource = findbyma;
+        }
+
 
         private void btnfind_Click_1(object sender, EventArgs e)
         {
@@ -134,16 +142,9 @@ namespace QLTV
                 MessageBox.Show("Thông tin tìm kiếm không thể để trống");
                 txtfind.Focus();
             }
-            else if (rbtmasach.Checked == true)
+            else
             {
-                Loadbtnsearchma();
-            }
-            else if (rbttensach.Checked == true)
-            {
-                Loadbtsearchname();
-            }
-            else if (rbtmasach.Checked == false && rbttensach.Checked == false)
-            {
+                Loadbtnsearchmasach();
                 MessageBox.Show("Bạn phải chọn thông tin tìm kiếm");
                 rbtnmathe.Focus();
             }
