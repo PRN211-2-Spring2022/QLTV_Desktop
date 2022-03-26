@@ -170,11 +170,14 @@ namespace QLTV
                         Ngaydukientra = dateNgayTra.Value,
                         Tinhtrangkhigiao = cmbtinhtrangsach.Text
                     };
+                    
                     var addma = QLTV.TbPhieubangiaosaches.OrderBy(b => b.Maphieubangiao).Last();
+                    int mbg = addma.Maphieubangiao + 2;
                     TbCtPhieubangiao taophieu = new TbCtPhieubangiao()
                     {
-                        Maquyensach = int.Parse(txtMaDocGia.Text),
-                        Maphieubangiao = addma.Maphieubangiao
+                        
+                        Maquyensach = int.Parse(txtmasach.Text),
+                        Maphieubangiao = mbg
 
                     };
                     try

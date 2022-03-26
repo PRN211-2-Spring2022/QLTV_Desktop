@@ -251,9 +251,10 @@ namespace QLTV
 
                     };
                     var addmabb = db.TbBbNhanlaisaches.OrderBy( n => n.Mabbnhanlai).Last();
+                int manl = addmabb.Mabbnhanlai + 2;
                     TbCtNhanlai ctnl = new TbCtNhanlai()
                     {
-                        Mabbnhanlai=addmabb.Mabbnhanlai,
+                        Mabbnhanlai= manl,
                         Maquyensach=int.Parse(txtmasach.Text),
                         Tinhtrangnhanlai = tinhtrangsach.ToString(),
 
@@ -272,7 +273,9 @@ namespace QLTV
                         try
                         {
                         var delete = db.TbCtPhieubangiaos.SingleOrDefault(d => d.Maphieubangiao == int.Parse(txtmaphieubg.Text));
+                        
                         var delete1 = db.TbPhieubangiaosaches.SingleOrDefault(e => e.Maphieubangiao == int.Parse(txtmaphieubg.Text));
+
                         if (delete != null && delete1 != null)
                         {
                             db.TbCtPhieubangiaos.Remove(delete);
@@ -321,9 +324,10 @@ namespace QLTV
 
                     };
                     var addmabb = db.TbBbNhanlaisaches.OrderBy(n => n.Mabbnhanlai).Last();
+                 int manl1 = addmabb.Mabbnhanlai + 2;
                     TbCtNhanlai ctnl = new TbCtNhanlai()
                     {
-                        Mabbnhanlai = addmabb.Mabbnhanlai,
+                        Mabbnhanlai = manl1,
                         Maquyensach = int.Parse(txtmasach.Text),
                         Tinhtrangnhanlai = tinhtrangsach.ToString(),
 
@@ -335,9 +339,10 @@ namespace QLTV
                         Tongtien = a,
                     };
                     var addmapp = db.TbPhieuphats.OrderBy(n => n.Maphieuphat).Last();
+                int mapp = addmapp.Maphieuphat + 2;
                     TbCtPhieuphat ctpp = new TbCtPhieuphat()
                     {
-                        Maphieuphat = addmapp.Maphieuphat,
+                        Maphieuphat = mapp,
                         Maquyensach = int.Parse(txtmasach.Text),
                         Songayquahan = int.Parse(txtngayquahan.Text),
                         Tinhtranghong = tinhtrangsach.ToString()
@@ -359,11 +364,16 @@ namespace QLTV
                         MessageBox.Show("Thêm thành Công");
                         try
                         {
-                            var delete = db.TbCtPhieubangiaos.SingleOrDefault(d => d.Maphieubangiao == int.Parse(txtmaphieubg.Text));
-                            if (delete != null)
-                            {
-                                db.TbCtPhieubangiaos.Remove(delete);
-                                int count = db.SaveChanges();
+                        var delete = db.TbCtPhieubangiaos.SingleOrDefault(d => d.Maphieubangiao == int.Parse(txtmaphieubg.Text));
+
+                        var delete1 = db.TbPhieubangiaosaches.SingleOrDefault(e => e.Maphieubangiao == int.Parse(txtmaphieubg.Text));
+
+                        if (delete != null && delete1 != null)
+                        {
+                            db.TbCtPhieubangiaos.Remove(delete);
+                            db.TbPhieubangiaosaches.Remove(delete1);
+
+                            int count = db.SaveChanges();
                                 if (count > 0)
                                 {
                                 MessageBox.Show("Phiếu mượn sách đã được xóa");
