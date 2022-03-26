@@ -75,9 +75,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(537, 141);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 20);
+            this.label4.Size = new System.Drawing.Size(75, 20);
             this.label4.TabIndex = 16;
-            this.label4.Text = "Ngày Trả";
+            this.label4.Text = "Tổng Tiền";
             // 
             // txtMaSach
             // 
