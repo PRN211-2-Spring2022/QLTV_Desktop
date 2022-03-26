@@ -37,7 +37,8 @@ namespace QLTV
         {
             var books = (
                 from b in QLTV_Desktop.TbDausaches
-                select new { b.Madausach, b.Tendausach, b.Soluong, b.Sotrang }
+                join p in QLTV_Desktop.TbNhaXuatBans on b.Manhaxuatban equals p.Manhaxuatban
+                select new { b.Madausach, b.Tendausach, p.Tennhaxuatban, b.Soluong, b.Sotrang }
             ).ToList();
 
             var authors = (

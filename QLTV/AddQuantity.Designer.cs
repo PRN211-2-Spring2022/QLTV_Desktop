@@ -59,6 +59,7 @@
             this.Controls.Add(this.txtQuantity);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddQuantity";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Số lượng sách cần thêm";
             this.Load += new System.EventHandler(this.AddQuantity_Load);
             this.ResumeLayout(false);

@@ -60,14 +60,15 @@
             this.dgvBook.MultiSelect = false;
             this.dgvBook.Name = "dgvBook";
             this.dgvBook.ReadOnly = true;
+            this.dgvBook.RowHeadersWidth = 51;
             this.dgvBook.RowTemplate.Height = 25;
             this.dgvBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBook.Size = new System.Drawing.Size(450, 600);
+            this.dgvBook.Size = new System.Drawing.Size(625, 600);
             this.dgvBook.TabIndex = 0;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnAdd.Location = new System.Drawing.Point(3, 297);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(140, 60);
             this.btnAdd.TabIndex = 1;
@@ -77,7 +78,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(3, 320);
+            this.txtSearch.Location = new System.Drawing.Point(3, 21);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(140, 23);
             this.txtSearch.TabIndex = 3;
@@ -85,7 +86,7 @@
             // labelSearch
             // 
             this.labelSearch.AutoSize = true;
-            this.labelSearch.Location = new System.Drawing.Point(3, 302);
+            this.labelSearch.Location = new System.Drawing.Point(3, 3);
             this.labelSearch.Name = "labelSearch";
             this.labelSearch.Size = new System.Drawing.Size(56, 15);
             this.labelSearch.TabIndex = 4;
@@ -93,7 +94,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(3, 69);
+            this.btnEdit.Location = new System.Drawing.Point(3, 363);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(140, 60);
             this.btnEdit.TabIndex = 7;
@@ -103,7 +104,7 @@
             // 
             // txtBookID
             // 
-            this.txtBookID.Location = new System.Drawing.Point(3, 449);
+            this.txtBookID.Location = new System.Drawing.Point(3, 150);
             this.txtBookID.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.txtBookID.Name = "txtBookID";
             this.txtBookID.Size = new System.Drawing.Size(140, 23);
@@ -111,7 +112,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(3, 445);
+            this.btnRefresh.Location = new System.Drawing.Point(3, 146);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(140, 60);
             this.btnRefresh.TabIndex = 9;
@@ -127,19 +128,20 @@
             this.dgvAuthor.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAuthor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAuthor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAuthor.Location = new System.Drawing.Point(596, 0);
+            this.dgvAuthor.Location = new System.Drawing.Point(771, 0);
             this.dgvAuthor.Margin = new System.Windows.Forms.Padding(0, 4, 4, 4);
             this.dgvAuthor.MultiSelect = false;
             this.dgvAuthor.Name = "dgvAuthor";
             this.dgvAuthor.ReadOnly = true;
+            this.dgvAuthor.RowHeadersWidth = 51;
             this.dgvAuthor.RowTemplate.Height = 25;
             this.dgvAuthor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAuthor.Size = new System.Drawing.Size(450, 600);
+            this.dgvAuthor.Size = new System.Drawing.Size(275, 600);
             this.dgvAuthor.TabIndex = 10;
             // 
             // txtAuthorID
             // 
-            this.txtAuthorID.Location = new System.Drawing.Point(3, 472);
+            this.txtAuthorID.Location = new System.Drawing.Point(3, 173);
             this.txtAuthorID.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.txtAuthorID.Name = "txtAuthorID";
             this.txtAuthorID.Size = new System.Drawing.Size(140, 23);
@@ -147,7 +149,7 @@
             // 
             // btnDeleteAuthor
             // 
-            this.btnDeleteAuthor.Location = new System.Drawing.Point(3, 135);
+            this.btnDeleteAuthor.Location = new System.Drawing.Point(3, 429);
             this.btnDeleteAuthor.Name = "btnDeleteAuthor";
             this.btnDeleteAuthor.Size = new System.Drawing.Size(140, 60);
             this.btnDeleteAuthor.TabIndex = 12;
@@ -157,7 +159,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(3, 399);
+            this.btnSearch.Location = new System.Drawing.Point(3, 100);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(140, 40);
             this.btnSearch.TabIndex = 13;
@@ -168,7 +170,7 @@
             // rdAuthor
             // 
             this.rdAuthor.AutoSize = true;
-            this.rdAuthor.Location = new System.Drawing.Point(3, 374);
+            this.rdAuthor.Location = new System.Drawing.Point(3, 75);
             this.rdAuthor.Name = "rdAuthor";
             this.rdAuthor.Size = new System.Drawing.Size(83, 19);
             this.rdAuthor.TabIndex = 14;
@@ -179,7 +181,7 @@
             // rdBook
             // 
             this.rdBook.AutoSize = true;
-            this.rdBook.Location = new System.Drawing.Point(3, 349);
+            this.rdBook.Location = new System.Drawing.Point(3, 50);
             this.rdBook.Name = "rdBook";
             this.rdBook.Size = new System.Drawing.Size(95, 19);
             this.rdBook.TabIndex = 15;
@@ -189,7 +191,7 @@
             // 
             // btnAddQuantity
             // 
-            this.btnAddQuantity.Location = new System.Drawing.Point(3, 201);
+            this.btnAddQuantity.Location = new System.Drawing.Point(3, 495);
             this.btnAddQuantity.Name = "btnAddQuantity";
             this.btnAddQuantity.Size = new System.Drawing.Size(140, 60);
             this.btnAddQuantity.TabIndex = 16;
@@ -217,6 +219,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtAuthorID);
             this.Controls.Add(this.btnSearch);
+            this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.Name = "BookManagement";
             this.Size = new System.Drawing.Size(1050, 604);
             this.Load += new System.EventHandler(this.BookManagement_Load);
