@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QLTV.Models;
 
 namespace QLTV
 {
@@ -17,11 +18,13 @@ namespace QLTV
             InitializeComponent();
         }
 
-        public Frm_Main(String account, string mnv)
+        public Frm_Main(TbAccount account, TbNhanVien nv)
         {
             InitializeComponent();
-            lbUsername.Text = account;
+            lbUsername.Text = nv.Tennhanvien;
+            tbc = account;
         }
+        public TbAccount tbc { get; set; }
 
         private void Form1_Load(object sender, EventArgs e)
         {
